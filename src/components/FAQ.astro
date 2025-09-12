@@ -72,14 +72,12 @@ const faqItems = [
 ];
 ---
 
-<section id="faq" class="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden background-blur-elements">
-  <!-- Efectos de fondo -->
-  <div class="absolute inset-0 background-gradient"></div>
+<section id="faq" class="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
   
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- Botón de FAQ -->
     <div class="text-center mb-8">
-      <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-medium hover:bg-orange-500 hover:text-white transition-all duration-300">
+      <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-medium bg-orange-500/10 hover:bg-orange-500 hover:text-white transition-all duration-300">
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
         </svg>
@@ -88,43 +86,13 @@ const faqItems = [
     </div>
 
     <!-- Título principal -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
-      <div>
-        <h2 class="text-white text-4xl lg:text-5xl font-bold mb-6">
-          Resolvemos tus dudas más comunes
-        </h2>
-        <p class="text-gray-300 text-lg leading-relaxed">
-          ¿No encuentras la respuesta que buscas? Contáctanos directamente y te respondemos en menos de 24 horas.
-        </p>
-      </div>
-      
-      <!-- Ilustración -->
-      <div class="flex justify-center lg:justify-end">
-        <div class="relative w-80 h-80">
-          <!-- Persona estilizada -->
-          <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-40">
-            <!-- Cuerpo -->
-            <div class="w-16 h-24 bg-yellow-400 rounded-t-full mx-auto"></div>
-            <!-- Cabeza -->
-            <div class="w-12 h-12 bg-yellow-300 rounded-full mx-auto -mt-2"></div>
-            <!-- Brazo apuntando -->
-            <div class="absolute top-8 right-0 w-8 h-2 bg-yellow-400 rounded-full transform rotate-45"></div>
-            <!-- Piernas -->
-            <div class="w-8 h-16 bg-blue-600 rounded-b-full mx-auto mt-2"></div>
-          </div>
-          
-          <!-- Signo de interrogación grande -->
-          <div class="absolute top-8 right-8 w-32 h-32">
-            <div class="w-full h-full bg-blue-800 rounded-full flex items-center justify-center">
-              <span class="text-white text-6xl font-bold">?</span>
-            </div>
-            <!-- Elementos decorativos alrededor -->
-            <div class="absolute -top-4 -right-4 w-8 h-8 bg-blue-400 rounded-full"></div>
-            <div class="absolute top-4 -right-8 w-6 h-6 bg-purple-400 rounded-full"></div>
-            <div class="absolute -bottom-4 right-4 w-10 h-10 bg-green-400 rounded-full"></div>
-          </div>
-        </div>
-      </div>
+    <div class="text-center mb-12">
+      <h2 class="text-white text-4xl lg:text-5xl font-bold mb-6">
+        Resolvemos tus dudas más comunes
+      </h2>
+      <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
+        ¿No encuentras la respuesta que buscas? Contáctanos directamente y te respondemos en menos de 24 horas.
+      </p>
     </div>
 
     <!-- Filtros de categorías -->
@@ -161,7 +129,7 @@ const faqItems = [
     </div>
 
     <!-- Sección de contacto -->
-    <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl p-8 text-center border border-gray-700">
+    <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl p-8 text-center border border-gray-700">
       <h3 class="text-white text-2xl font-bold mb-4">¿Tienes otra pregunta?</h3>
       <p class="text-gray-300 text-lg mb-8">Nuestro equipo de soporte está disponible para ayudarte</p>
       

@@ -1,31 +1,93 @@
+
+
 ---
 // Astro component
 ---
 
+<script>
+  // Script para asegurar que favicon3.mp4 se cargue como fondo de la hero section
+  document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('.video-background');
+    
+    if (video) {
+      console.log('Video encontrado, configurando favicon3.mp4 como fondo...');
+      
+      // Configurar eventos del video
+      video.addEventListener('loadstart', function() {
+        console.log('Cargando favicon3.mp4...');
+      });
+      
+      video.addEventListener('loadeddata', function() {
+        console.log('favicon3.mp4 cargado correctamente');
+        video.style.display = 'block';
+        video.style.visibility = 'visible';
+        video.style.opacity = '1';
+      });
+      
+      video.addEventListener('canplay', function() {
+        console.log('favicon3.mp4 listo para reproducir');
+        video.play().catch(function(error) {
+          console.log('Error al reproducir favicon3.mp4:', error);
+        });
+      });
+      
+      video.addEventListener('error', function(e) {
+        console.log('Error al cargar favicon3.mp4:', e);
+        console.log('Detalles del error:', video.error);
+      });
+      
+      // Forzar carga del video
+      video.load();
+      
+      // Asegurar que el video sea visible
+      video.style.display = 'block';
+      video.style.visibility = 'visible';
+      video.style.opacity = '1';
+    } else {
+      console.log('No se encontró el elemento video');
+    }
+  });
+</script>
+
 <style>
   .video-background {
+    /* Configuración específica para video de fondo */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    
     /* Mejoras de calidad de video */
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-    image-rendering: pixelated;
+    image-rendering: high-quality;
     
     /* Filtros para mejorar la apariencia */
-    filter: contrast(1.1) brightness(1.05) saturate(1.1) hue-rotate(5deg);
+    filter: contrast(1.1) brightness(1.05) saturate(1.1) hue-rotate(3deg);
     
     /* Suavizado y nitidez */
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    perspective: 1000;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
     
     /* Optimización de renderizado */
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
     will-change: transform;
     
     /* Mejora de escalado */
     -ms-interpolation-mode: bicubic;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    
+    /* Asegurar visibilidad */
+    display: block;
+    visibility: visible;
+    opacity: 1;
   }
 
   /* Mejoras adicionales para diferentes navegadores */
@@ -95,20 +157,22 @@
       muted 
       playsinline
       preload="auto"
+      poster="/images/fondoherosection.png"
       class="absolute inset-0 w-full h-full object-cover video-background"
+      style="width: 100%; height: 100%; object-fit: cover; z-index: 1;"
     >
-      <source src="images/favicon2.mp4" type="video/mp4">
+      <source src="/images/favicon3.mp4" type="video/mp4">
       <!-- Fallback para navegadores que no soporten video -->
       <div 
         class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style="background-image: url('images/fondoherosection.png');"
+        style="background-image: url('/images/fondoherosection.png');"
       ></div>
     </video>
     <!-- Overlay para mejorar la legibilidad del texto -->
-    <div class="absolute inset-0 bg-black/30"></div>
+    <div class="absolute inset-0 bg-black/30 z-10"></div>
   </div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+  <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
     <div class="text-center">
       <!-- Main Heading -->
       <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 animate-slide-up">
@@ -142,16 +206,28 @@
 
       <!-- Características -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto animate-slide-up mb-16 sm:mb-24 px-4">
-        <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center">
-          <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">▶️</div>
+        <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center hover:bg-gray-800/70 transition-all duration-300 hover:scale-105">
+          <div class="w-12 h-12 mx-auto mb-3 flex items-center justify-center">
+            <svg class="w-8 h-8 text-orange-500 hover:text-orange-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            </svg>
+          </div>
           <h3 class="text-white font-semibold text-sm sm:text-base">Clases en vivo</h3>
         </div>
-        <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center">
-          <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🏆</div>
+        <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center hover:bg-gray-800/70 transition-all duration-300 hover:scale-105">
+          <div class="w-12 h-12 mx-auto mb-3 flex items-center justify-center">
+            <svg class="w-8 h-8 text-yellow-500 hover:text-yellow-400 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+          </div>
           <h3 class="text-white font-semibold text-sm sm:text-base">Certificado</h3>
         </div>
-        <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center">
-          <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">💼</div>
+        <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center hover:bg-gray-800/70 transition-all duration-300 hover:scale-105">
+          <div class="w-12 h-12 mx-auto mb-3 flex items-center justify-center">
+            <svg class="w-8 h-8 text-blue-500 hover:text-blue-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
+            </svg>
+          </div>
           <h3 class="text-white font-semibold text-sm sm:text-base">Proyectos reales</h3>
         </div>
       </div>
@@ -159,45 +235,45 @@
   </div>
 
   <!-- Logos de Partners -->
-  <div class="absolute bottom-0 left-0 right-0 z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-4 sm:mb-8 mt-6 sm:mt-10">
-        <p class="text-white/70 text-xs sm:text-sm">Empresas que confían en nosotros</p>
+  <div class="absolute bottom-0 left-0 right-0 z-10 -mb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-8">
+      <div class="text-center mb-6 sm:mb-8 mt-4 sm:mt-6">
+        <p class="text-white/90 text-sm sm:text-base font-medium">Empresas que confían en nosotros</p>
       </div>
-      <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-12 opacity-60 px-4">
+      <div class="grid grid-cols-4 gap-2 sm:gap-3 md:gap-4 justify-items-center items-center opacity-90 px-1">
         <!-- Logo BCP -->
-        <div class="flex items-center justify-center h-12 sm:h-16 md:h-20">
+        <div class="w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300">
           <img 
-            src="images/bcp.png" 
+            src="/images/bcp.png" 
             alt="BCP" 
-            class="h-12 sm:h-16 md:h-20 w-20 sm:w-24 md:w-32 object-contain filter brightness-0 invert"
+            class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
           />
         </div>
         
         <!-- Logo SUNAT -->
-        <div class="flex items-center justify-center h-12 sm:h-16 md:h-20">
+        <div class="w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300">
           <img 
-            src="images/sunat.png" 
+            src="/images/sunat.png" 
             alt="SUNAT" 
-            class="h-12 sm:h-16 md:h-20 w-20 sm:w-24 md:w-32 object-contain filter brightness-0 invert"
+            class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
           />
         </div>
         
         <!-- Logo Banco de la Nación -->
-        <div class="flex items-center justify-center h-16 sm:h-24 md:h-32 lg:h-48">
+        <div class="w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300">
           <img 
-            src="images/bancodelanacion.png" 
+            src="/images/bancodelanacion.png" 
             alt="Banco de la Nación" 
-            class="h-16 sm:h-24 md:h-32 lg:h-48 w-24 sm:w-32 md:w-48 lg:w-64 object-contain filter brightness-0 invert"
+            class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
           />
         </div>
         
         <!-- Logo CREDICORP -->
-        <div class="flex items-center justify-center h-16 sm:h-20 md:h-24 lg:h-32">
+        <div class="w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300">
           <img 
-            src="images/credicorp.png" 
+            src="/images/credicorp.png" 
             alt="CREDICORP" 
-            class="h-16 sm:h-20 md:h-24 lg:h-32 w-24 sm:w-32 md:w-40 lg:w-48 object-contain filter brightness-0 invert"
+            class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
           />
         </div>
       </div>

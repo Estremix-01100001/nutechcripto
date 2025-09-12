@@ -1,19 +1,131 @@
-
 ---
 // Astro component
 const navItems = [
   { name: 'Inicio', href: '#inicio' },
   { name: 'Cursos', href: '#cursos' },
-  { name: 'Especialidades', href: '#especialidades' },
-  { name: 'Ubicación', href: '#ubicacion' },
   { name: 'Cronograma', href: '#cronograma' },
-  { name: 'Diferencia', href: '#diferencia' },
   { name: 'Inversión', href: '#inversion' },
   { name: 'Testimonios', href: '#testimonios' },
   { name: 'FAQ', href: '#faq' },
-  { name: 'Contacto', href: '#contacto' },
+  { name: 'Contacto', href: '#footer' },
 ];
 ---
+
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/10 backdrop-blur-sm border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center py-6">
+      <!-- Logo - Lado izquierdo -->
+      <div class="flex-shrink-0">
+        <a href="#inicio" class="flex items-center hover:scale-105 transition-transform duration-300">
+          <!-- Logo con imagen - Mucho más grande -->
+          <div class="w-32 h-32 rounded-full overflow-hidden">
+            <img src="images/favicon.png" alt="Nutech Academy" class="w-full h-full object-cover">
+          </div>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation - Centro -->
+      <nav class="hidden md:flex space-x-8 flex-1 justify-center">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-white hover:text-orange-500 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-white/5 hover:scale-105 relative group"
+          >
+            {item.name}
+            <!-- Indicador de hover -->
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA Buttons - Lado derecho al borde -->
+      <div class="hidden md:flex items-center space-x-4 ml-auto">
+        <button onclick="translatePage()" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition-colors duration-200 flex items-center space-x-2 text-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+          </svg>
+          <span>Ver en inglés (ref)</span>
+        </button>
+        <button class="bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-700 transition-colors duration-200 font-semibold">
+          Inscribirme ahora
+        </button>
+      </div>
+
+      <!-- Mobile menu button - Lado derecho -->
+      <div class="md:hidden ml-auto">
+        <button
+          id="mobile-menu-button"
+          class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:text-orange-500 hover:bg-white/20 transition-all duration-300 border border-white/20"
+        >
+          <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation - Fuera del header para cubrir toda la pantalla -->
+<div id="mobile-menu" class="hidden fixed top-0 left-0 right-0 bottom-0 z-[9999] bg-black/95 backdrop-blur-sm md:hidden" style="display: none;">
+  <!-- Botón de cierre -->
+  <button id="mobile-menu-close" class="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:text-orange-500 hover:bg-white/20 transition-all duration-300 border border-white/20">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+  
+  <div class="px-6 pt-20 pb-8 space-y-4 h-full overflow-y-auto">
+    <!-- Título del menú -->
+    <div class="text-center mb-8">
+      <h3 class="text-white text-2xl font-bold">Menú de Navegación</h3>
+    </div>
+    
+    <!-- Enlaces de navegación -->
+    <div class="space-y-3">
+      <a href="#inicio" class="block px-6 py-4 text-white hover:text-orange-500 hover:bg-white/10 rounded-2xl transition-all duration-300 font-semibold text-lg border border-white/20">
+        Inicio
+      </a>
+      <a href="#cursos" class="block px-6 py-4 text-white hover:text-orange-500 hover:bg-white/10 rounded-2xl transition-all duration-300 font-semibold text-lg border border-white/20">
+        Cursos
+      </a>
+      <a href="#cronograma" class="block px-6 py-4 text-white hover:text-orange-500 hover:bg-white/10 rounded-2xl transition-all duration-300 font-semibold text-lg border border-white/20">
+        Cronograma
+      </a>
+      <a href="#inversion" class="block px-6 py-4 text-white hover:text-orange-500 hover:bg-white/10 rounded-2xl transition-all duration-300 font-semibold text-lg border border-white/20">
+        Inversión
+      </a>
+      <a href="#testimonios" class="block px-6 py-4 text-white hover:text-orange-500 hover:bg-white/10 rounded-2xl transition-all duration-300 font-semibold text-lg border border-white/20">
+        Testimonios
+      </a>
+      <a href="#faq" class="block px-6 py-4 text-white hover:text-orange-500 hover:bg-white/10 rounded-2xl transition-all duration-300 font-semibold text-lg border border-white/20">
+        FAQ
+      </a>
+      <a href="#footer" class="block px-6 py-4 text-white hover:text-orange-500 hover:bg-white/10 rounded-2xl transition-all duration-300 font-semibold text-lg border border-white/20">
+        Contacto
+      </a>
+    </div>
+    
+    <!-- Botones CTA -->
+    <div class="pt-6 space-y-4 border-t border-white/20">
+      <button onclick="translatePage()" class="w-full bg-blue-600 text-white px-6 py-4 rounded-2xl hover:bg-blue-700 transition-all duration-300 flex items-center justify-center space-x-3 text-lg font-semibold">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+        </svg>
+        <span>Ver en inglés (ref)</span>
+      </button>
+      <button class="w-full bg-orange-600 text-white px-6 py-4 rounded-2xl hover:bg-orange-700 transition-all duration-300 flex items-center justify-center space-x-3 text-lg font-bold">
+        <span>Inscribirme ahora</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
 
 <script>
   // Client-side JavaScript
@@ -25,12 +137,35 @@ const navItems = [
     const menuIcon = document.getElementById('menu-icon');
     const closeIcon = document.getElementById('close-icon');
     
+    console.log('Toggle menu clicked, isMenuOpen:', isMenuOpen);
+    console.log('Menu element found:', !!menu);
+    
     if (menu) {
-      menu.style.display = isMenuOpen ? 'block' : 'none';
+      if (isMenuOpen) {
+        // Mostrar menú
+        menu.classList.remove('hidden');
+        menu.style.display = 'block';
+        console.log('Menu should be visible now');
+      } else {
+        // Ocultar menú
+        menu.classList.add('hidden');
+        menu.style.display = 'none';
+        console.log('Menu should be hidden now');
+      }
+    } else {
+      console.error('Menu element not found!');
     }
+    
     if (menuIcon && closeIcon) {
       menuIcon.classList.toggle('hidden', isMenuOpen);
       closeIcon.classList.toggle('hidden', !isMenuOpen);
+    }
+  }
+
+  // Función para cerrar el menú al hacer clic en un enlace
+  function closeMenu() {
+    if (isMenuOpen) {
+      toggleMenu();
     }
   }
 
@@ -38,117 +173,99 @@ const navItems = [
     const header = document.querySelector('header');
     if (header) {
       if (window.scrollY > 50) {
-        header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-lg');
-        header.classList.remove('bg-transparent');
+        header.classList.add('bg-black/30', 'backdrop-blur-lg', 'shadow-lg', 'border-white/20');
+        header.classList.remove('bg-black/10', 'border-white/10');
       } else {
-        header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-lg');
-        header.classList.add('bg-transparent');
+        header.classList.remove('bg-black/30', 'backdrop-blur-lg', 'shadow-lg', 'border-white/20');
+        header.classList.add('bg-black/10', 'border-white/10');
       }
     }
   }
 
-  // Add scroll listener when component mounts
-  if (typeof window !== 'undefined') {
+  // Add event listeners when component mounts
+         // Función para traducir la página
+         function translatePage() {
+           // Verificar si es localhost
+           if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+             // Para desarrollo local, usar DeepL o mostrar mensaje
+             alert('Para ver la traducción en inglés:\n\n1. Usa la extensión de Google Translate en tu navegador\n2. O visita: https://www.deepl.com/translator\n3. Copia y pega el contenido de la página\n\nEn producción, este botón funcionará automáticamente.');
+           } else {
+             // Para producción, usar Google Translate
+             window.open('https://translate.google.com/translate?sl=es&tl=en&u=' + encodeURIComponent(window.location.href), '_blank');
+           }
+         }
+
+         document.addEventListener('DOMContentLoaded', function() {
+           console.log('DOM loaded, setting up mobile menu');
+    
     window.addEventListener('scroll', handleScroll);
-  }
+    
+    // Add click listener to mobile menu button
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    console.log('Mobile menu button found:', !!mobileMenuButton);
+    
+    if (mobileMenuButton) {
+      mobileMenuButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('Mobile menu button clicked!');
+        toggleMenu();
+      });
+    } else {
+      console.error('Mobile menu button not found!');
+    }
+    
+    // Add click listener to mobile menu close button
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    console.log('Mobile menu close button found:', !!mobileMenuClose);
+    
+    if (mobileMenuClose) {
+      mobileMenuClose.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('Mobile menu close button clicked!');
+        closeMenu();
+      });
+    } else {
+      console.error('Mobile menu close button not found!');
+    }
+    
+    // Add click listeners to menu links
+    const menuLinks = document.querySelectorAll('#mobile-menu a');
+    console.log('Menu links found:', menuLinks.length);
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        console.log('Menu link clicked, closing menu');
+        closeMenu();
+      });
+    });
+    
+    // Add smooth scroll to desktop navigation links
+    const desktopLinks = document.querySelectorAll('nav a[href^="#"]');
+    console.log('Desktop navigation links found:', desktopLinks.length);
+    desktopLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          const targetPosition = targetElement.offsetTop - headerHeight - 20;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+          
+          console.log('Smooth scroll to:', targetId);
+        }
+      });
+    });
+    
+    // Ensure mobile menu is hidden on desktop
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu && window.innerWidth >= 768) {
+      mobileMenu.style.display = 'none';
+      mobileMenu.classList.add('hidden');
+    }
+  });
 </script>
-
-<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-md border-b border-gray-800">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center py-6">
-      <!-- Logo -->
-      <div class="flex-shrink-0">
-        <a href="#inicio" class="flex items-center space-x-3">
-          <!-- Logo animado (video) -->
-          <div class="w-10 h-10 rounded-full overflow-hidden">
-            <video 
-              autoplay 
-              loop 
-              muted 
-              playsinline
-              class="w-full h-full object-cover"
-            >
-              <source src="images/favicon2.mp4" type="video/mp4">
-              <!-- Fallback para navegadores que no soporten video -->
-              <img src="images/favicon.png" alt="nutech ACADEMY" class="w-full h-full object-cover">
-            </video>
-          </div>
-          <!-- Texto -->
-          <div class="flex flex-col">
-            <span class="text-xl font-bold text-blue-500">nutech</span>
-            <span class="text-lg font-bold text-orange-500 -mt-1">ACADEMY</span>
-          </div>
-        </a>
-      </div>
-
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex space-x-8">
-        {navItems.map((item) => (
-          <a
-            href={item.href}
-            class="text-white hover:text-orange-500 transition-colors duration-200 font-medium"
-          >
-            {item.name}
-          </a>
-        ))}
-      </nav>
-
-      <!-- CTA Buttons -->
-      <div class="hidden md:flex items-center space-x-4">
-        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 flex items-center space-x-2 text-sm">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
-          </svg>
-          <span>Ver en inglés (ref)</span>
-        </button>
-        <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold">
-          Inscribirme ahora
-        </button>
-      </div>
-
-      <!-- Mobile menu button -->
-      <div class="md:hidden">
-        <button
-          onclick="toggleMenu()"
-          class="text-white hover:text-orange-500 transition-colors duration-200"
-        >
-          <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Navigation -->
-    <div id="mobile-menu" class="md:hidden hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 bg-gray-900/95 backdrop-blur-md rounded-lg shadow-lg mt-2 border border-gray-700">
-        {navItems.map((item) => (
-          <a
-            href={item.href}
-            class="block px-3 py-2 text-white hover:text-orange-500 hover:bg-gray-800/50 rounded-md transition-colors duration-200"
-            onclick="toggleMenu()"
-          >
-            {item.name}
-          </a>
-        ))}
-        <div class="pt-4 space-y-2">
-          <button class="w-full bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center space-x-2 text-sm">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
-            </svg>
-            <span>Ver en inglés (ref)</span>
-          </button>
-          <button class="w-full bg-orange-600 text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors duration-200 flex items-center justify-center space-x-2 font-semibold">
-            <span>Inscribirme ahora</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
