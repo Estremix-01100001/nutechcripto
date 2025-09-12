@@ -1,8 +1,6 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import { defineConfig } from "astro/config";
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
-  site: 'https://example.com',
+  site: "https://estremix-01100001.github.io/nutechcritto/",
+  base: "/nutechcritto/",   // 👈 importante para GitHub Pages
 });
