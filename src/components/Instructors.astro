@@ -1,0 +1,91 @@
+---
+// Astro component
+---
+
+<section id="instructores" class="py-16 sm:py-20 lg:py-24 bg-black">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Título principal -->
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+        Nuestros instructores han capacitados profesionales en:
+      </h2>
+      <p class="text-lg sm:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
+        Programas diseñados para llevarte desde los fundamentos hasta la implementación avanzada de transformación digital, IA y ciberseguridad
+      </p>
+    </div>
+
+    <!-- Logos de empresas -->
+    <div class="flex flex-wrap justify-center items-center gap-8 sm:gap-12 mb-16 sm:mb-20">
+      <!-- Logo BCP -->
+      <div class="flex items-center justify-center h-16 sm:h-20">
+        <img 
+          src="/images/bcp.png" 
+          alt="BCP" 
+          class="h-16 sm:h-20 w-24 sm:w-32 object-contain filter brightness-0 invert drop-shadow-lg"
+        />
+      </div>
+      
+      <!-- Logo SUNAT -->
+      <div class="flex items-center justify-center h-16 sm:h-20">
+        <img 
+          src="/images/sunat.png" 
+          alt="SUNAT" 
+          class="h-16 sm:h-20 w-24 sm:w-32 object-contain filter brightness-0 invert drop-shadow-lg"
+        />
+      </div>
+      
+      <!-- Logo Banco de la Nación -->
+      <div class="flex items-center justify-center h-12 sm:h-16">
+        <img 
+          src="/images/bancodelanacion.png" 
+          alt="Banco de la Nación" 
+          class="h-12 sm:h-16 w-20 sm:w-24 object-contain filter brightness-0 invert drop-shadow-lg"
+        />
+      </div>
+      
+      <!-- Logo CREDICORP -->
+      <div class="flex items-center justify-center h-12 sm:h-16">
+        <img 
+          src="/images/credicorp.png" 
+          alt="CREDICORP" 
+          class="h-12 sm:h-16 w-20 sm:w-24 object-contain filter brightness-0 invert drop-shadow-lg"
+        />
+      </div>
+    </div>
+
+    <!-- Filtros de cursos -->
+    <div class="space-y-6">
+      <!-- Filtros de nivel -->
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
+        <button class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 text-sm sm:text-base">
+          Todos
+        </button>
+        <button class="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200 text-sm sm:text-base">
+          Principiante
+        </button>
+        <button class="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200 text-sm sm:text-base">
+          Intermedio
+        </button>
+        <button class="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200 text-sm sm:text-base">
+          Avanzado
+        </button>
+      </div>
+
+      <!-- Filtros de modalidad -->
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
+        <button class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 text-sm sm:text-base">
+          Todos
+        </button>
+        <button class="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200 text-sm sm:text-base">
+          En vivo
+        </button>
+        <button class="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200 text-sm sm:text-base">
+          On-demand
+        </button>
+        <button class="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200 text-sm sm:text-base">
+          Híbrido
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

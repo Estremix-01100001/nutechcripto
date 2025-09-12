@@ -1,0 +1,300 @@
+/* ============================================
+   ANIMACIONES PERSONALIZADAS
+   ============================================ */
+
+/* Animación de pulso personalizada */
+@keyframes custom-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+/* Animación de brillo/glow */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+}
+
+/* Animación de escala suave */
+@keyframes gentle-scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+/* Animación de rotación sutil */
+@keyframes subtle-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animación de deslizamiento desde abajo */
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de deslizamiento desde la izquierda */
+@keyframes slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animación de deslizamiento desde la derecha */
+@keyframes slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animación de fade in */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animación de bounce suave */
+@keyframes gentle-bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Animación de shimmer/brillo deslizante */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Animación de latido */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.1);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+/* Animación de flotación */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Animación de ondas */
+@keyframes wave {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.1;
+  }
+}
+
+/* ============================================
+   CLASES DE ANIMACIÓN
+   ============================================ */
+
+/* Pulso personalizado */
+.animate-custom-pulse {
+  animation: custom-pulse 2s ease-in-out infinite;
+}
+
+/* Glow pulsante */
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Escala suave */
+.animate-gentle-scale {
+  animation: gentle-scale 0.3s ease-out;
+}
+
+/* Rotación sutil */
+.animate-subtle-rotate {
+  animation: subtle-rotate 20s linear infinite;
+}
+
+/* Deslizamiento desde abajo */
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out;
+}
+
+/* Deslizamiento desde la izquierda */
+.animate-slide-left {
+  animation: slide-left 0.6s ease-out;
+}
+
+/* Deslizamiento desde la derecha */
+.animate-slide-right {
+  animation: slide-right 0.6s ease-out;
+}
+
+/* Fade in */
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+/* Bounce suave */
+.animate-gentle-bounce {
+  animation: gentle-bounce 2s ease-in-out infinite;
+}
+
+/* Shimmer */
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Latido */
+.animate-heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Flotación */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Ondas */
+.animate-wave {
+  animation: wave 2s ease-in-out infinite;
+}
+
+/* ============================================
+   ANIMACIONES DE ENTRADA ESCALONADAS
+   ============================================ */
+
+.animate-stagger-1 {
+  animation-delay: 0.1s;
+}
+
+.animate-stagger-2 {
+  animation-delay: 0.2s;
+}
+
+.animate-stagger-3 {
+  animation-delay: 0.3s;
+}
+
+.animate-stagger-4 {
+  animation-delay: 0.4s;
+}
+
+.animate-stagger-5 {
+  animation-delay: 0.5s;
+}
+
+.animate-stagger-6 {
+  animation-delay: 0.6s;
+}
+
+/* ============================================
+   ANIMACIONES DE HOVER
+   ============================================ */
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+.hover-rotate:hover {
+  transform: rotate(5deg);
+  transition: transform 0.3s ease;
+}
+
+.hover-bounce:hover {
+  animation: gentle-bounce 0.6s ease;
+}
+
+/* ============================================
+   ANIMACIONES DE TRANSICIÓN
+   ============================================ */
+
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-bounce {
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.transition-elastic {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}

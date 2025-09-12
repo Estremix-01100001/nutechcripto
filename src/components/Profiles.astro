@@ -1,0 +1,72 @@
+---
+// Astro component
+---
+
+<section id="perfiles" class="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-black to-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Botón de perfiles -->
+    <div class="text-center mb-8">
+      <button class="inline-flex items-center space-x-2 bg-transparent border-2 border-orange-500 text-orange-500 px-4 py-2 rounded-lg text-sm font-medium hover:bg-orange-500 hover:text-black transition-colors duration-200">
+        <div class="w-4 h-4 bg-orange-500 rounded-full flex items-center justify-center">
+          <svg class="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <span>Perfiles</span>
+      </button>
+    </div>
+
+    <!-- Título principal -->
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+        Formamos al talento que lidera la transformación digital
+      </h2>
+      <p class="text-lg sm:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
+        Cada curso incluye proyectos prácticos, mentoría personalizada y certificado verificable. Aprende haciendo, no solo viendo.
+      </p>
+    </div>
+
+    <!-- Tarjetas de contenido -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+      <!-- Tarjeta de Exalumnos -->
+      <div class="bg-gray-800 rounded-xl p-8 hover:bg-gray-750 transition-colors duration-300">
+        <div class="text-center mb-6">
+          <!-- Imagen circular del exalumno -->
+          <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" 
+              alt="Exalumno Nutech Academy" 
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4">
+            Exalumnos Nutech Academy
+          </h3>
+        </div>
+        <p class="text-white/70 leading-relaxed">
+          En Nutech Academy ya hemos formado ingenieros y profesionales en distintos países de Latinoamérica y España. Nuestros exalumnos hoy trabajan en empresas líderes como BCP, Credicorp, SUNAT y más, aplicando lo aprendido en proyectos reales de automatización e inteligencia artificial.
+        </p>
+      </div>
+
+      <!-- Tarjeta de B2B -->
+      <div class="bg-gray-800 rounded-xl p-8 hover:bg-gray-750 transition-colors duration-300">
+        <div class="text-center mb-6">
+          <!-- Imagen circular del ejecutivo -->
+          <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
+              alt="Ejecutivo B2B" 
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4">
+            B2B (Business to Business)
+          </h3>
+        </div>
+        <p class="text-white/70 leading-relaxed">
+          Nuestros programas ya han sido elegidos por empresas líderes en banca, finanzas y sector público para capacitar a sus equipos en automatización e inteligencia artificial.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

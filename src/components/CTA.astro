@@ -1,0 +1,210 @@
+---
+// Astro component
+---
+
+<section id="cta" class="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
+  <!-- Efectos de fondo con circuitos -->
+  <div class="absolute inset-0 opacity-20">
+    <svg class="w-full h-full" viewBox="0 0 1200 800" fill="none">
+      <!-- Líneas de circuitos -->
+      <path d="M100,200 L300,200 L300,300 L500,300 L500,400 L700,400 L700,500 L900,500" stroke="currentColor" stroke-width="2" class="text-orange-500"/>
+      <path d="M200,100 L200,300 L400,300 L400,500 L600,500 L600,700 L800,700" stroke="currentColor" stroke-width="1" class="text-orange-500"/>
+      <path d="M300,150 L500,150 L500,250 L700,250 L700,350 L900,350" stroke="currentColor" stroke-width="1.5" class="text-orange-400"/>
+      
+      <!-- Puntos de conexión -->
+      <circle cx="300" cy="200" r="3" fill="currentColor" class="text-orange-500"/>
+      <circle cx="500" cy="300" r="3" fill="currentColor" class="text-orange-500"/>
+      <circle cx="700" cy="400" r="3" fill="currentColor" class="text-orange-500"/>
+      <circle cx="900" cy="500" r="3" fill="currentColor" class="text-orange-500"/>
+      <circle cx="200" cy="300" r="2" fill="currentColor" class="text-orange-500"/>
+      <circle cx="400" cy="500" r="2" fill="currentColor" class="text-orange-500"/>
+      <circle cx="600" cy="700" r="2" fill="currentColor" class="text-orange-500"/>
+    </svg>
+  </div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Botón superior -->
+    <div class="text-center mb-8">
+      <button class="inline-flex items-center space-x-2 bg-transparent border-2 border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-medium hover:bg-orange-500 hover:text-black transition-all duration-300">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-.364-1.118l1.07-3.292z"></path>
+        </svg>
+        <span>Tu futuro en IA comienza aquí</span>
+      </button>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-16">
+      <!-- Elemento izquierdo - Código IA -->
+      <div class="flex justify-center lg:justify-start">
+        <div class="relative">
+          <!-- Terminal de código -->
+          <div class="w-64 h-48 bg-gray-800 rounded-lg border border-gray-700 shadow-2xl">
+            <!-- Header del terminal -->
+            <div class="flex items-center space-x-2 p-3 border-b border-gray-700">
+              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+              <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+              <span class="text-gray-400 text-sm ml-4">AI_Project.py</span>
+            </div>
+            
+            <!-- Código -->
+            <div class="p-4 font-mono text-sm">
+              <div class="text-orange-400 mb-2">import tensorflow as tf</div>
+              <div class="text-orange-400 mb-2">import numpy as np</div>
+              <div class="text-white mb-2">model = tf.keras.Sequential([</div>
+              <div class="text-gray-300 ml-4 mb-2">tf.keras.layers.Dense(128,</div>
+              <div class="text-gray-300 ml-8 mb-2">activation='relu'),</div>
+              <div class="text-gray-300 ml-4 mb-2">tf.keras.layers.Dense(1)</div>
+              <div class="text-white">])</div>
+            </div>
+            
+            <!-- Indicador de ejecución -->
+            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+              <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Texto central -->
+      <div class="text-center">
+        <h2 class="text-white text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+          Comienza hoy.<br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
+            Tu proyecto de IA te espera.
+          </span>
+        </h2>
+        <p class="text-white text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto">
+          No esperes más. Miles de profesionales ya transformaron sus carreras con IA. 
+          <span class="font-bold">Es tu momento.</span>
+        </p>
+      </div>
+
+      <!-- Elemento derecho - Dashboard IA -->
+      <div class="flex justify-center lg:justify-end">
+        <div class="relative">
+          <!-- Dashboard de métricas -->
+          <div class="w-64 h-48 bg-gray-800 rounded-lg border border-gray-700 shadow-2xl p-4">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-white font-semibold">AI Dashboard</h3>
+              <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+            </div>
+            
+            <!-- Métricas -->
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300 text-sm">Precisión</span>
+                <span class="text-orange-400 font-bold">94.2%</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-2">
+                <div class="bg-orange-500 h-2 rounded-full" style="width: 94%"></div>
+              </div>
+              
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300 text-sm">Entrenamiento</span>
+                <span class="text-orange-400 font-bold">87%</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-2">
+                <div class="bg-orange-500 h-2 rounded-full" style="width: 87%"></div>
+              </div>
+              
+              <div class="flex items-center justify-between">
+                <span class="text-gray-300 text-sm">Validación</span>
+                <span class="text-orange-400 font-bold">91%</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-2">
+                <div class="bg-orange-500 h-2 rounded-full" style="width: 91%"></div>
+              </div>
+            </div>
+            
+            <!-- Indicador de estado -->
+            <div class="absolute -bottom-2 -left-2 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+              <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <!-- Estadística 1 -->
+      <div class="text-center group">
+        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-600 transition-all duration-300">
+          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <div class="text-2xl font-bold text-white mb-2">6-12 semanas</div>
+        <div class="text-white">Desde cero a experto</div>
+      </div>
+
+      <!-- Estadística 2 -->
+      <div class="text-center group">
+        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-600 transition-all duration-300">
+          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+        </div>
+        <div class="text-2xl font-bold text-white mb-2">500+</div>
+        <div class="text-white">Graduados exitosos</div>
+      </div>
+
+      <!-- Estadística 3 -->
+      <div class="text-center group">
+        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-600 transition-all duration-300">
+          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+        </div>
+        <div class="text-2xl font-bold text-white mb-2">4.9/5</div>
+        <div class="text-white">Satisfacción promedio</div>
+      </div>
+    </div>
+
+    <!-- Oferta especial -->
+    <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 max-w-4xl mx-auto">
+      <div class="text-center">
+        <div class="flex items-center justify-center space-x-2 mb-4">
+          <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+          <h3 class="text-white text-xl font-bold">Oferta por tiempo limitado</h3>
+        </div>
+        
+        <p class="text-white text-lg mb-6">
+          Los precios de lanzamiento terminan pronto. No pierdas la oportunidad de transformar tu carrera con IA.
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-6 mb-8">
+          <div class="flex items-center space-x-2">
+            <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white font-medium">Garantía 30 días</span>
+          </div>
+          
+          <div class="flex items-center space-x-2">
+            <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white font-medium">Acceso inmediato</span>
+          </div>
+          
+          <div class="flex items-center space-x-2">
+            <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white font-medium">Certificado incluido</span>
+          </div>
+        </div>
+        
+        <button class="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+          ¡Inscríbete Ahora!
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

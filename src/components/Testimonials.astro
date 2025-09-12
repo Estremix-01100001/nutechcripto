@@ -1,0 +1,273 @@
+---
+// Astro component
+const testimonials = [
+  {
+    id: 1,
+    name: "Carlos Mendoza",
+    role: "Marketing Manager",
+    company: "startupteam",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    rating: 5,
+    achievement: "50% aumento salarial",
+    quote: "Los proyectos del curso los implementé directamente en mi empresa. Automaticé 3 procesos y me ascendieron a Head of Growth.",
+    tags: ["Proyecto Real", "Mejora 50%", "Certificado"]
+  },
+  {
+    id: 2,
+    name: "Ana Ruiz",
+    role: "Desarrolladora",
+    company: "TechCorp",
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    rating: 5,
+    achievement: "Pasó a AI Engineer",
+    quote: "Después de Nutech Academy conseguí mis primeros 3 clientes en consultoría IA. El programa de referidos me generó S/1,500",
+    tags: ["Proyecto Real", "Mejora 50%", "Certificado"]
+  },
+  {
+    id: 3,
+    name: "Miguel Torres",
+    role: "Consultor",
+    company: "InnovateLab",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    rating: 5,
+    achievement: "Nuevo emprendimiento",
+    quote: "La metodología PRIA me ayudó a crear mi propia consultora de IA. En 6 meses facturé más que en todo el año anterior.",
+    tags: ["Proyecto Real", "Mejora 50%", "Certificado"]
+  },
+  {
+    id: 4,
+    name: "Sofia García",
+    role: "Product Manager",
+    company: "DataFlow",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    rating: 5,
+    achievement: "Promoción directa",
+    quote: "El portafolio que construí en Nutech me abrió las puertas en 3 empresas. Elegí la mejor oferta con 60% más salario.",
+    tags: ["Proyecto Real", "Mejora 50%", "Certificado"]
+  },
+  {
+    id: 5,
+    name: "Roberto Silva",
+    role: "Analista de Datos",
+    company: "FinanceAI",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    rating: 5,
+    achievement: "Cambio de carrera",
+    quote: "De analista tradicional a especialista en IA. Los mentores me guiaron paso a paso hasta conseguir mi primer trabajo en IA.",
+    tags: ["Proyecto Real", "Mejora 50%", "Certificado"]
+  },
+  {
+    id: 6,
+    name: "Elena Vargas",
+    role: "CEO",
+    company: "TechStart",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    rating: 5,
+    achievement: "Escaló su startup",
+    quote: "Implementé IA en mi startup y aumenté la eficiencia 300%. Nutech me dio las herramientas exactas que necesitaba.",
+    tags: ["Proyecto Real", "Mejora 50%", "Certificado"]
+  }
+];
+
+// Mezclar testimonios para que sean aleatorios
+const shuffledTestimonials = [...testimonials].sort(() => Math.random() - 0.5);
+---
+
+<section id="testimonios" class="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden background-blur-elements">
+  <!-- Efectos de fondo -->
+  <div class="absolute inset-0 background-gradient"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Botón de casos de éxito -->
+    <div class="text-center mb-8">
+      <button class="inline-flex items-center space-x-2 bg-transparent border-2 border-orange-500 text-orange-500 px-4 py-2 rounded-lg text-sm font-medium hover:bg-orange-500 hover:text-black transition-colors duration-200">
+        <div class="w-4 h-4 bg-orange-500 rounded-full flex items-center justify-center">
+          <svg class="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <span>Casos de éxito</span>
+      </button>
+    </div>
+
+    <!-- Título principal -->
+    <div class="title-container mb-12 sm:mb-16">
+      <h2 class="title-text title-text-large text-center">
+        Historias de transformación real
+      </h2>
+      <p class="text-gray-300 text-lg max-w-4xl mx-auto text-center leading-relaxed mt-6">
+        Nuestros estudiantes no solo aprenden IA, la aplican y transforman sus carreras profesionales.
+      </p>
+    </div>
+
+    <!-- Carrusel infinito de testimonios -->
+    <div class="relative overflow-hidden">
+      <!-- Contenedor del carrusel infinito -->
+      <div class="flex animate-scroll">
+        <!-- Primera copia de testimonios -->
+        {shuffledTestimonials.map((testimonial, index) => (
+          <div class="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 flex-shrink-0 px-3">
+            <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl p-6 border border-gray-700 hover:border-orange-500/30 transition-all duration-300 shadow-xl hover:shadow-orange-500/10 group h-full">
+              <!-- Header del testimonio -->
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name}
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h3 class="text-white font-semibold text-sm">{testimonial.name}</h3>
+                    <p class="text-gray-400 text-xs">{testimonial.role}</p>
+                    <p class="text-gray-500 text-xs">{testimonial.company}</p>
+                  </div>
+                </div>
+                <div class="text-4xl text-orange-500 font-bold opacity-20">"</div>
+              </div>
+
+              <!-- Rating -->
+              <div class="flex items-center space-x-1 mb-3">
+                {Array.from({ length: testimonial.rating }).map((_, i) => (
+                  <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                ))}
+              </div>
+
+              <!-- Achievement tag -->
+              <div class="mb-4">
+                <span class="inline-block bg-orange-500/20 text-orange-500 text-xs font-medium px-3 py-1 rounded-full border border-orange-500/30">
+                  {testimonial.achievement}
+                </span>
+              </div>
+
+              <!-- Quote -->
+              <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                "{testimonial.quote}"
+              </p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2">
+                {testimonial.tags.map((tag, tagIndex) => {
+                  const colors = ['bg-blue-500/20 text-blue-400', 'bg-green-500/20 text-green-400', 'bg-purple-500/20 text-purple-400'];
+                  return (
+                    <span class={`text-xs font-medium px-2 py-1 rounded ${colors[tagIndex % colors.length]}`}>
+                      {tag}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        ))}
+        
+        <!-- Segunda copia de testimonios para el efecto infinito -->
+        {shuffledTestimonials.map((testimonial, index) => (
+          <div class="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 flex-shrink-0 px-3">
+            <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl p-6 border border-gray-700 hover:border-orange-500/30 transition-all duration-300 shadow-xl hover:shadow-orange-500/10 group h-full">
+              <!-- Header del testimonio -->
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name}
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h3 class="text-white font-semibold text-sm">{testimonial.name}</h3>
+                    <p class="text-gray-400 text-xs">{testimonial.role}</p>
+                    <p class="text-gray-500 text-xs">{testimonial.company}</p>
+                  </div>
+                </div>
+                <div class="text-4xl text-orange-500 font-bold opacity-20">"</div>
+              </div>
+
+              <!-- Rating -->
+              <div class="flex items-center space-x-1 mb-3">
+                {Array.from({ length: testimonial.rating }).map((_, i) => (
+                  <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                ))}
+              </div>
+
+              <!-- Achievement tag -->
+              <div class="mb-4">
+                <span class="inline-block bg-orange-500/20 text-orange-500 text-xs font-medium px-3 py-1 rounded-full border border-orange-500/30">
+                  {testimonial.achievement}
+                </span>
+              </div>
+
+              <!-- Quote -->
+              <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                "{testimonial.quote}"
+              </p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2">
+                {testimonial.tags.map((tag, tagIndex) => {
+                  const colors = ['bg-blue-500/20 text-blue-400', 'bg-green-500/20 text-green-400', 'bg-purple-500/20 text-purple-400'];
+                  return (
+                    <span class={`text-xs font-medium px-2 py-1 rounded ${colors[tagIndex % colors.length]}`}>
+                      {tag}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Overlay para efecto de desvanecimiento en los bordes -->
+      <div class="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-black to-transparent pointer-events-none z-10"></div>
+      <div class="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-black to-transparent pointer-events-none z-10"></div>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="text-center mt-12">
+      <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2 mx-auto group">
+        <span>Únete a nuestros casos de éxito</span>
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  /* Responsive animation speed */
+  @media (max-width: 640px) {
+    .animate-scroll {
+      animation-duration: 20s;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .animate-scroll {
+      animation-duration: 40s;
+    }
+  }
+</style>
