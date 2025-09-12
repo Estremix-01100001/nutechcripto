@@ -3,6 +3,6 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  // base: '/nutechcripto', // Temporalmente comentado para desarrollo
+  base: '/nutechcripto',
   integrations: [tailwind()]
 });
