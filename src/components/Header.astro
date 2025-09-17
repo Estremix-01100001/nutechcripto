@@ -13,13 +13,13 @@ const navItems = [
 
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/20 backdrop-blur-md border-b border-white/20 shadow-lg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-start py-4 sm:py-6">
+    <div class="flex items-center justify-between py-4 sm:py-6">
       <!-- Logo - Lado izquierdo -->
       <div class="flex-shrink-0 flex items-center justify-center">
         <a href="#inicio" class="flex items-center justify-center hover:scale-105 transition-transform duration-300">
           <!-- Logo con imagen - Perfectamente centrado -->
-          <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-20 md:h-20 lg:w-22 lg:h-22 rounded-full overflow-hidden flex items-center justify-center mx-auto">
-                 <img src="/nutechcripto/images/favicon.png" alt="Nutech Academy" class="w-full h-full object-cover">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-20 md:h-20 lg:w-22 lg:h-22 rounded-full overflow-hidden flex items-center justify-center">
+            <img src="/nutechcripto/images/favicon.png" alt="Nutech Academy" class="w-full h-full object-cover">
           </div>
         </a>
       </div>
@@ -57,7 +57,7 @@ const navItems = [
       </div>
 
       <!-- Mobile menu button - Lado derecho -->
-      <div class="md:hidden ml-auto">
+      <div class="md:hidden flex items-center">
         <button
           id="mobile-menu-button"
           class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:text-orange-500 hover:bg-white/20 transition-all duration-300 border border-white/20"
@@ -83,11 +83,11 @@ const navItems = [
     </svg>
   </button>
   
-  <div class="px-6 pt-24 pb-8 space-y-6 h-full overflow-y-auto">
+  <div class="px-6 pt-24 pb-8 space-y-6 h-full overflow-y-auto flex flex-col items-center">
     <!-- Logo y título mejorados -->
-    <div class="text-center mb-12">
+    <div class="text-center mb-12 flex flex-col items-center">
       <div class="w-28 h-28 sm:w-40 sm:h-40 mx-auto mb-4 rounded-2xl overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600 p-2 shadow-2xl flex items-center justify-center">
-        <img src="/nutechcripto/images/favicon.png" alt="Nutech Academy" class="w-full h-full object-cover rounded-xl ">
+        <img src="/nutechcripto/images/favicon.png" alt="Nutech Academy" class="w-full h-full object-cover rounded-xl">
       </div>
       <h3 class="text-white text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
         Nutech Academy
@@ -96,7 +96,7 @@ const navItems = [
     </div>
     
     <!-- Enlaces de navegación con diseño moderno -->
-    <div class="space-y-4">
+    <div class="space-y-4 w-full max-w-sm">
       <a href="#inicio" class="group block px-6 py-5 text-white hover:text-orange-400 hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-orange-600/10 rounded-2xl transition-all duration-300 font-semibold text-lg border-2 border-white/20 hover:border-orange-400 hover:shadow-lg hover:shadow-orange-500/30 backdrop-blur-sm hover:scale-105">
         <div class="flex items-center space-x-4">
           <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/20 flex items-center justify-center group-hover:from-orange-500/30 group-hover:to-orange-600/30 transition-all duration-300">
@@ -176,7 +176,7 @@ const navItems = [
     </div>
     
     <!-- Botón CTA principal -->
-    <div class="pt-8 space-y-4 border-t border-gradient-to-r from-orange-500/20 to-orange-600/20">
+    <div class="pt-8 space-y-4 border-t border-gradient-to-r from-orange-500/20 to-orange-600/20 w-full max-w-sm">
       <!-- Botón principal de registro -->
       <a href="#registro" class="relative group w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-5 rounded-2xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center space-x-3 text-lg font-bold shadow-2xl hover:shadow-orange-500/40 transform hover:-translate-y-1 hover:scale-105 border border-orange-400/30 hover:border-orange-300/50 overflow-hidden">
         <!-- Efecto de brillo animado -->
