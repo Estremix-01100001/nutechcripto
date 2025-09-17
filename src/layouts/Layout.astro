@@ -102,6 +102,42 @@ const {
     <script src="https://cdn.conveythis.com/javascript/conveythis.js?api_key=pub_6a502f1f679556b35f2305f93f603776" is:inline></script>
     <!-- ConveyThis Script End -->
     
+    <!-- ConveyThis Configuration Script -->
+    <script is:inline>
+      // Configuración simplificada de ConveyThis
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('🔄 DOM cargado, configurando ConveyThis...');
+        
+        function initConveyThis() {
+          console.log('🔍 Verificando ConveyThis...');
+          console.log('ConveyThis disponible:', typeof window.conveyThis !== 'undefined');
+          console.log('ConveyThis.init disponible:', window.conveyThis && typeof window.conveyThis.init === 'function');
+          
+          if (typeof window.conveyThis !== 'undefined' && window.conveyThis.init) {
+            console.log('✅ ConveyThis disponible, inicializando...');
+            
+            try {
+              // Configuración mínima para ConveyThis
+              window.conveyThis.init({
+                selector: '#conveythis-language-selector'
+              });
+              console.log('✅ ConveyThis configurado exitosamente');
+            } catch (error) {
+              console.error('❌ Error configurando ConveyThis:', error);
+            }
+          } else {
+            console.log('⚠️ ConveyThis no disponible, reintentando...');
+            setTimeout(initConveyThis, 2000);
+          }
+        }
+        
+        // Intentar múltiples veces
+        setTimeout(initConveyThis, 1000);
+        setTimeout(initConveyThis, 3000);
+        setTimeout(initConveyThis, 5000);
+      });
+    </script>
+    
     <!-- CSS para posicionar el widget de ConveyThis en el header -->
     <style>
       /* Asegurar que el contenedor sea visible */
@@ -162,71 +198,5 @@ const {
   <body class="font-sans">
     <slot />
     
-    <!-- Configuración de ConveyThis para mostrar el widget nativo -->
-    <script is:inline>
-      console.log('🚀 Configurando ConveyThis...');
-      
-      // Función para configurar ConveyThis
-      function setupConveyThis() {
-        const container = document.getElementById('conveythis-language-selector');
-        console.log('📦 Contenedor:', container);
-        
-        if (container) {
-          // Verificar si ConveyThis está disponible
-          if (typeof window.conveyThis !== 'undefined') {
-            console.log('✅ ConveyThis disponible');
-            
-            try {
-              // Configurar ConveyThis
-              if (window.conveyThis.init) {
-                window.conveyThis.init({
-                  selector: '#conveythis-language-selector',
-                  from: 'en',
-                  to: 'es',
-                  show_flags: true,
-                  show_text: true,
-                  text_color: '#ffffff',
-                  background_color: 'rgba(255, 255, 255, 0.1)',
-                  border_color: 'rgba(255, 255, 255, 0.2)',
-                  hover_background_color: 'rgba(255, 255, 255, 0.2)',
-                  hover_border_color: 'rgba(255, 255, 255, 0.4)',
-                  font_size: '14px',
-                  font_family: 'inherit',
-                  border_radius: '12px',
-                  padding: '8px 16px',
-                  margin: '0',
-                  position: 'static',
-                  z_index: '1000'
-                });
-                console.log('✅ ConveyThis configurado');
-              } else {
-                console.log('⚠️ ConveyThis.init no disponible');
-              }
-            } catch (error) {
-              console.error('❌ Error configurando ConveyThis:', error);
-            }
-          } else {
-            console.log('⚠️ ConveyThis no disponible, reintentando...');
-            setTimeout(setupConveyThis, 2000);
-          }
-        } else {
-          console.error('❌ No se encontró el contenedor #conveythis-language-selector');
-        }
-      }
-      
-      // Ejecutar cuando la página se carga
-      document.addEventListener('DOMContentLoaded', function() {
-        console.log('📄 DOM cargado');
-        setupConveyThis();
-      });
-      
-      window.addEventListener('load', function() {
-        console.log('🔄 Página completamente cargada');
-        setupConveyThis();
-      });
-      
-      // Fallback adicional: verificar después de 5 segundos
-      setTimeout(setupConveyThis, 5000);
-    </script>
   </body>
 </html>
