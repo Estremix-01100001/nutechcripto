@@ -104,25 +104,22 @@ const {
     
     <!-- JavaScript para el widget de idiomas -->
     <script is:inline>
-      // Funciones para el widget de idiomas
-      function toggleLanguage() {
+      // Funciones globales para el widget de idiomas
+      window.toggleLanguage = function() {
         const widget = document.querySelector('.language-widget');
-        widget.classList.toggle('active');
+        if (widget) {
+          widget.classList.toggle('active');
+        }
       }
       
-      function changeLanguage(lang) {
+      window.changeLanguage = function(lang) {
         console.log('🌐 Cambiando idioma a:', lang);
         
-        // Actualizar el selector visual con animación
         const selector = document.querySelector('.language-selector');
-        const flag = selector.querySelector('.flag');
-        const text = selector.querySelector('.text');
+        const flag = selector?.querySelector('.flag');
+        const text = selector?.querySelector('.text');
         
-        // Animación de cambio
-        selector.style.transform = 'scale(0.95)';
-        selector.style.opacity = '0.7';
-        
-        setTimeout(() => {
+        if (flag && text) {
           if (lang === 'es') {
             flag.textContent = '🇪🇸';
             text.textContent = 'ES';
@@ -130,90 +127,42 @@ const {
             flag.textContent = '🇺🇸';
             text.textContent = 'EN';
           }
-          
-          selector.style.transform = 'scale(1)';
-          selector.style.opacity = '1';
-        }, 150);
+        }
         
-        // Cerrar el dropdown con animación
         const widget = document.querySelector('.language-widget');
-        widget.classList.remove('active');
-        
-        // Mostrar notificación elegante
-        showLanguageNotification(lang === 'es' ? 'Español' : 'English');
-      }
-      
-      function showLanguageNotification(language) {
-        // Crear notificación temporal
-        const notification = document.createElement('div');
-        notification.style.cssText = `
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          background: linear-gradient(135deg, rgba(249, 115, 22, 0.95), rgba(251, 146, 60, 0.95));
-          color: white;
-          padding: 12px 20px;
-          border-radius: 12px;
-          font-weight: 600;
-          box-shadow: 0 8px 25px rgba(249, 115, 22, 0.3);
-          backdrop-filter: blur(10px);
-          z-index: 10000;
-          transform: translateX(100%);
-          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        `;
-        notification.textContent = `🌐 Idioma cambiado a: ${language}`;
-        
-        document.body.appendChild(notification);
-        
-        // Animar entrada
-        setTimeout(() => {
-          notification.style.transform = 'translateX(0)';
-        }, 100);
-        
-        // Remover después de 3 segundos
-        setTimeout(() => {
-          notification.style.transform = 'translateX(100%)';
-          setTimeout(() => {
-            document.body.removeChild(notification);
-          }, 300);
-        }, 3000);
-      }
-      
-      // Cerrar dropdown al hacer clic fuera
-      document.addEventListener('click', function(event) {
-        const widget = document.querySelector('.language-widget');
-        if (!widget.contains(event.target)) {
+        if (widget) {
           widget.classList.remove('active');
         }
-      });
-      
-      // Configuración de ConveyThis como fallback
-      document.addEventListener('DOMContentLoaded', function() {
-        console.log('🔄 DOM cargado, configurando ConveyThis...');
         
-        function initConveyThis() {
-          console.log('🔍 Verificando ConveyThis...');
-          console.log('ConveyThis disponible:', typeof window.conveyThis !== 'undefined');
-          
+        // Notificación simple
+        console.log('Idioma cambiado a:', lang === 'es' ? 'Español' : 'English');
+      }
+      
+      // Inicializar cuando el DOM esté listo
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('🔄 DOM cargado, inicializando widget de idiomas...');
+        
+        // Cerrar dropdown al hacer clic fuera
+        document.addEventListener('click', function(event) {
+          const widget = document.querySelector('.language-widget');
+          if (widget && !widget.contains(event.target)) {
+            widget.classList.remove('active');
+          }
+        });
+        
+        // Intentar ConveyThis como fallback
+        setTimeout(() => {
           if (typeof window.conveyThis !== 'undefined' && window.conveyThis.init) {
             console.log('✅ ConveyThis disponible, inicializando...');
-            
             try {
-              // Configuración mínima para ConveyThis
               window.conveyThis.init({
                 selector: '#conveythis-language-selector'
               });
-              console.log('✅ ConveyThis configurado exitosamente');
             } catch (error) {
-              console.error('❌ Error configurando ConveyThis:', error);
+              console.error('❌ Error con ConveyThis:', error);
             }
-          } else {
-            console.log('⚠️ ConveyThis no disponible, usando widget personalizado');
           }
-        }
-        
-        // Intentar ConveyThis después de un delay
-        setTimeout(initConveyThis, 2000);
+        }, 2000);
       });
     </script>
     
