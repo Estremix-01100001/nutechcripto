@@ -1,2 +1,1 @@
-# nutechcritto
-# nutechcritto
+# Nutech Academy - Landing Page Optimizada
