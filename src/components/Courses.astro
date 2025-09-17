@@ -146,7 +146,7 @@ const courses = [
     <!-- Grid de cursos -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {courses.map((course) => (
-        <div class="course-card bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-gray-700/50 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 relative overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 flex flex-col" data-course-id={course.id}>
+        <div class="course-card bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-gray-700/50 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 relative overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 flex flex-col" data-course-id={course.id} data-level={course.level.toLowerCase()} data-modality={course.modality.toLowerCase()}>
           <!-- Header del curso -->
           <div class="flex justify-between items-start mb-4">
             <span class={`course-level px-3 py-1 rounded-full text-xs font-medium text-white ${course.levelColor}`}>
@@ -237,39 +237,90 @@ const courses = [
     const filterButtons = document.querySelectorAll('.filter-btn');
     const courseCards = document.querySelectorAll('.course-card');
     
+    // Variables para mantener el estado de los filtros
+    let currentLevelFilter = 'all';
+    let currentModalityFilter = 'modalidad-all';
+    
     filterButtons.forEach(button => {
       button.addEventListener('click', function(this: HTMLElement) {
-        // Remover clase active de todos los botones
-        filterButtons.forEach(btn => {
-          btn.classList.remove('active', 'bg-orange-500', 'text-white');
-          btn.classList.add('bg-white/10', 'text-white');
-        });
-        
-        // Agregar clase active al botón clickeado
-        this.classList.add('active', 'bg-orange-500', 'text-white');
-        this.classList.remove('bg-white/10', 'text-white');
-        
         const filter = this.getAttribute('data-filter');
         
-        courseCards.forEach(card => {
-          if (filter === 'all') {
-            (card as HTMLElement).style.display = 'block';
-            (card as HTMLElement).style.animation = 'fadeIn 0.5s ease-in-out';
-          } else {
-            const courseLevelElement = card.querySelector('.course-level');
-            if (courseLevelElement) {
-              const courseLevel = courseLevelElement.textContent?.toLowerCase();
-              if (courseLevel === filter) {
-                (card as HTMLElement).style.display = 'block';
-                (card as HTMLElement).style.animation = 'fadeIn 0.5s ease-in-out';
-              } else {
-                (card as HTMLElement).style.display = 'none';
-              }
-            }
-          }
-        });
+        // Determinar si es filtro de nivel o modalidad
+        if (filter === 'all' || filter === 'principiante' || filter === 'intermedio' || filter === 'avanzado') {
+          // Es filtro de nivel
+          currentLevelFilter = filter;
+          
+          // Actualizar estilos de botones de nivel
+          const levelButtons = document.querySelectorAll('[data-filter="all"], [data-filter="principiante"], [data-filter="intermedio"], [data-filter="avanzado"]');
+          levelButtons.forEach(btn => {
+            btn.classList.remove('bg-orange-500', 'text-white');
+            btn.classList.add('bg-white/10', 'text-white');
+          });
+          this.classList.remove('bg-white/10', 'text-white');
+          this.classList.add('bg-orange-500', 'text-white');
+          
+        } else if (filter === 'modalidad-all' || filter === 'en-vivo' || filter === 'on-demand' || filter === 'hibrido') {
+          // Es filtro de modalidad
+          currentModalityFilter = filter;
+          
+          // Actualizar estilos de botones de modalidad
+          const modalityButtons = document.querySelectorAll('[data-filter="modalidad-all"], [data-filter="en-vivo"], [data-filter="on-demand"], [data-filter="hibrido"]');
+          modalityButtons.forEach(btn => {
+            btn.classList.remove('bg-orange-500', 'text-white');
+            btn.classList.add('bg-white/10', 'text-white');
+          });
+          this.classList.remove('bg-white/10', 'text-white');
+          this.classList.add('bg-orange-500', 'text-white');
+        }
+        
+        // Aplicar filtros combinados
+        applyFilters();
       });
     });
+    
+    function applyFilters() {
+      courseCards.forEach(card => {
+        let showCard = true;
+        
+        // Verificar filtro de nivel
+        if (currentLevelFilter !== 'all') {
+          const courseLevel = card.getAttribute('data-level');
+          if (courseLevel !== currentLevelFilter) {
+            showCard = false;
+          }
+        }
+        
+        // Verificar filtro de modalidad
+        if (currentModalityFilter !== 'modalidad-all' && showCard) {
+          const courseModality = card.getAttribute('data-modality');
+          let expectedModality = '';
+          
+          switch (currentModalityFilter) {
+            case 'en-vivo':
+              expectedModality = 'en vivo';
+              break;
+            case 'on-demand':
+              expectedModality = 'on-demand';
+              break;
+            case 'hibrido':
+              expectedModality = 'híbrido';
+              break;
+          }
+          
+          if (courseModality !== expectedModality) {
+            showCard = false;
+          }
+        }
+        
+        // Mostrar u ocultar la tarjeta
+        if (showCard) {
+          (card as HTMLElement).style.display = 'block';
+          (card as HTMLElement).style.animation = 'fadeIn 0.5s ease-in-out';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    }
   });
 </script>
 
