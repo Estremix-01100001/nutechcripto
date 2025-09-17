@@ -6,7 +6,7 @@ const testimonials = [
     name: "Carlos Mendoza",
     role: "Marketing Manager",
     company: "startupteam",
-    initials: "CM",
+    image: "https://ui-avatars.com/api/?name=Carlos+Mendoza&background=0ea5e9&color=fff&size=150&bold=true",
     rating: 5,
     achievement: "50% aumento salarial",
     quote: "Los proyectos del curso los implementé directamente en mi empresa. Automaticé 3 procesos y me ascendieron a Head of Growth.",
@@ -17,7 +17,7 @@ const testimonials = [
     name: "Ana Ruiz",
     role: "Desarrolladora",
     company: "TechCorp",
-    initials: "AR",
+    image: "https://ui-avatars.com/api/?name=Ana+Ruiz&background=ec4899&color=fff&size=150&bold=true",
     rating: 5,
     achievement: "Pasó a AI Engineer",
     quote: "Después de Nutech Academy conseguí mis primeros 3 clientes en consultoría IA. El programa de referidos me generó S/1,500",
@@ -28,7 +28,7 @@ const testimonials = [
     name: "Miguel Torres",
     role: "Consultor",
     company: "InnovateLab",
-    initials: "MT",
+    image: "https://ui-avatars.com/api/?name=Miguel+Torres&background=10b981&color=fff&size=150&bold=true",
     rating: 5,
     achievement: "Nuevo emprendimiento",
     quote: "La metodología PRIA me ayudó a crear mi propia consultora de IA. En 6 meses facturé más que en todo el año anterior.",
@@ -39,7 +39,7 @@ const testimonials = [
     name: "Sofia García",
     role: "Product Manager",
     company: "DataFlow",
-    initials: "SG",
+    image: "https://ui-avatars.com/api/?name=Sofia+Garcia&background=8b5cf6&color=fff&size=150&bold=true",
     rating: 5,
     achievement: "Promoción directa",
     quote: "El portafolio que construí en Nutech me abrió las puertas en 3 empresas. Elegí la mejor oferta con 60% más salario.",
@@ -50,7 +50,7 @@ const testimonials = [
     name: "Roberto Silva",
     role: "Analista de Datos",
     company: "FinanceAI",
-    initials: "RS",
+    image: "https://ui-avatars.com/api/?name=Roberto+Silva&background=f59e0b&color=fff&size=150&bold=true",
     rating: 5,
     achievement: "Cambio de carrera",
     quote: "De analista tradicional a especialista en IA. Los mentores me guiaron paso a paso hasta conseguir mi primer trabajo en IA.",
@@ -61,7 +61,7 @@ const testimonials = [
     name: "Elena Vargas",
     role: "CEO",
     company: "TechStart",
-    initials: "EV",
+    image: "https://ui-avatars.com/api/?name=Elena+Vargas&background=ef4444&color=fff&size=150&bold=true",
     rating: 5,
     achievement: "Escaló su startup",
     quote: "Implementé IA en mi startup y aumenté la eficiencia 300%. Nutech me dio las herramientas exactas que necesitaba.",
@@ -102,8 +102,14 @@ const testimonials = [
                 <!-- Header del testimonio -->
                 <div class="flex items-start justify-between mb-6">
                   <div class="flex items-center space-x-4">
-                    <div class="w-16 h-16 rounded-full flex-shrink-0 ring-2 ring-orange-500/30 group-hover:ring-orange-500/60 transition-all duration-300 bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-                      <span class="text-white font-bold text-lg">{testimonial.initials}</span>
+                    <div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-orange-500/30 group-hover:ring-orange-500/60 transition-all duration-300">
+                      <img 
+                        src={testimonial.image} 
+                        alt={testimonial.name}
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                        onerror="this.src='https://ui-avatars.com/api/?name='+encodeURIComponent(this.alt)+'&background=6b7280&color=fff&size=150&bold=true'"
+                      />
                     </div>
                     <div>
                       <h3 class="text-white font-bold text-lg">{testimonial.name}</h3>
@@ -157,8 +163,14 @@ const testimonials = [
                 <!-- Header del testimonio -->
                 <div class="flex items-start justify-between mb-6">
                   <div class="flex items-center space-x-4">
-                    <div class="w-16 h-16 rounded-full flex-shrink-0 ring-2 ring-orange-500/30 group-hover:ring-orange-500/60 transition-all duration-300 bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-                      <span class="text-white font-bold text-lg">{testimonial.initials}</span>
+                    <div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-orange-500/30 group-hover:ring-orange-500/60 transition-all duration-300">
+                      <img 
+                        src={testimonial.image} 
+                        alt={testimonial.name}
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                        onerror="this.src='https://ui-avatars.com/api/?name='+encodeURIComponent(this.alt)+'&background=6b7280&color=fff&size=150&bold=true'"
+                      />
                     </div>
                     <div>
                       <h3 class="text-white font-bold text-lg">{testimonial.name}</h3>
