@@ -6,7 +6,7 @@ const testimonials = [
     name: "Carlos Mendoza",
     role: "Marketing Manager",
     company: "startupteam",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    initials: "CM",
     rating: 5,
     achievement: "50% aumento salarial",
     quote: "Los proyectos del curso los implementé directamente en mi empresa. Automaticé 3 procesos y me ascendieron a Head of Growth.",
@@ -17,7 +17,7 @@ const testimonials = [
     name: "Ana Ruiz",
     role: "Desarrolladora",
     company: "TechCorp",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    initials: "AR",
     rating: 5,
     achievement: "Pasó a AI Engineer",
     quote: "Después de Nutech Academy conseguí mis primeros 3 clientes en consultoría IA. El programa de referidos me generó S/1,500",
@@ -28,7 +28,7 @@ const testimonials = [
     name: "Miguel Torres",
     role: "Consultor",
     company: "InnovateLab",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    initials: "MT",
     rating: 5,
     achievement: "Nuevo emprendimiento",
     quote: "La metodología PRIA me ayudó a crear mi propia consultora de IA. En 6 meses facturé más que en todo el año anterior.",
@@ -39,7 +39,7 @@ const testimonials = [
     name: "Sofia García",
     role: "Product Manager",
     company: "DataFlow",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    initials: "SG",
     rating: 5,
     achievement: "Promoción directa",
     quote: "El portafolio que construí en Nutech me abrió las puertas en 3 empresas. Elegí la mejor oferta con 60% más salario.",
@@ -50,7 +50,7 @@ const testimonials = [
     name: "Roberto Silva",
     role: "Analista de Datos",
     company: "FinanceAI",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    initials: "RS",
     rating: 5,
     achievement: "Cambio de carrera",
     quote: "De analista tradicional a especialista en IA. Los mentores me guiaron paso a paso hasta conseguir mi primer trabajo en IA.",
@@ -61,7 +61,7 @@ const testimonials = [
     name: "Elena Vargas",
     role: "CEO",
     company: "TechStart",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    initials: "EV",
     rating: 5,
     achievement: "Escaló su startup",
     quote: "Implementé IA en mi startup y aumenté la eficiencia 300%. Nutech me dio las herramientas exactas que necesitaba.",
@@ -102,12 +102,8 @@ const testimonials = [
                 <!-- Header del testimonio -->
                 <div class="flex items-start justify-between mb-6">
                   <div class="flex items-center space-x-4">
-                    <div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-orange-500/30 group-hover:ring-orange-500/60 transition-all duration-300">
-                      <img 
-                        src={testimonial.image} 
-                        alt={testimonial.name}
-                        class="w-full h-full object-cover"
-                      />
+                    <div class="w-16 h-16 rounded-full flex-shrink-0 ring-2 ring-orange-500/30 group-hover:ring-orange-500/60 transition-all duration-300 bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                      <span class="text-white font-bold text-lg">{testimonial.initials}</span>
                     </div>
                     <div>
                       <h3 class="text-white font-bold text-lg">{testimonial.name}</h3>
@@ -161,12 +157,8 @@ const testimonials = [
                 <!-- Header del testimonio -->
                 <div class="flex items-start justify-between mb-6">
                   <div class="flex items-center space-x-4">
-                    <div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-orange-500/30 group-hover:ring-orange-500/60 transition-all duration-300">
-                      <img 
-                        src={testimonial.image} 
-                        alt={testimonial.name}
-                        class="w-full h-full object-cover"
-                      />
+                    <div class="w-16 h-16 rounded-full flex-shrink-0 ring-2 ring-orange-500/30 group-hover:ring-orange-500/60 transition-all duration-300 bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                      <span class="text-white font-bold text-lg">{testimonial.initials}</span>
                     </div>
                     <div>
                       <h3 class="text-white font-bold text-lg">{testimonial.name}</h3>
