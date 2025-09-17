@@ -13,13 +13,13 @@ const navItems = [
 
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/20 backdrop-blur-md border-b border-white/20 shadow-lg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center py-3 sm:py-4">
+    <div class="flex items-center justify-start py-4 sm:py-6">
       <!-- Logo - Lado izquierdo -->
-      <div class="flex-shrink-0">
-        <a href="#inicio" class="flex items-center hover:scale-105 transition-transform duration-300">
-          <!-- Logo con imagen - Mucho más grande -->
-          <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden">
-                 <img src="/nutechcripto/images/favicon.png" alt="Nutech Academy" class="w-16 h-16 object-cover">
+      <div class="flex-shrink-0 flex items-center justify-center">
+        <a href="#inicio" class="flex items-center justify-center hover:scale-105 transition-transform duration-300">
+          <!-- Logo con imagen - Perfectamente centrado -->
+          <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-20 md:h-20 lg:w-22 lg:h-22 rounded-full overflow-hidden flex items-center justify-center mx-auto">
+                 <img src="/nutechcripto/images/favicon.png" alt="Nutech Academy" class="w-full h-full object-cover">
           </div>
         </a>
       </div>
@@ -42,8 +42,16 @@ const navItems = [
       <div class="hidden md:flex items-center space-x-3 ml-auto">
         <!-- Widget nativo de ConveyThis -->
         <div id="conveythis-language-selector"></div>
-        <a href="#registro" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-orange-500/25 transform hover:-translate-y-0.5">
-          Registrarse
+        <a href="#registro" class="relative group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-2xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 font-bold shadow-2xl hover:shadow-orange-500/40 transform hover:-translate-y-1 hover:scale-105 border border-orange-400/30 hover:border-orange-300/50 overflow-hidden">
+          <!-- Efecto de brillo animado -->
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+          <!-- Contenido del botón -->
+          <span class="relative z-10 flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+            <span>Registrarse</span>
+          </span>
         </a>
        
       </div>
@@ -78,8 +86,8 @@ const navItems = [
   <div class="px-6 pt-24 pb-8 space-y-6 h-full overflow-y-auto">
     <!-- Logo y título mejorados -->
     <div class="text-center mb-12">
-      <div class="w-20 h-20 mx-auto mb-4 rounded-2xl overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600 p-2 shadow-2xl">
-        <img src="/nutechcripto/images/favicon.png" alt="Nutech Academy" class="w-full h-full object-cover rounded-xl">
+      <div class="w-28 h-28 sm:w-40 sm:h-40 mx-auto mb-4 rounded-2xl overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600 p-2 shadow-2xl flex items-center justify-center">
+        <img src="/nutechcripto/images/favicon.png" alt="Nutech Academy" class="w-full h-full object-cover rounded-xl ">
       </div>
       <h3 class="text-white text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
         Nutech Academy
@@ -170,11 +178,16 @@ const navItems = [
     <!-- Botón CTA principal -->
     <div class="pt-8 space-y-4 border-t border-gradient-to-r from-orange-500/20 to-orange-600/20">
       <!-- Botón principal de registro -->
-      <a href="#registro" class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-5 rounded-2xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center space-x-3 text-lg font-bold shadow-lg hover:shadow-orange-500/25 transform hover:-translate-y-1">
-        <span>Registrarse Ahora</span>
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-        </svg>
+      <a href="#registro" class="relative group w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-5 rounded-2xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center space-x-3 text-lg font-bold shadow-2xl hover:shadow-orange-500/40 transform hover:-translate-y-1 hover:scale-105 border border-orange-400/30 hover:border-orange-300/50 overflow-hidden">
+        <!-- Efecto de brillo animado -->
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+        <!-- Contenido del botón -->
+        <span class="relative z-10 flex items-center space-x-3">
+          <span>Registrarse Ahora</span>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </span>
       </a>
     </div>
   </div>
