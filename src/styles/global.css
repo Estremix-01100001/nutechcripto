@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-@import './animations.css';
-@import './effects.css';
 
 
 @tailwind base;
@@ -26,6 +24,112 @@ body {
 body {
   color: #ffffff;
   background-color: #000000;
+}
+
+/* Asegurar que los degradados de sección se vean */
+section {
+  background-attachment: fixed;
+}
+
+/* Forzar degradados en secciones */
+section[class*="bg-gradient"] {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Degradado específico para secciones */
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, #111827, #000000, #1f2937) !important;
+}
+
+/* Degradados horizontales negros sutiles para todas las secciones */
+section {
+  background: linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%) !important;
+}
+
+/* Degradados horizontales negros alternados para continuidad */
+section:nth-child(even) {
+  background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%) !important;
+}
+
+/* Clase específica para degradados horizontales negros de sección */
+.section-gradient {
+  background: linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%) !important;
+}
+
+.section-gradient-alt {
+  background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%) !important;
+}
+
+/* Efectos adicionales para hacer visibles los degradados */
+section {
+  position: relative;
+}
+
+/* Fusión completa de secciones */
+section {
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Eliminar espacios entre secciones específicas */
+#instructores {
+  margin-top: -60px !important;
+  margin-bottom: -50px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#cursos {
+  margin-top: -50px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Eliminar cualquier borde o separación */
+#instructores, #cursos {
+  border: none;
+  outline: none;
+}
+
+/* Forzar fondo negro puro para Instructors */
+#instructores {
+  background: #000000 !important;
+}
+
+#instructores::before {
+  display: none !important;
+}
+
+/* Fusión perfecta entre Instructors y Courses */
+#cursos::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(180deg, 
+    #000000 0%, 
+    #000000 10%,
+    #000000 20%,
+    #111111 30%,
+    #111111 40%,
+    #111111 50%,
+    #111111 60%,
+    #111111 70%,
+    #111111 80%,
+    #111111 90%,
+    #111111 100%
+  );
+  z-index: 5;
+}
+
+section > * {
+  position: relative;
+  z-index: 2;
 }
 
 a {

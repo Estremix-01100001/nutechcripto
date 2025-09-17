@@ -88,72 +88,68 @@ const courses = [
 ];
 ---
 
-<section id="cursos" class="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-black to-gray-800">
+<section id="cursos" class="py-16 sm:py-20 lg:py-24" style="background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%);">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Botón de catálogo -->
-    <div class="text-center mb-8">
-      <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-4 py-2 rounded-full text-sm font-medium bg-orange-500/10 hover:bg-orange-500 hover:text-white transition-all duration-300">
-        <div class="w-4 h-4 bg-orange-500 rounded-full flex items-center justify-center">
-          <svg class="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-6a1 1 0 00-1-1H9a1 1 0 00-1 1v6a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"></path>
-          </svg>
+    <!-- Header mejorado -->
+    <div class="text-center mb-4">
+      <!-- Badge de cursos -->
+      <div class="text-center mb-6 sm:mb-8">
+        <div class="inline-flex items-center space-x-2 bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 rounded-full px-4 py-2 text-sm mb-6">
+          <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+          <span class="text-orange-300 font-medium">Cursos especializados en IA</span>
         </div>
-        <span>Catálogo de Cursos</span>
-      </button>
-    </div>
-
-    <!-- Título principal -->
-    <div class="text-center mb-12 sm:mb-16">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
-        Cursos diseñados para resultados reales
-      </h2>
-      <p class="text-lg sm:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
-        Cada curso incluye proyectos prácticos, mentoría personalizada y certificado verificable. Aprende haciendo, no solo viendo.
-      </p>
-    </div>
-
-    <!-- Filtros de cursos -->
-    <div class="space-y-6 mb-12 sm:mb-16">
+      </div>
+      
       <!-- Filtros de nivel -->
-      <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
-        <button class="px-6 py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors duration-200 text-sm sm:text-base">
-          Todos
-        </button>
-        <button class="px-6 py-3 bg-gray-700 text-white rounded-xl font-medium hover:bg-gray-600 transition-colors duration-200 text-sm sm:text-base">
-          Principiante
-        </button>
-        <button class="px-6 py-3 bg-gray-700 text-white rounded-xl font-medium hover:bg-gray-600 transition-colors duration-200 text-sm sm:text-base">
-          Intermedio
-        </button>
-        <button class="px-6 py-3 bg-gray-700 text-white rounded-xl font-medium hover:bg-gray-600 transition-colors duration-200 text-sm sm:text-base">
-          Avanzado
-        </button>
+      <div class="text-center mb-8">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 relative inline-block leading-tight ">
+          Nuestros Cursos
+        </h2>
+        <h3 class="text-xl font-semibold text-white mb-6">Filtrar por Nivel</h3>
+        <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
+          <button class="filter-btn px-8 py-4 bg-orange-500 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:scale-105 transition-all duration-300" data-filter="all">
+            Todos
+          </button>
+          <button class="filter-btn px-8 py-4 bg-white/10 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:bg-orange-500 hover:scale-105 transition-all duration-300" data-filter="principiante">
+            Principiante
+          </button>
+          <button class="filter-btn px-8 py-4 bg-white/10 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:bg-orange-500 hover:scale-105 transition-all duration-300" data-filter="intermedio">
+            Intermedio
+          </button>
+          <button class="filter-btn px-8 py-4 bg-white/10 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:bg-orange-500 hover:scale-105 transition-all duration-300" data-filter="avanzado">
+            Avanzado
+          </button>
+        </div>
       </div>
 
       <!-- Filtros de modalidad -->
-      <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
-        <button class="px-6 py-3 bg-gray-700 text-white rounded-xl font-medium hover:bg-gray-600 transition-colors duration-200 text-sm sm:text-base">
-          Todos
-        </button>
-        <button class="px-6 py-3 bg-gray-700 text-white rounded-xl font-medium hover:bg-gray-600 transition-colors duration-200 text-sm sm:text-base">
-          En vivo
-        </button>
-        <button class="px-6 py-3 bg-orange-600 text-white rounded-xl font-medium hover:bg-orange-700 transition-colors duration-200 text-sm sm:text-base">
-          On-demand
-        </button>
-        <button class="px-6 py-3 bg-gray-700 text-white rounded-xl font-medium hover:bg-gray-600 transition-colors duration-200 text-sm sm:text-base">
-          Híbrido
-        </button>
+      <div class="text-center mb-8">
+        <h3 class="text-xl font-semibold text-white mb-6">Filtrar por Modalidad</h3>
+        <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
+          <button class="filter-btn px-8 py-4 bg-orange-500 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:scale-105 transition-all duration-300" data-filter="modalidad-all">
+            Todos
+          </button>
+          <button class="filter-btn px-8 py-4 bg-white/10 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:bg-orange-500 hover:scale-105 transition-all duration-300" data-filter="en-vivo">
+            En vivo
+          </button>
+          <button class="filter-btn px-8 py-4 bg-white/10 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:bg-orange-500 hover:scale-105 transition-all duration-300" data-filter="on-demand">
+            On-demand
+          </button>
+          <button class="filter-btn px-8 py-4 bg-white/10 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:bg-orange-500 hover:scale-105 transition-all duration-300" data-filter="hibrido">
+            Híbrido
+          </button>
+        </div>
       </div>
     </div>
 
+
     <!-- Grid de cursos -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {courses.map((course) => (
-        <div class="bg-gray-800 rounded-xl p-6 hover:bg-gray-750 transition-colors duration-300">
+        <div class="course-card bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 relative overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105" data-course-id={course.id}>
           <!-- Header del curso -->
           <div class="flex justify-between items-start mb-4">
-            <span class={`px-3 py-1 rounded-full text-xs font-medium text-white ${course.levelColor}`}>
+            <span class={`course-level px-3 py-1 rounded-full text-xs font-medium text-white ${course.levelColor}`}>
               {course.level}
             </span>
             <div class="flex items-center space-x-1">
@@ -219,10 +215,10 @@ const courses = [
 
           <!-- Botones de acción -->
           <div class="space-y-2">
-            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded-xl font-medium hover:bg-blue-700 transition-colors duration-200 text-sm">
+            <button class="w-full bg-orange-500 text-white py-2 px-4 rounded-xl font-medium hover:bg-orange-600 hover:scale-105 transition-all duration-300 text-sm cursor-pointer">
               Inscribirme ahora
             </button>
-            <button class="w-full bg-gray-700 text-white py-2 px-4 rounded-xl font-medium hover:bg-gray-600 transition-colors duration-200 text-sm flex items-center justify-center space-x-2">
+            <button class="w-full bg-gray-700 text-white py-2 px-4 rounded-xl font-medium hover:bg-orange-500 hover:scale-105 transition-all duration-300 text-sm flex items-center justify-center space-x-2 cursor-pointer">
               <span>Ver temario</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -234,3 +230,80 @@ const courses = [
     </div>
   </div>
 </section>
+
+<script>
+  // Funcionalidad de filtros
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const courseCards = document.querySelectorAll('.course-card');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function(this: HTMLElement) {
+        // Remover clase active de todos los botones
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-orange-500', 'text-white');
+          btn.classList.add('bg-white/10', 'text-white');
+        });
+        
+        // Agregar clase active al botón clickeado
+        this.classList.add('active', 'bg-orange-500', 'text-white');
+        this.classList.remove('bg-white/10', 'text-white');
+        
+        const filter = this.getAttribute('data-filter');
+        
+        courseCards.forEach(card => {
+          if (filter === 'all') {
+            (card as HTMLElement).style.display = 'block';
+            (card as HTMLElement).style.animation = 'fadeIn 0.5s ease-in-out';
+          } else {
+            const courseLevelElement = card.querySelector('.course-level');
+            if (courseLevelElement) {
+              const courseLevel = courseLevelElement.textContent?.toLowerCase();
+              if (courseLevel === filter) {
+                (card as HTMLElement).style.display = 'block';
+                (card as HTMLElement).style.animation = 'fadeIn 0.5s ease-in-out';
+              } else {
+                (card as HTMLElement).style.display = 'none';
+              }
+            }
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .course-card {
+    position: relative;
+    overflow: hidden;
+  }
+</style>
+
+<!-- Importar CSS de animaciones -->
+<link rel="stylesheet" href="/src/styles/smoke-animations.css">
+
+<script>
+  import { initSmokeEffect } from '../scripts/smoke-effect.js';
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar efecto de humo para las cards de cursos
+    initSmokeEffect('.course-card', {
+      particleCount: 8,
+      animationDuration: 2000,
+      colorTheme: 'orange',
+      eventType: 'click'
+    });
+  });
+</script>

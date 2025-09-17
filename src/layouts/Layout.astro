@@ -1,12 +1,10 @@
 ---
-import '../styles/global.css';
-
 export interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = "Una landing page moderna y atractiva para tu negocio" } = Astro.props;
+const { title, description = "Nutech Academy - Transforma tu carrera con IA aplicada" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -15,16 +13,172 @@ const { title, description = "Una landing page moderna y atractiva para tu negoc
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/nutechcripto/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/nutechcripto/images/favicon3.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="/nutechcripto/images/fondoherosection.png" as="image">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="theme-color" content="#1f2937">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- ConveyThis Script Start -->
+    <script src="https://cdn.conveythis.com/javascript/conveythis.js?api_key=pub_6a502f1f679556b35f2305f93f603776" is:inline></script>
+    <!-- ConveyThis Script End -->
+    
+    <!-- CSS para posicionar el widget de ConveyThis en el header -->
+    <style>
+      /* Asegurar que el contenedor sea visible */
+      #conveythis-language-selector {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        width: auto !important;
+        height: auto !important;
+        margin-right: 12px !important;
+      }
+      
+      /* Estilos para cualquier widget de ConveyThis */
+      #conveythis-language-selector * {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+      
+      /* Estilos específicos para el widget */
+      #conveythis-language-selector .conveythis-widget,
+      #conveythis-language-selector .ct-widget,
+      #conveythis-language-selector .conveythis-language-selector,
+      #conveythis-language-selector .ct-language-selector {
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border-radius: 12px !important;
+        color: #ffffff !important;
+        padding: 8px 16px !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        display: inline-block !important;
+        text-decoration: none !important;
+      }
+      
+      #conveythis-language-selector .conveythis-widget:hover,
+      #conveythis-language-selector .ct-widget:hover,
+      #conveythis-language-selector .conveythis-language-selector:hover,
+      #conveythis-language-selector .ct-language-selector:hover {
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.4) !important;
+      }
+      
+      /* Asegurar que los elementos internos sean visibles */
+      #conveythis-language-selector span,
+      #conveythis-language-selector div,
+      #conveythis-language-selector a {
+        color: #ffffff !important;
+        background: transparent !important;
+      }
+    </style>
+    
+    <title>{title}</title>
   </head>
   <body class="font-sans">
     <slot />
+    
+    <!-- Configuración de ConveyThis para mostrar el widget nativo -->
+    <script>
+      // Declaraciones de tipo para ConveyThis
+      declare global {
+        interface Window {
+          conveyThis?: {
+            init?: (config: any) => void;
+            switchLanguage?: (lang: string) => void;
+            setLanguage?: (lang: string) => void;
+          };
+        }
+      }
+      
+      console.log('🚀 Configurando ConveyThis...');
+      
+      // Función para configurar ConveyThis
+      function setupConveyThis() {
+        const container = document.getElementById('conveythis-language-selector');
+        console.log('📦 Contenedor:', container);
+        
+        if (container) {
+          // Verificar si ConveyThis está disponible
+          if (typeof window.conveyThis !== 'undefined') {
+            console.log('✅ ConveyThis disponible');
+            console.log('🔧 Métodos disponibles:', Object.keys(window.conveyThis));
+            
+            try {
+              // Configurar ConveyThis
+              if (window.conveyThis.init) {
+                window.conveyThis.init({
+                  selector: '#conveythis-language-selector',
+                  from: 'en',
+                  to: 'es',
+                  show_flags: true,
+                  show_text: true,
+                  text_color: '#ffffff',
+                  background_color: 'rgba(255, 255, 255, 0.1)',
+                  border_color: 'rgba(255, 255, 255, 0.2)',
+                  hover_background_color: 'rgba(255, 255, 255, 0.2)',
+                  hover_border_color: 'rgba(255, 255, 255, 0.4)',
+                  font_size: '14px',
+                  font_family: 'inherit',
+                  border_radius: '12px',
+                  padding: '8px 16px',
+                  margin: '0',
+                  position: 'static',
+                  z_index: '1000'
+                });
+                console.log('✅ ConveyThis configurado');
+              } else {
+                console.log('⚠️ ConveyThis.init no disponible');
+              }
+            } catch (error) {
+              console.error('❌ Error configurando ConveyThis:', error);
+            }
+          } else {
+            console.log('⚠️ ConveyThis no disponible, reintentando...');
+            setTimeout(setupConveyThis, 2000);
+          }
+        } else {
+          console.error('❌ No se encontró el contenedor #conveythis-language-selector');
+        }
+      }
+      
+      // Función para verificar el estado del widget
+      function checkWidget() {
+        const container = document.getElementById('conveythis-language-selector');
+        if (container) {
+          console.log('📊 Estado del contenedor:');
+          console.log('- Contenido HTML:', container.innerHTML);
+          console.log('- Elementos hijos:', container.children.length);
+          console.log('- Estilos:', window.getComputedStyle(container).display);
+        }
+      }
+      
+      // Ejecutar cuando la página se carga
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('📄 DOM cargado');
+        setupConveyThis();
+        setTimeout(checkWidget, 3000);
+      });
+      
+      window.addEventListener('load', function() {
+        console.log('🔄 Página completamente cargada');
+        setupConveyThis();
+        setTimeout(checkWidget, 5000);
+      });
+    </script>
   </body>
 </html>

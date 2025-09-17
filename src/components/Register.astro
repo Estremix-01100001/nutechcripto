@@ -1,0 +1,383 @@
+---
+// Astro component
+---
+
+<div id="registro" class="py-16 sm:py-20" style="background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%);">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <!-- Badge de sección -->
+      <div class="inline-flex items-center space-x-2 bg-orange-500/10 border border-orange-500/30 rounded-full px-4 py-2 text-sm mb-6">
+        <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+        <span class="text-orange-400 font-medium">Registro</span>
+      </div>
+      
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+        Únete a la <span class="text-orange-500">Revolución de la IA</span>
+      </h2>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-6">
+        Regístrate ahora y comienza tu transformación profesional con los mejores cursos de Inteligencia Artificial aplicada.
+      </p>
+      
+      <!-- Contador de registros real -->
+      <div class="inline-flex items-center space-x-2 bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 rounded-full px-4 py-2 text-sm transition-all duration-300 hover:scale-105 cursor-pointer">
+        <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+        <span class="text-gray-300">
+          <span id="contadorRegistros" class="text-orange-500 font-bold">Cargando...</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Formulario de registro -->
+    <div class="bg-gray-800 rounded-2xl p-8 sm:p-12 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
+      <form id="registerForm" class="space-y-6">
+        <!-- Información personal -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Nombre -->
+          <div>
+            <label for="nombre" class="block text-white text-sm font-medium mb-2">
+              Nombre completo *
+            </label>
+            <input 
+              type="text" 
+              id="nombre" 
+              name="nombre" 
+              required
+              class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
+              placeholder="Tu nombre completo"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-white text-sm font-medium mb-2">
+              Correo electrónico *
+            </label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required
+              class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
+              placeholder="tu@email.com"
+            />
+          </div>
+        </div>
+
+        <!-- Información profesional -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Teléfono -->
+          <div>
+            <label for="telefono" class="block text-white text-sm font-medium mb-2">
+              Teléfono
+            </label>
+            <input 
+              type="tel" 
+              id="telefono" 
+              name="telefono"
+              class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
+              placeholder="+51 999 888 777"
+            />
+          </div>
+
+          <!-- País -->
+          <div>
+            <label for="pais" class="block text-white text-sm font-medium mb-2">
+              País *
+            </label>
+            <select 
+              id="pais" 
+              name="pais" 
+              required
+              class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
+            >
+              <option value="">Selecciona tu país</option>
+              <option value="PE">Perú</option>
+              <option value="MX">México</option>
+              <option value="CO">Colombia</option>
+              <option value="AR">Argentina</option>
+              <option value="EC">Ecuador</option>
+              <option value="PA">Panamá</option>
+              <option value="DO">República Dominicana</option>
+              <option value="ES">España</option>
+              <option value="US">Estados Unidos</option>
+              <option value="other">Otro</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Intereses -->
+        <div>
+          <label class="block text-white text-sm font-medium mb-3">
+            ¿Qué te interesa más? (Puedes seleccionar varias opciones)
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 p-2 rounded-lg">
+              <input type="checkbox" name="intereses" value="machine-learning" class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2">
+              <span class="text-gray-300 text-sm">Machine Learning</span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 p-2 rounded-lg">
+              <input type="checkbox" name="intereses" value="deep-learning" class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2">
+              <span class="text-gray-300 text-sm">Deep Learning</span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 p-2 rounded-lg">
+              <input type="checkbox" name="intereses" value="nlp" class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2">
+              <span class="text-gray-300 text-sm">Procesamiento de Lenguaje Natural</span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 p-2 rounded-lg">
+              <input type="checkbox" name="intereses" value="computer-vision" class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2">
+              <span class="text-gray-300 text-sm">Visión por Computadora</span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 p-2 rounded-lg">
+              <input type="checkbox" name="intereses" value="data-science" class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2">
+              <span class="text-gray-300 text-sm">Ciencia de Datos</span>
+            </label>
+            <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 p-2 rounded-lg">
+              <input type="checkbox" name="intereses" value="ai-business" class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2">
+              <span class="text-gray-300 text-sm">IA para Negocios</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Nivel de experiencia -->
+        <div>
+          <label for="experiencia" class="block text-white text-sm font-medium mb-2">
+            Nivel de experiencia en programación *
+          </label>
+          <select 
+            id="experiencia" 
+            name="experiencia" 
+            required
+            class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
+          >
+            <option value="">Selecciona tu nivel</option>
+            <option value="principiante">Principiante (0-1 años)</option>
+            <option value="intermedio">Intermedio (1-3 años)</option>
+            <option value="avanzado">Avanzado (3-5 años)</option>
+            <option value="experto">Experto (5+ años)</option>
+          </select>
+        </div>
+
+        <!-- Términos y condiciones -->
+        <div class="flex items-start space-x-3">
+          <input 
+            type="checkbox" 
+            id="terminos" 
+            name="terminos" 
+            required
+            class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2 mt-1"
+          />
+          <label for="terminos" class="text-gray-300 text-sm">
+            Acepto los <a href="#" class="text-orange-500 hover:text-orange-400 underline">términos y condiciones</a> y la <a href="#" class="text-orange-500 hover:text-orange-400 underline">política de privacidad</a> *
+          </label>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="flex items-start space-x-3">
+          <input 
+            type="checkbox" 
+            id="newsletter" 
+            name="newsletter"
+            class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2 mt-1"
+          />
+          <label for="newsletter" class="text-gray-300 text-sm">
+            Quiero recibir información sobre nuevos cursos y ofertas especiales
+          </label>
+        </div>
+
+        <!-- Botón de envío -->
+        <div class="pt-4">
+          <button 
+            type="submit"
+            class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-4 px-8 rounded-xl hover:from-orange-600 hover:to-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-all duration-300 transform hover:scale-105"
+          >
+            <span class="flex items-center justify-center space-x-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              </svg>
+              <span>Registrarme Ahora</span>
+            </span>
+          </button>
+        </div>
+
+        <!-- Mensaje de éxito/error -->
+        <div id="mensaje" class="hidden mt-4 p-4 rounded-xl"></div>
+      </form>
+    </div>
+
+    <!-- Beneficios adicionales -->
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="text-center">
+        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </div>
+        <h3 class="text-white font-bold text-lg mb-2">Acceso Inmediato</h3>
+        <p class="text-gray-300 text-sm">Recibe acceso instantáneo a recursos exclusivos y contenido premium</p>
+      </div>
+
+      <div class="text-center">
+        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-white font-bold text-lg mb-2">Comunidad Exclusiva</h3>
+        <p class="text-gray-300 text-sm">Únete a nuestra comunidad de profesionales y expertos en IA</p>
+      </div>
+
+      <div class="text-center">
+        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+          </svg>
+        </div>
+        <h3 class="text-white font-bold text-lg mb-2">Certificación</h3>
+        <p class="text-gray-300 text-sm">Obtén certificados reconocidos por la industria al completar los cursos</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { getContadorRegistros, crearRegistro } from '../lib/supabase.ts';
+  
+  document.addEventListener('DOMContentLoaded', async function() {
+    const form = document.getElementById('registerForm') as HTMLFormElement;
+    const contadorElement = document.getElementById('contadorRegistros') as HTMLElement;
+    
+    if (!form || !contadorElement) return;
+    
+    // Cargar contador real desde Supabase
+    let contadorActual = await getContadorRegistros();
+    let contadorVisible = contadorActual;
+    
+    // Función para formatear números con comas
+    function formatearNumero(num: number): string {
+      return num.toLocaleString('es-ES');
+    }
+    
+    // Función para animar el contador
+    function animarContador(nuevoValor: number) {
+      const duracion = 1000; // 1 segundo
+      const pasos = 20;
+      const incrementoPorPaso = (nuevoValor - contadorVisible) / pasos;
+      let pasoActual = 0;
+      
+      const intervalo = setInterval(() => {
+        pasoActual++;
+        contadorVisible += incrementoPorPaso;
+        contadorElement.textContent = `${formatearNumero(Math.floor(contadorVisible))} personas registradas`;
+        
+        if (pasoActual >= pasos) {
+          clearInterval(intervalo);
+          contadorVisible = nuevoValor;
+          contadorElement.textContent = `${formatearNumero(nuevoValor)} personas registradas`;
+        }
+      }, duracion / pasos);
+    }
+    
+    // Actualizar contador cada 30 segundos
+    function iniciarContador() {
+      setInterval(async () => {
+        const nuevoContador = await getContadorRegistros();
+        if (nuevoContador > contadorActual) {
+          contadorActual = nuevoContador;
+          animarContador(nuevoContador);
+        }
+      }, 30000); // Cada 30 segundos
+    }
+    
+    // Inicializar contador
+    contadorElement.textContent = `${formatearNumero(contadorActual)} personas registradas`;
+    iniciarContador();
+    
+    form.addEventListener('submit', async function(e: Event) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const data: Record<string, string> = {};
+      
+      // Convertir FormData a objeto
+      for (const [key, value] of formData.entries()) {
+        if (typeof value === 'string') {
+          data[key] = value;
+        }
+      }
+      
+      // Validación básica
+      if (!data.nombre || !data.email || !data.pais || !data.experiencia || !data.terminos) {
+        showMessage('Por favor, completa todos los campos obligatorios.', 'error');
+        return;
+      }
+      
+      // Validación de email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(data.email)) {
+        showMessage('Por favor, ingresa un email válido.', 'error');
+        return;
+      }
+      
+      // Obtener intereses seleccionados
+      const intereses = Array.from(document.querySelectorAll('input[name="intereses"]:checked'))
+        .map((input: any) => input.value);
+      
+      // Crear objeto de registro
+      const registro = {
+        nombre: data.nombre,
+        email: data.email,
+        telefono: data.telefono || '',
+        pais: data.pais,
+        intereses: intereses,
+        experiencia: data.experiencia,
+        newsletter: data.newsletter === 'on'
+      };
+      
+      // Mostrar loading
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span class="flex items-center justify-center space-x-2"><svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Registrando...</span></span>';
+      submitBtn.disabled = true;
+      
+      try {
+        // Enviar registro a Supabase
+        const resultado = await crearRegistro(registro);
+        
+        if (resultado.success) {
+          showMessage('¡Registro exitoso! Te hemos enviado un email de confirmación.', 'success');
+          
+          // Actualizar contador
+          contadorActual += 1;
+          animarContador(contadorActual);
+          
+          // Limpiar formulario
+          this.reset();
+        } else {
+          showMessage(`Error: ${resultado.error}`, 'error');
+        }
+      } catch (error) {
+        console.error('Error al registrar:', error);
+        showMessage('Error al procesar el registro. Inténtalo de nuevo.', 'error');
+      } finally {
+        // Restaurar botón
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  });
+  
+  function showMessage(text: string, type: 'success' | 'error') {
+    const mensaje = document.getElementById('mensaje');
+    if (!mensaje) return;
+    
+    mensaje.className = `mt-4 p-4 rounded-xl ${type === 'success' ? 'bg-green-900 text-green-300 border border-green-700' : 'bg-red-900 text-red-300 border border-red-700'}`;
+    mensaje.textContent = text;
+    mensaje.classList.remove('hidden');
+    
+    // Ocultar mensaje después de 5 segundos
+    setTimeout(() => {
+      mensaje.classList.add('hidden');
+    }, 5000);
+  }
+</script>

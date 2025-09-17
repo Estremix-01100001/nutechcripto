@@ -2,13 +2,11 @@
 // Astro component
 ---
 
-<section id="ubicacion" class="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
-  <!-- Efectos de fondo -->
-  <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800"></div>
+<section id="ubicacion" class="py-16 sm:py-20 lg:py-24 relative overflow-hidden " style="background: linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%);">
   
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 ">
     <!-- Botón de ubicación -->
-    <div class="text-center mb-8">
+    <div class="text-center mb-8 ">
       <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-medium bg-orange-500/10 hover:bg-orange-500 hover:text-white transition-all duration-300">
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
@@ -27,14 +25,14 @@
       <!-- Bloque izquierdo - Alcance Global -->
       <div class="space-y-8">
         <!-- Información de alcance global -->
-        <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+        <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
           <div class="flex items-center space-x-3 mb-6">
             <div class="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
               <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm8 0a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1h-6a1 1 0 01-1-1V8z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <h3 class="text-white text-xl font-bold">Alcance Global</h3>
+            <h3 class="text-white text-xl font-bold ">Alcance Global</h3>
           </div>
           <p class="text-gray-300 text-lg leading-relaxed">
             <span class="text-orange-500 font-bold">Nutech Academy</span> ya impacta en más de 
@@ -44,103 +42,103 @@
         </div>
 
         <!-- Países donde operamos -->
-        <div class="bg-gray-800 rounded-xl p-6 border border-gray-700">
+        <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
           <h4 class="text-center text-white text-lg font-semibold mb-6">Países donde operamos</h4>
           <div class="grid grid-cols-4 gap-4">
             <!-- España -->
-            <div class="text-center">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden">
+            <div class="text-center cursor-pointer group">
+              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
                 <img 
                   src="https://flagcdn.com/w40/es.png" 
                   alt="España" 
                   class="w-10 h-10 object-cover rounded-full"
                 />
               </div>
-              <span class="text-white text-xs">España</span>
+              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">España</span>
             </div>
             
             <!-- México -->
-            <div class="text-center">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden">
+            <div class="text-center cursor-pointer group">
+              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
                 <img 
                   src="https://flagcdn.com/w40/mx.png" 
                   alt="México" 
                   class="w-10 h-10 object-cover rounded-full"
                 />
               </div>
-              <span class="text-white text-xs">México</span>
+              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">México</span>
             </div>
             
             <!-- Perú -->
-            <div class="text-center">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden">
+            <div class="text-center cursor-pointer group">
+              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
                 <img 
                   src="https://flagcdn.com/w40/pe.png" 
                   alt="Perú" 
                   class="w-10 h-10 object-cover rounded-full"
                 />
               </div>
-              <span class="text-white text-xs">Perú</span>
+              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">Perú</span>
             </div>
             
             <!-- Colombia -->
-            <div class="text-center">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden">
+            <div class="text-center cursor-pointer group">
+              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
                 <img 
                   src="https://flagcdn.com/w40/co.png" 
                   alt="Colombia" 
                   class="w-10 h-10 object-cover rounded-full"
                 />
               </div>
-              <span class="text-white text-xs">Colombia</span>
+              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">Colombia</span>
             </div>
             
             <!-- Argentina -->
-            <div class="text-center">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden">
+            <div class="text-center cursor-pointer group">
+              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
                 <img 
                   src="https://flagcdn.com/w40/ar.png" 
                   alt="Argentina" 
                   class="w-10 h-10 object-cover rounded-full"
                 />
               </div>
-              <span class="text-white text-xs">Argentina</span>
+              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">Argentina</span>
             </div>
             
             <!-- Ecuador -->
-            <div class="text-center">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden">
+            <div class="text-center cursor-pointer group">
+              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
                 <img 
                   src="https://flagcdn.com/w40/ec.png" 
                   alt="Ecuador" 
                   class="w-10 h-10 object-cover rounded-full"
                 />
               </div>
-              <span class="text-white text-xs">Ecuador</span>
+              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">Ecuador</span>
             </div>
             
             <!-- Panamá -->
-            <div class="text-center">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden">
+            <div class="text-center cursor-pointer group">
+              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
                 <img 
                   src="https://flagcdn.com/w40/pa.png" 
                   alt="Panamá" 
                   class="w-10 h-10 object-cover rounded-full"
                 />
               </div>
-              <span class="text-white text-xs">Panamá</span>
+              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">Panamá</span>
             </div>
             
             <!-- República Dominicana -->
-            <div class="text-center">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden">
+            <div class="text-center cursor-pointer group">
+              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
                 <img 
                   src="https://flagcdn.com/w40/do.png" 
                   alt="República Dominicana" 
                   class="w-10 h-10 object-cover rounded-full"
                 />
               </div>
-              <span class="text-white text-xs">R. Dominicana</span>
+              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">R. Dominicana</span>
             </div>
           </div>
         </div>
@@ -149,30 +147,14 @@
       <!-- Bloque derecho - Mapa del mundo -->
       <div class="space-y-6">
         <!-- Mapa del mundo -->
-        <div class="bg-gray-800 rounded-xl p-6 border border-gray-700">
+        <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer group">
           <div class="relative">
             <img 
-              src="/images/ubicacion.png" 
+              src="/nutechcripto/images/ubicacion.png" 
               alt="Mapa del mundo" 
-              class="w-full h-auto rounded-xl"
+              class="w-full h-auto rounded-xl group-hover:scale-105 transition-transform duration-300"
             />
             
-            <!-- Tooltip de Estados Unidos - Posicionado correctamente -->
-            <div class="absolute top-1/4 right-1/4 bg-gray-900/95 backdrop-blur-md rounded-xl p-4 max-w-xs border border-gray-600 shadow-xl">
-              <div class="flex items-center space-x-2 mb-2">
-                <div class="w-6 h-4 bg-gradient-to-r from-orange-400 to-orange-600 rounded flex items-center justify-center">
-                  <img 
-                    src="./images/paises.png" 
-                    alt="Bandera de Estados Unidos" 
-                    class="w-5 h-3 object-cover rounded"
-                  />
-                </div>
-                <span class="text-white text-sm font-semibold">Estados Unidos</span>
-              </div>
-              <p class="text-gray-300 text-xs leading-relaxed">
-                Amplia conexión con diversos países.
-              </p>
-            </div>
           </div>
         </div>
 
@@ -182,7 +164,7 @@
     <!-- Estadísticas -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Alumnos -->
-      <div class="bg-gray-800 rounded-xl p-8 text-center border border-gray-700 hover:border-orange-500/50 transition-all duration-300">
+      <div class="bg-gray-800 rounded-xl p-8 text-center border border-gray-700 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
         <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
           <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
             <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
@@ -193,10 +175,10 @@
       </div>
 
       <!-- Red global -->
-      <div class="bg-gray-800 rounded-xl p-8 text-center border border-gray-700 hover:border-orange-500/50 transition-all duration-300">
+      <div class="bg-gray-800 rounded-xl p-8 text-center border border-gray-700 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
         <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
           <img 
-            src="./images/mundo.png" 
+            src="/nutechcripto/images/mundo.png" 
             alt="Red global" 
             class="w-10 h-10 object-contain"
           />
@@ -206,7 +188,7 @@
       </div>
 
       <!-- Cursos -->
-      <div class="bg-gray-800 rounded-xl p-8 text-center border border-gray-700 hover:border-orange-500/50 transition-all duration-300">
+      <div class="bg-gray-800 rounded-xl p-8 text-center border border-gray-700 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
         <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
           <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
             <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.09-3.5.25A1.993 1.993 0 002 6.5v11A1.993 1.993 0 003.5 19h13a1.993 1.993 0 001.5-1.5v-11A1.993 1.993 0 0016.5 4c-1.255 0-2.443.09-3.5.25A7.968 7.968 0 0011 4.804V6a1 1 0 11-2 0V4.804zM10 8a1 1 0 011 1v6a1 1 0 11-2 0V9a1 1 0 011-1z"></path>

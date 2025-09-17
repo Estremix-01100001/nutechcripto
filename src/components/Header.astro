@@ -11,7 +11,7 @@ const navItems = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/10 backdrop-blur-sm border-b border-white/10">
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/20 backdrop-blur-md border-b border-white/20 shadow-lg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center py-3 sm:py-4">
       <!-- Logo - Lado izquierdo -->
@@ -19,36 +19,33 @@ const navItems = [
         <a href="#inicio" class="flex items-center hover:scale-105 transition-transform duration-300">
           <!-- Logo con imagen - Mucho más grande -->
           <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden">
-                 <img src="/nutechcripto/images/favicon.png" alt="Nutech Academy" class="w-full h-full object-cover">
+                 <img src="/nutechcripto/images/favicon.png" alt="Nutech Academy" class="w-16 h-16 object-cover">
           </div>
         </a>
       </div>
 
       <!-- Desktop Navigation - Centro -->
-      <nav class="hidden md:flex space-x-8 flex-1 justify-center">
+      <nav class="hidden md:flex space-x-2 flex-1 justify-center">
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="text-white hover:text-orange-500 transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-white/5 hover:scale-105 relative group"
+            class="text-white/90 hover:text-orange-400 transition-all duration-300 font-medium px-4 py-2 rounded-xl hover:bg-orange-500/10 hover:scale-105 relative group"
           >
             {item.name}
-            <!-- Indicador de hover -->
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+            <!-- Indicador de hover mejorado -->
+            <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-orange-600 transition-all duration-300 group-hover:w-3/4 rounded-full"></span>
           </a>
         ))}
       </nav>
 
       <!-- CTA Buttons - Lado derecho al borde -->
-      <div class="hidden md:flex items-center space-x-4 ml-auto">
-        <button onclick="translatePage()" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition-colors duration-200 flex items-center space-x-2 text-sm">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
-          </svg>
-          <span>Ver en inglés (ref)</span>
-        </button>
-        <button class="bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-700 transition-colors duration-200 font-semibold">
-          Inscribirme ahora
-        </button>
+      <div class="hidden md:flex items-center space-x-3 ml-auto">
+        <!-- Widget nativo de ConveyThis -->
+        <div id="conveythis-language-selector"></div>
+        <a href="#registro" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-orange-500/25 transform hover:-translate-y-0.5">
+          Registrarse
+        </a>
+       
       </div>
 
       <!-- Mobile menu button - Lado derecho -->
@@ -69,60 +66,116 @@ const navItems = [
   </div>
 </header>
 
-<!-- Mobile Navigation - Fuera del header para cubrir toda la pantalla -->
-<div id="mobile-menu" class="hidden fixed top-0 left-0 right-0 bottom-0 z-[9999] bg-black/95 backdrop-blur-sm md:hidden" style="display: none;">
-  <!-- Botón de cierre -->
-  <button id="mobile-menu-close" class="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:text-orange-500 hover:bg-white/20 transition-all duration-300 border border-white/20">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<!-- Mobile Navigation - Diseño moderno adaptado a la landing -->
+<div id="mobile-menu" class="hidden fixed top-0 left-0 right-0 bottom-0 z-[9999] bg-gradient-to-br from-gray-900 via-black to-gray-800 backdrop-blur-xl md:hidden" style="display: none;">
+  <!-- Botón de cierre mejorado -->
+  <button id="mobile-menu-close" class="absolute top-6 right-6 w-14 h-14 bg-gradient-to-r from-orange-500/20 to-orange-600/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white hover:from-orange-500/30 hover:to-orange-600/30 hover:scale-110 transition-all duration-300 border border-orange-500/30 shadow-lg">
+    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
     </svg>
   </button>
   
-  <div class="px-6 pt-20 pb-8 space-y-4 h-full overflow-y-auto">
-    <!-- Título del menú -->
-    <div class="text-center mb-8">
-      <h3 class="text-white text-2xl font-bold">Menú de Navegación</h3>
+  <div class="px-6 pt-24 pb-8 space-y-6 h-full overflow-y-auto">
+    <!-- Logo y título mejorados -->
+    <div class="text-center mb-12">
+      <div class="w-20 h-20 mx-auto mb-4 rounded-2xl overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600 p-2 shadow-2xl">
+        <img src="/nutechcripto/images/favicon.png" alt="Nutech Academy" class="w-full h-full object-cover rounded-xl">
+      </div>
+      <h3 class="text-white text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+        Nutech Academy
+      </h3>
+      <p class="text-gray-300 text-sm mt-2">Transforma tu carrera con IA</p>
     </div>
     
-    <!-- Enlaces de navegación -->
-    <div class="space-y-3">
-      <a href="#inicio" class="block px-6 py-4 text-white hover:text-orange-500 hover:bg-white/10 rounded-2xl transition-all duration-300 font-semibold text-lg border border-white/20">
-        Inicio
+    <!-- Enlaces de navegación con diseño moderno -->
+    <div class="space-y-4">
+      <a href="#inicio" class="group block px-6 py-5 text-white hover:text-orange-400 hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-orange-600/10 rounded-2xl transition-all duration-300 font-semibold text-lg border-2 border-white/20 hover:border-orange-400 hover:shadow-lg hover:shadow-orange-500/30 backdrop-blur-sm hover:scale-105">
+        <div class="flex items-center space-x-4">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/20 flex items-center justify-center group-hover:from-orange-500/30 group-hover:to-orange-600/30 transition-all duration-300">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+          </div>
+          <span>Inicio</span>
+        </div>
       </a>
-      <a href="#cursos" class="block px-6 py-4 text-white hover:text-orange-500 hover:bg-white/10 rounded-2xl transition-all duration-300 font-semibold text-lg border border-white/20">
-        Cursos
+      
+      <a href="#cursos" class="group block px-6 py-5 text-white hover:text-orange-400 hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-orange-600/10 rounded-2xl transition-all duration-300 font-semibold text-lg border-2 border-white/20 hover:border-orange-400 hover:shadow-lg hover:shadow-orange-500/30 backdrop-blur-sm hover:scale-105">
+        <div class="flex items-center space-x-4">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/20 flex items-center justify-center group-hover:from-orange-500/30 group-hover:to-orange-600/30 transition-all duration-300">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+          </div>
+          <span>Cursos</span>
+        </div>
       </a>
-      <a href="#cronograma" class="block px-6 py-4 text-white hover:text-orange-500 hover:bg-white/10 rounded-2xl transition-all duration-300 font-semibold text-lg border border-white/20">
-        Cronograma
+      
+      <a href="#cronograma" class="group block px-6 py-5 text-white hover:text-orange-400 hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-orange-600/10 rounded-2xl transition-all duration-300 font-semibold text-lg border-2 border-white/20 hover:border-orange-400 hover:shadow-lg hover:shadow-orange-500/30 backdrop-blur-sm hover:scale-105">
+        <div class="flex items-center space-x-4">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/20 flex items-center justify-center group-hover:from-orange-500/30 group-hover:to-orange-600/30 transition-all duration-300">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <span>Cronograma</span>
+        </div>
       </a>
-      <a href="#inversion" class="block px-6 py-4 text-white hover:text-orange-500 hover:bg-white/10 rounded-2xl transition-all duration-300 font-semibold text-lg border border-white/20">
-        Inversión
+      
+      <a href="#inversion" class="group block px-6 py-5 text-white hover:text-orange-400 hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-orange-600/10 rounded-2xl transition-all duration-300 font-semibold text-lg border-2 border-white/20 hover:border-orange-400 hover:shadow-lg hover:shadow-orange-500/30 backdrop-blur-sm hover:scale-105">
+        <div class="flex items-center space-x-4">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/20 flex items-center justify-center group-hover:from-orange-500/30 group-hover:to-orange-600/30 transition-all duration-300">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+            </svg>
+          </div>
+          <span>Inversión</span>
+        </div>
       </a>
-      <a href="#testimonios" class="block px-6 py-4 text-white hover:text-orange-500 hover:bg-white/10 rounded-2xl transition-all duration-300 font-semibold text-lg border border-white/20">
-        Testimonios
+      
+      <a href="#testimonios" class="group block px-6 py-5 text-white hover:text-orange-400 hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-orange-600/10 rounded-2xl transition-all duration-300 font-semibold text-lg border-2 border-white/20 hover:border-orange-400 hover:shadow-lg hover:shadow-orange-500/30 backdrop-blur-sm hover:scale-105">
+        <div class="flex items-center space-x-4">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/20 flex items-center justify-center group-hover:from-orange-500/30 group-hover:to-orange-600/30 transition-all duration-300">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <span>Testimonios</span>
+        </div>
       </a>
-      <a href="#faq" class="block px-6 py-4 text-white hover:text-orange-500 hover:bg-white/10 rounded-2xl transition-all duration-300 font-semibold text-lg border border-white/20">
-        FAQ
+      
+      <a href="#faq" class="group block px-6 py-5 text-white hover:text-orange-400 hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-orange-600/10 rounded-2xl transition-all duration-300 font-semibold text-lg border-2 border-white/20 hover:border-orange-400 hover:shadow-lg hover:shadow-orange-500/30 backdrop-blur-sm hover:scale-105">
+        <div class="flex items-center space-x-4">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/20 flex items-center justify-center group-hover:from-orange-500/30 group-hover:to-orange-600/30 transition-all duration-300">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <span>FAQ</span>
+        </div>
       </a>
-      <a href="#footer" class="block px-6 py-4 text-white hover:text-orange-500 hover:bg-white/10 rounded-2xl transition-all duration-300 font-semibold text-lg border border-white/20">
-        Contacto
+      
+      <a href="#footer" class="group block px-6 py-5 text-white hover:text-orange-400 hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-orange-600/10 rounded-2xl transition-all duration-300 font-semibold text-lg border-2 border-white/20 hover:border-orange-400 hover:shadow-lg hover:shadow-orange-500/30 backdrop-blur-sm hover:scale-105">
+        <div class="flex items-center space-x-4">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/20 flex items-center justify-center group-hover:from-orange-500/30 group-hover:to-orange-600/30 transition-all duration-300">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <span>Contacto</span>
+        </div>
       </a>
     </div>
     
-    <!-- Botones CTA -->
-    <div class="pt-6 space-y-4 border-t border-white/20">
-      <button onclick="translatePage()" class="w-full bg-blue-600 text-white px-6 py-4 rounded-2xl hover:bg-blue-700 transition-all duration-300 flex items-center justify-center space-x-3 text-lg font-semibold">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+    <!-- Botón CTA principal -->
+    <div class="pt-8 space-y-4 border-t border-gradient-to-r from-orange-500/20 to-orange-600/20">
+      <!-- Botón principal de registro -->
+      <a href="#registro" class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-5 rounded-2xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center space-x-3 text-lg font-bold shadow-lg hover:shadow-orange-500/25 transform hover:-translate-y-1">
+        <span>Registrarse Ahora</span>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
         </svg>
-        <span>Ver en inglés (ref)</span>
-      </button>
-      <button class="w-full bg-orange-600 text-white px-6 py-4 rounded-2xl hover:bg-orange-700 transition-all duration-300 flex items-center justify-center space-x-3 text-lg font-bold">
-        <span>Inscribirme ahora</span>
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-        </svg>
-      </button>
+      </a>
     </div>
   </div>
 </div>
@@ -183,17 +236,6 @@ const navItems = [
   }
 
   // Add event listeners when component mounts
-         // Función para traducir la página
-         function translatePage() {
-           // Verificar si es localhost
-           if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-             // Para desarrollo local, usar DeepL o mostrar mensaje
-             alert('Para ver la traducción en inglés:\n\n1. Usa la extensión de Google Translate en tu navegador\n2. O visita: https://www.deepl.com/translator\n3. Copia y pega el contenido de la página\n\nEn producción, este botón funcionará automáticamente.');
-           } else {
-             // Para producción, usar Google Translate
-             window.open('https://translate.google.com/translate?sl=es&tl=en&u=' + encodeURIComponent(window.location.href), '_blank');
-           }
-         }
 
          document.addEventListener('DOMContentLoaded', function() {
            console.log('DOM loaded, setting up mobile menu');
@@ -238,17 +280,24 @@ const navItems = [
       });
     });
     
-    // Add smooth scroll to desktop navigation links
-    const desktopLinks = document.querySelectorAll('nav a[href^="#"]');
-    console.log('Desktop navigation links found:', desktopLinks.length);
-    desktopLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
+    // Add smooth scroll to all navigation links (desktop and mobile)
+    const allLinks = document.querySelectorAll('a[href^="#"]');
+    console.log('Navigation links found:', allLinks.length);
+    allLinks.forEach(link => {
+      link.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
+        const targetElement = document.querySelector(targetId || '') as HTMLElement;
         
         if (targetElement) {
-          const headerHeight = document.querySelector('header').offsetHeight;
+          // Close mobile menu if open
+          const mobileMenu = document.getElementById('mobile-menu');
+          if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            closeMenu();
+          }
+          
+          const header = document.querySelector('header') as HTMLElement;
+          const headerHeight = header ? header.offsetHeight : 0;
           const targetPosition = targetElement.offsetTop - headerHeight - 20;
           
           window.scrollTo({

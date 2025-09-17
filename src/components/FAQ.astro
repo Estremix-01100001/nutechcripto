@@ -72,7 +72,7 @@ const faqItems = [
 ];
 ---
 
-<section id="faq" class="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
+<section id="faq" class="py-16 sm:py-20 lg:py-24 relative overflow-hidden" style="background: linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%);">
   
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- Botón de FAQ -->
@@ -86,8 +86,8 @@ const faqItems = [
     </div>
 
     <!-- Título principal -->
-    <div class="text-center mb-12">
-      <h2 class="text-white text-4xl lg:text-5xl font-bold mb-6">
+    <div class="text-center mb-8 sm:mb-12">
+      <h2 class="text-white text-4xl lg:text-5xl font-bold mb-6 sm:mb-8">
         Resolvemos tus dudas más comunes
       </h2>
       <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
@@ -96,13 +96,13 @@ const faqItems = [
     </div>
 
     <!-- Filtros de categorías -->
-    <div class="flex flex-wrap justify-center gap-4 mb-12">
+    <div class="flex flex-wrap justify-center gap-4 mb-8 sm:mb-12">
       {faqCategories.map((category) => (
         <button 
           class={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
             category.active 
               ? 'bg-blue-500 text-white' 
-              : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+              : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 hover:scale-105 border border-gray-700'
           }`}
           onclick={`filterFAQ('${category.id}')`}
         >
@@ -112,9 +112,9 @@ const faqItems = [
     </div>
 
     <!-- Lista de preguntas -->
-    <div class="space-y-4 mb-16">
+    <div class="space-y-4 mb-8">
       {faqItems.map((item) => (
-        <div class="faq-item bg-gray-800 rounded-xl p-6 group cursor-pointer hover:bg-gray-700 transition-all duration-300" onclick={`toggleFAQ(${item.id})`}>
+        <div class="faq-item bg-gray-800 rounded-xl p-6 group cursor-pointer hover:bg-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 border border-gray-700" onclick={`toggleFAQ(${item.id})`}>
           <div class="flex items-center justify-between">
             <h3 class="text-white text-lg font-medium pr-4">{item.question}</h3>
             <svg class="w-6 h-6 text-orange-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,23 +129,7 @@ const faqItems = [
     </div>
 
     <!-- Sección de contacto -->
-    <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl p-8 text-center border border-gray-700">
-      <h3 class="text-white text-2xl font-bold mb-4">¿Tienes otra pregunta?</h3>
-      <p class="text-gray-300 text-lg mb-8">Nuestro equipo de soporte está disponible para ayudarte</p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <button class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-          </svg>
-          <span>Contactar soporte</span>
-        </button>
-        
-        <div class="bg-gray-700 hover:bg-gray-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 cursor-pointer">
-          hola@nutechacademy.com
-        </div>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -168,11 +152,11 @@ const faqItems = [
     // Actualizar botones de filtro
     document.querySelectorAll('[onclick^="filterFAQ"]').forEach(btn => {
       btn.classList.remove('bg-blue-500', 'text-white');
-      btn.classList.add('bg-gray-800', 'text-gray-300');
+      btn.classList.add('bg-gray-800', 'text-gray-300', 'hover:bg-gray-700', 'hover:border-orange-500', 'hover:shadow-lg', 'hover:shadow-orange-500/20', 'hover:scale-105', 'border', 'border-gray-700');
     });
     
     const activeBtn = document.querySelector(`[onclick="filterFAQ('${category}')"]`);
-    activeBtn.classList.remove('bg-gray-800', 'text-gray-300');
+    activeBtn.classList.remove('bg-gray-800', 'text-gray-300', 'hover:bg-gray-700', 'hover:border-orange-500', 'hover:shadow-lg', 'hover:shadow-orange-500/20', 'hover:scale-105', 'border', 'border-gray-700');
     activeBtn.classList.add('bg-blue-500', 'text-white');
     
     // Filtrar preguntas

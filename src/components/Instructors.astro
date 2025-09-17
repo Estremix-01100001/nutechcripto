@@ -2,90 +2,234 @@
 // Astro component
 ---
 
-<section id="instructores" class="py-16 sm:py-20 lg:py-24 bg-black">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="instructores" class="relative py-16 sm:py-20 lg:py-24 -mt-8 -mb-12 bg-black">
+  
+  <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Título principal -->
-    <div class="text-center mb-12 sm:mb-16">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
-        Nuestros instructores han capacitados profesionales en:
+    <div class="text-center mb-8 sm:mb-6">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 relative inline-block leading-tight">
+        Nuestros instructores han capacitado profesionales en:
       </h2>
-      <p class="text-lg sm:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
+      <p class="text-lg sm:text-xl text-white max-w-4xl mx-auto leading-relaxed font-medium mb-8 mt-8">
         Programas diseñados para llevarte desde los fundamentos hasta la implementación avanzada de transformación digital, IA y ciberseguridad
       </p>
+      
+      <!-- Sección de empresas -->
+      <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 relative inline-block">
+        <span class="text-white">Empresas que confían en nosotros</span>
+        <span class="text-white/60">:</span>
+      </h3>
     </div>
 
-    <!-- Logos de empresas -->
-    <div class="grid grid-cols-4 gap-8 sm:gap-12 md:gap-16 justify-items-center items-center mb-16 sm:mb-20">
-      <!-- Logo BCP -->
-      <div class="w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300">
-        <img 
-          src="./images/bcp.png" 
-          alt="BCP" 
-          class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
-        />
-      </div>
-      
-      <!-- Logo SUNAT -->
-      <div class="w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300">
-        <img 
-          src="./images/sunat.png" 
-          alt="SUNAT" 
-          class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
-        />
-      </div>
-      
-      <!-- Logo Banco de la Nación -->
-      <div class="w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300">
-        <img 
-          src="./images/bancodelanacion.png" 
-          alt="Banco de la Nación" 
-          class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
-        />
-      </div>
-      
-      <!-- Logo CREDICORP -->
-      <div class="w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300">
-        <img 
-          src="./images/credicorp.png" 
-          alt="CREDICORP" 
-          class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
-        />
-      </div>
-    </div>
-
-    <!-- Filtros de cursos -->
-    <div class="space-y-6">
-      <!-- Filtros de nivel -->
-      <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
-        <button class="px-6 py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors duration-200 text-sm sm:text-base">
-          Todos
-        </button>
-        <button class="px-6 py-3 bg-white text-black rounded-xl font-medium hover:bg-gray-100 transition-colors duration-200 text-sm sm:text-base">
-          Principiante
-        </button>
-        <button class="px-6 py-3 bg-white text-black rounded-xl font-medium hover:bg-gray-100 transition-colors duration-200 text-sm sm:text-base">
-          Intermedio
-        </button>
-        <button class="px-6 py-3 bg-white text-black rounded-xl font-medium hover:bg-gray-100 transition-colors duration-200 text-sm sm:text-base">
-          Avanzado
-        </button>
-      </div>
-
-      <!-- Filtros de modalidad -->
-      <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
-        <button class="px-6 py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors duration-200 text-sm sm:text-base">
-          Todos
-        </button>
-        <button class="px-6 py-3 bg-white text-black rounded-xl font-medium hover:bg-gray-100 transition-colors duration-200 text-sm sm:text-base">
-          En vivo
-        </button>
-        <button class="px-6 py-3 bg-white text-black rounded-xl font-medium hover:bg-gray-100 transition-colors duration-200 text-sm sm:text-base">
-          On-demand
-        </button>
-        <button class="px-6 py-3 bg-white text-black rounded-xl font-medium hover:bg-gray-100 transition-colors duration-200 text-sm sm:text-base">
-          Híbrido
-        </button>
+    <!-- Bucle infinito de logos de empresas -->
+    <div class="relative ">
+      <div class="overflow-hidden relative">
+        <div id="companies-infinite" class="flex animate-scroll">
+          <!-- Logo BCP -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/bcp.png" 
+              alt="BCP" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+          
+          <!-- Logo SUNAT -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/sunat.png" 
+              alt="SUNAT" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+          
+          <!-- Logo Banco de la Nación -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/bancodelanacion.png" 
+              alt="Banco de la Nación" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+          
+          <!-- Logo CREDICORP -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/credicorp.png" 
+              alt="CREDICORP" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+          
+          <!-- Logos duplicados para bucle infinito perfecto -->
+          <!-- Logo BCP (duplicado) -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/bcp.png" 
+              alt="BCP" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+          
+          <!-- Logo SUNAT (duplicado) -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/sunat.png" 
+              alt="SUNAT" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+          
+          <!-- Logo Banco de la Nación (duplicado) -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/bancodelanacion.png" 
+              alt="Banco de la Nación" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+          
+          <!-- Logo CREDICORP (duplicado) -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/credicorp.png" 
+              alt="CREDICORP" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+          
+          <!-- Logos adicionales para bucle infinito perfecto -->
+          <!-- Logo BCP (tercera vez) -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/bcp.png" 
+              alt="BCP" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+          
+          <!-- Logo SUNAT (tercera vez) -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/sunat.png" 
+              alt="SUNAT" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+          
+          <!-- Logo Banco de la Nación (tercera vez) -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/bancodelanacion.png" 
+              alt="Banco de la Nación" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+          
+          <!-- Logo CREDICORP (tercera vez) -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/credicorp.png" 
+              alt="CREDICORP" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+          
+          <!-- Logo BCP (cuarta vez) -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/bcp.png" 
+              alt="BCP" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+          
+          <!-- Logo SUNAT (cuarta vez) -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/sunat.png" 
+              alt="SUNAT" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+          
+          <!-- Logo Banco de la Nación (cuarta vez) -->
+          <div class="company-logo w-28 sm:w-32 md:w-36 h-20 sm:h-24 md:h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 flex items-center justify-center relative overflow-hidden cursor-pointer mx-4 flex-shrink-0">
+            <img 
+              src="/nutechcripto/images/bancodelanacion.png" 
+              alt="Banco de la Nación" 
+              class="h-10 sm:h-12 md:h-14 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Importar CSS de animaciones -->
+<link rel="stylesheet" href="/src/styles/smoke-animations.css">
+
+<style>
+  /* Animación de bucle infinito perfecto */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
+    width: 200%; /* Doble ancho para bucle perfecto */
+    display: flex;
+  }
+  
+  /* Asegurar que no hay espacios entre logos */
+  .animate-scroll .company-logo {
+    flex-shrink: 0;
+    margin: 0 1rem;
+  }
+  
+  /* Contenedor del carrusel */
+  .overflow-hidden {
+    position: relative;
+  }
+  
+  /* Asegurar bucle perfecto */
+  .animate-scroll {
+    will-change: transform;
+  }
+  
+  /* Sin pausa en hover para movimiento infinito */
+  .animate-scroll:hover {
+    animation-play-state: running;
+  }
+  
+  /* Estilos para logos */
+  .company-logo {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .company-logo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(251, 146, 60, 0.4);
+    background-color: rgba(251, 146, 60, 0.1);
+  }
+</style>
+
+<script>
+  import { initSmokeEffect } from '../scripts/smoke-effect.js';
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar efecto de humo para los logos de empresas
+    initSmokeEffect('.company-logo', {
+      particleCount: 6,
+      animationDuration: 2000,
+      colorTheme: 'blue',
+      eventType: 'click'
+    });
+  });
+</script>
