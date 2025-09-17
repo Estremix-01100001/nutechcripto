@@ -102,16 +102,54 @@ const {
     <script src="https://cdn.conveythis.com/javascript/conveythis.js?api_key=pub_6a502f1f679556b35f2305f93f603776" is:inline></script>
     <!-- ConveyThis Script End -->
     
-    <!-- ConveyThis Configuration Script -->
+    <!-- JavaScript para el widget de idiomas -->
     <script is:inline>
-      // Configuración simplificada de ConveyThis
+      // Funciones para el widget de idiomas
+      function toggleLanguage() {
+        const widget = document.querySelector('.language-widget');
+        widget.classList.toggle('active');
+      }
+      
+      function changeLanguage(lang) {
+        console.log('🌐 Cambiando idioma a:', lang);
+        
+        // Actualizar el selector visual
+        const selector = document.querySelector('.language-selector');
+        const flag = selector.querySelector('.flag');
+        const text = selector.querySelector('.text');
+        
+        if (lang === 'es') {
+          flag.textContent = '🇪🇸';
+          text.textContent = 'ES';
+        } else if (lang === 'en') {
+          flag.textContent = '🇺🇸';
+          text.textContent = 'EN';
+        }
+        
+        // Cerrar el dropdown
+        const widget = document.querySelector('.language-widget');
+        widget.classList.remove('active');
+        
+        // Aquí puedes agregar la lógica de traducción real
+        // Por ahora solo mostramos un mensaje
+        alert('Idioma cambiado a: ' + (lang === 'es' ? 'Español' : 'English'));
+      }
+      
+      // Cerrar dropdown al hacer clic fuera
+      document.addEventListener('click', function(event) {
+        const widget = document.querySelector('.language-widget');
+        if (!widget.contains(event.target)) {
+          widget.classList.remove('active');
+        }
+      });
+      
+      // Configuración de ConveyThis como fallback
       document.addEventListener('DOMContentLoaded', function() {
         console.log('🔄 DOM cargado, configurando ConveyThis...');
         
         function initConveyThis() {
           console.log('🔍 Verificando ConveyThis...');
           console.log('ConveyThis disponible:', typeof window.conveyThis !== 'undefined');
-          console.log('ConveyThis.init disponible:', window.conveyThis && typeof window.conveyThis.init === 'function');
           
           if (typeof window.conveyThis !== 'undefined' && window.conveyThis.init) {
             console.log('✅ ConveyThis disponible, inicializando...');
@@ -126,20 +164,109 @@ const {
               console.error('❌ Error configurando ConveyThis:', error);
             }
           } else {
-            console.log('⚠️ ConveyThis no disponible, reintentando...');
-            setTimeout(initConveyThis, 2000);
+            console.log('⚠️ ConveyThis no disponible, usando widget personalizado');
           }
         }
         
-        // Intentar múltiples veces
-        setTimeout(initConveyThis, 1000);
-        setTimeout(initConveyThis, 3000);
-        setTimeout(initConveyThis, 5000);
+        // Intentar ConveyThis después de un delay
+        setTimeout(initConveyThis, 2000);
       });
     </script>
     
-    <!-- CSS para posicionar el widget de ConveyThis en el header -->
+    <!-- CSS para el widget de idiomas -->
     <style>
+      /* Widget de idiomas personalizado */
+      .language-widget {
+        position: relative;
+        margin-right: 12px;
+      }
+      
+      .language-selector {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        padding: 8px 16px;
+        color: #ffffff;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 80px;
+        justify-content: center;
+        user-select: none;
+      }
+      
+      .language-selector:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: scale(1.05);
+      }
+      
+      .language-selector .flag {
+        font-size: 16px;
+      }
+      
+      .language-selector .text {
+        font-weight: 500;
+      }
+      
+      .language-selector .arrow {
+        transition: transform 0.3s ease;
+        color: #ffffff;
+      }
+      
+      .language-widget.active .arrow {
+        transform: rotate(180deg);
+      }
+      
+      .language-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        padding: 8px 0;
+        margin-top: 4px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+      }
+      
+      .language-widget.active .language-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      
+      .language-option {
+        padding: 8px 16px;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .language-option:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      
+      .language-option .flag {
+        font-size: 16px;
+      }
+      
+      .language-option .text {
+        font-weight: 500;
+      }
+      
       /* Asegurar que el contenedor sea visible */
       #conveythis-language-selector {
         display: block !important;
@@ -148,48 +275,6 @@ const {
         position: relative !important;
         width: auto !important;
         height: auto !important;
-        margin-right: 12px !important;
-      }
-      
-      /* Estilos para cualquier widget de ConveyThis */
-      #conveythis-language-selector * {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-      }
-      
-      /* Estilos específicos para el widget */
-      #conveythis-language-selector .conveythis-widget,
-      #conveythis-language-selector .ct-widget,
-      #conveythis-language-selector .conveythis-language-selector,
-      #conveythis-language-selector .ct-language-selector {
-        background: rgba(255, 255, 255, 0.1) !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
-        border-radius: 12px !important;
-        color: #ffffff !important;
-        padding: 8px 16px !important;
-        font-size: 14px !important;
-        font-weight: 500 !important;
-        cursor: pointer !important;
-        transition: all 0.3s ease !important;
-        display: inline-block !important;
-        text-decoration: none !important;
-      }
-      
-      #conveythis-language-selector .conveythis-widget:hover,
-      #conveythis-language-selector .ct-widget:hover,
-      #conveythis-language-selector .conveythis-language-selector:hover,
-      #conveythis-language-selector .ct-language-selector:hover {
-        background: rgba(255, 255, 255, 0.2) !important;
-        border-color: rgba(255, 255, 255, 0.4) !important;
-      }
-      
-      /* Asegurar que los elementos internos sean visibles */
-      #conveythis-language-selector span,
-      #conveythis-language-selector div,
-      #conveythis-language-selector a {
-        color: #ffffff !important;
-        background: transparent !important;
       }
     </style>
     
