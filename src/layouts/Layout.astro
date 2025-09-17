@@ -163,18 +163,7 @@ const {
     <slot />
     
     <!-- Configuración de ConveyThis para mostrar el widget nativo -->
-    <script>
-      // Declaraciones de tipo para ConveyThis
-      declare global {
-        interface Window {
-          conveyThis?: {
-            init?: (config: any) => void;
-            switchLanguage?: (lang: string) => void;
-            setLanguage?: (lang: string) => void;
-          };
-        }
-      }
-      
+    <script is:inline>
       console.log('🚀 Configurando ConveyThis...');
       
       // Función para configurar ConveyThis
@@ -186,7 +175,6 @@ const {
           // Verificar si ConveyThis está disponible
           if (typeof window.conveyThis !== 'undefined') {
             console.log('✅ ConveyThis disponible');
-            console.log('🔧 Métodos disponibles:', Object.keys(window.conveyThis));
             
             try {
               // Configurar ConveyThis
@@ -226,29 +214,19 @@ const {
         }
       }
       
-      // Función para verificar el estado del widget
-      function checkWidget() {
-        const container = document.getElementById('conveythis-language-selector');
-        if (container) {
-          console.log('📊 Estado del contenedor:');
-          console.log('- Contenido HTML:', container.innerHTML);
-          console.log('- Elementos hijos:', container.children.length);
-          console.log('- Estilos:', window.getComputedStyle(container).display);
-        }
-      }
-      
       // Ejecutar cuando la página se carga
       document.addEventListener('DOMContentLoaded', function() {
         console.log('📄 DOM cargado');
         setupConveyThis();
-        setTimeout(checkWidget, 3000);
       });
       
       window.addEventListener('load', function() {
         console.log('🔄 Página completamente cargada');
         setupConveyThis();
-        setTimeout(checkWidget, 5000);
       });
+      
+      // Fallback adicional: verificar después de 5 segundos
+      setTimeout(setupConveyThis, 5000);
     </script>
   </body>
 </html>
