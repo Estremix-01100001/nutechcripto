@@ -105,9 +105,12 @@ const testimonials = [
                     <div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-orange-500/30 group-hover:ring-orange-500/60 transition-all duration-300">
                       <img 
                         src={testimonial.image} 
-                        alt={testimonial.name}
+                        alt={`Foto de perfil de ${testimonial.name}, ${testimonial.role} en ${testimonial.company}`}
                         class="w-full h-full object-cover"
                         loading="lazy"
+                        decoding="async"
+                        width="64"
+                        height="64"
                         onerror="this.src='https://ui-avatars.com/api/?name='+encodeURIComponent(this.alt)+'&background=6b7280&color=fff&size=150&bold=true'"
                       />
                     </div>
@@ -166,9 +169,12 @@ const testimonials = [
                     <div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-orange-500/30 group-hover:ring-orange-500/60 transition-all duration-300">
                       <img 
                         src={testimonial.image} 
-                        alt={testimonial.name}
+                        alt={`Foto de perfil de ${testimonial.name}, ${testimonial.role} en ${testimonial.company}`}
                         class="w-full h-full object-cover"
                         loading="lazy"
+                        decoding="async"
+                        width="64"
+                        height="64"
                         onerror="this.src='https://ui-avatars.com/api/?name='+encodeURIComponent(this.alt)+'&background=6b7280&color=fff&size=150&bold=true'"
                       />
                     </div>

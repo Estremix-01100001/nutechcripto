@@ -2,31 +2,101 @@
 export interface Props {
   title: string;
   description?: string;
+  keywords?: string;
+  image?: string;
+  url?: string;
 }
 
-const { title, description = "Nutech Academy - Transforma tu carrera con IA aplicada" } = Astro.props;
+const { 
+  title, 
+  description = "Nutech Academy - Aprende Inteligencia Artificial aplicada y transforma tu carrera profesional. Cursos en vivo, mentores expertos y proyectos reales en IA, automatización y transformación digital.",
+  keywords = "inteligencia artificial, IA, machine learning, automatización, transformación digital, cursos IA, capacitación profesional, Nutech Academy, Python, data science, prompt engineering, visión por computadora, NLP, chatbots",
+  image = "/nutechcripto/images/fondoherosection.png",
+  url = "https://estremix-01100001.github.io/nutechcripto/"
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/nutechcripto/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Nutech Academy" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="theme-color" content="#f97316" />
+    <meta name="msapplication-TileColor" content="#f97316" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={url} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/nutechcripto/images/favicon.png" />
+    <link rel="apple-touch-icon" href="/nutechcripto/images/favicon.png" />
+    <link rel="shortcut icon" href="/nutechcripto/images/favicon.png" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Nutech Academy" />
+    <meta property="og:locale" content="es_ES" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={url} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:creator" content="@nutechacademy" />
+    <meta name="twitter:site" content="@nutechacademy" />
     
     <!-- Preload critical resources -->
     <link rel="preload" href="/nutechcripto/images/favicon3.mp4" as="video" type="video/mp4">
     <link rel="preload" href="/nutechcripto/images/fondoherosection.png" as="image">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
+    <link rel="preload" href="https://randomuser.me/api/portraits/men/1.jpg" as="image">
     
-    <!-- SEO Meta Tags -->
-    <meta name="theme-color" content="#1f2937">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content={title}>
-    <meta property="og:description" content={description}>
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Nutech Academy",
+      "description": "Academia especializada en Inteligencia Artificial aplicada y transformación digital",
+      "url": "https://estremix-01100001.github.io/nutechcripto/",
+      "logo": "https://estremix-01100001.github.io/nutechcripto/images/favicon.png",
+      "image": "https://estremix-01100001.github.io/nutechcripto/images/fondoherosection.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "PE"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": "Spanish"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Education",
+        "description": "Cursos de Inteligencia Artificial aplicada"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/nutech-academy",
+        "https://twitter.com/nutechacademy"
+      ]
+    }
+    </script>
     
     <!-- ConveyThis Script Start -->
     <script src="https://cdn.conveythis.com/javascript/conveythis.js?api_key=pub_6a502f1f679556b35f2305f93f603776" is:inline></script>
