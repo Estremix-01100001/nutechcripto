@@ -12,8 +12,8 @@ const courses = [
     students: "245 estudiantes",
     modality: "En vivo",
     features: ["Casos de negocio reales", "Certificado verificable", "Mentorías 1:1"],
-    price: 497,
-    originalPrice: 797
+    price: 1950,
+    originalPrice: 2500
   },
   {
     id: 2,
@@ -26,8 +26,8 @@ const courses = [
     students: "189 estudiantes",
     modality: "En vivo",
     features: ["Acceso a APIs premium", "Automatizaciones reales", "Templates exclusivos"],
-    price: 697,
-    originalPrice: 997
+    price: 1950,
+    originalPrice: 2500
   },
   {
     id: 3,
@@ -40,8 +40,8 @@ const courses = [
     students: "156 estudiantes",
     modality: "En vivo",
     features: ["GPU en la nube incluido", "Datasets privados", "Proyecto para portafolio"],
-    price: 897,
-    originalPrice: 1297
+    price: 1950,
+    originalPrice: 2500
   },
   {
     id: 4,
@@ -54,8 +54,8 @@ const courses = [
     students: "203 estudiantes",
     modality: "En vivo",
     features: ["Integración WhatsApp/Telegram", "Modelos custom", "Deploy en producción"],
-    price: 797,
-    originalPrice: 1197
+    price: 1950,
+    originalPrice: 2500
   },
   {
     id: 5,
@@ -68,8 +68,8 @@ const courses = [
     students: "287 estudiantes",
     modality: "On-demand",
     features: ["Plantillas listas", "Integración CRM/ERP", "ROI comprobado"],
-    price: 597,
-    originalPrice: 897
+    price: 1950,
+    originalPrice: 2500
   },
   {
     id: 6,
@@ -80,10 +80,38 @@ const courses = [
     description: "Aprende a vender servicios de IA como consultor independiente. Incluye propuestas, pricing y casos de estudio.",
     duration: "6 semanas",
     students: "89 estudiantes",
-    modality: "En vivo",
+    modality: "Híbrido",
     features: ["Red de contactos", "Plantillas de propuestas", "Mentoría de negocio"],
-    price: 997,
-    originalPrice: 1497
+    price: 1950,
+    originalPrice: 2500
+  },
+  {
+    id: 7,
+    title: "Machine Learning Práctico",
+    level: "Intermedio",
+    levelColor: "bg-blue-500",
+    rating: 4.7,
+    description: "Aprende machine learning desde cero con proyectos reales. Incluye sesiones en vivo y contenido on-demand.",
+    duration: "10 semanas",
+    students: "156 estudiantes",
+    modality: "Híbrido",
+    features: ["Sesiones en vivo", "Contenido on-demand", "Proyectos prácticos"],
+    price: 1950,
+    originalPrice: 2500
+  },
+  {
+    id: 8,
+    title: "Análisis de Datos con Python",
+    level: "Principiante",
+    levelColor: "bg-green-500",
+    rating: 4.6,
+    description: "Domina el análisis de datos con Python, Pandas y visualizaciones. Perfecto para principiantes.",
+    duration: "8 semanas",
+    students: "203 estudiantes",
+    modality: "On-demand",
+    features: ["Videos grabados", "Ejercicios prácticos", "Certificado"],
+    price: 1950,
+    originalPrice: 2500
   }
 ];
 ---
@@ -94,9 +122,9 @@ const courses = [
     <div class="text-center mb-12">
       <!-- Badge de cursos -->
       <div class="text-center mb-8">
-        <div class="inline-flex items-center space-x-2 bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 rounded-full px-4 py-2 text-sm mb-6">
+        <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-medium bg-orange-500/10 hover:bg-orange-500 hover:text-white transition-all duration-300 mb-6">
           <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-          <span class="text-orange-300 font-medium">Cursos especializados en IA</span>
+          <span>Cursos especializados en IA</span>
         </div>
       </div>
       
@@ -146,7 +174,7 @@ const courses = [
     <!-- Grid de cursos -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {courses.map((course) => (
-        <div class="course-card bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-gray-700/50 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 relative overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 flex flex-col" data-course-id={course.id} data-level={course.level.toLowerCase()} data-modality={course.modality.toLowerCase()}>
+        <div class="course-card bg-gray-800 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-gray-700/50 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 relative overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 flex flex-col" data-course-id={course.id} data-level={course.level.toLowerCase()} data-modality={course.modality.toLowerCase()}>
           <!-- Header del curso -->
           <div class="flex justify-between items-start mb-4">
             <span class={`course-level px-3 py-1 rounded-full text-xs font-medium text-white ${course.levelColor}`}>
@@ -234,21 +262,30 @@ const courses = [
 <script>
   // Funcionalidad de filtros
   document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Inicializando filtros de cursos...');
+    
     const filterButtons = document.querySelectorAll('.filter-btn');
     const courseCards = document.querySelectorAll('.course-card');
+    
+    console.log('🔍 Botones de filtro encontrados:', filterButtons.length);
+    console.log('📚 Tarjetas de curso encontradas:', courseCards.length);
     
     // Variables para mantener el estado de los filtros
     let currentLevelFilter = 'all';
     let currentModalityFilter = 'modalidad-all';
     
-    filterButtons.forEach(button => {
-      button.addEventListener('click', function(this: HTMLElement) {
+    filterButtons.forEach((button, index) => {
+      console.log(`🔘 Botón ${index + 1}:`, button.getAttribute('data-filter'));
+      
+      button.addEventListener('click', function() {
         const filter = this.getAttribute('data-filter');
+        console.log('🔍 Filtro clickeado:', filter);
         
         // Determinar si es filtro de nivel o modalidad
         if (filter === 'all' || filter === 'principiante' || filter === 'intermedio' || filter === 'avanzado') {
           // Es filtro de nivel
           currentLevelFilter = filter;
+          console.log('📚 Filtro de nivel actualizado:', currentLevelFilter);
           
           // Actualizar estilos de botones de nivel
           const levelButtons = document.querySelectorAll('[data-filter="all"], [data-filter="principiante"], [data-filter="intermedio"], [data-filter="avanzado"]');
@@ -262,6 +299,7 @@ const courses = [
         } else if (filter === 'modalidad-all' || filter === 'en-vivo' || filter === 'on-demand' || filter === 'hibrido') {
           // Es filtro de modalidad
           currentModalityFilter = filter;
+          console.log('🎯 Filtro de modalidad actualizado:', currentModalityFilter);
           
           // Actualizar estilos de botones de modalidad
           const modalityButtons = document.querySelectorAll('[data-filter="modalidad-all"], [data-filter="en-vivo"], [data-filter="on-demand"], [data-filter="hibrido"]');
@@ -274,25 +312,32 @@ const courses = [
         }
         
         // Aplicar filtros combinados
+        console.log('🔄 Aplicando filtros...');
         applyFilters();
       });
     });
     
     function applyFilters() {
-      courseCards.forEach(card => {
+      console.log('🔍 Aplicando filtros - Nivel:', currentLevelFilter, 'Modalidad:', currentModalityFilter);
+      let visibleCount = 0;
+      
+      courseCards.forEach((card, index) => {
         let showCard = true;
+        const courseLevel = card.getAttribute('data-level');
+        const courseModality = card.getAttribute('data-modality');
+        
+        console.log(`📋 Curso ${index + 1}: Nivel=${courseLevel}, Modalidad=${courseModality}`);
         
         // Verificar filtro de nivel
         if (currentLevelFilter !== 'all') {
-          const courseLevel = card.getAttribute('data-level');
           if (courseLevel !== currentLevelFilter) {
             showCard = false;
+            console.log(`❌ Curso ${index + 1} oculto por nivel: ${courseLevel} !== ${currentLevelFilter}`);
           }
         }
         
         // Verificar filtro de modalidad
         if (currentModalityFilter !== 'modalidad-all' && showCard) {
-          const courseModality = card.getAttribute('data-modality');
           let expectedModality = '';
           
           switch (currentModalityFilter) {
@@ -307,19 +352,28 @@ const courses = [
               break;
           }
           
+          console.log(`🔍 Comparando modalidad: "${courseModality}" === "${expectedModality}"`);
+          
           if (courseModality !== expectedModality) {
             showCard = false;
+            console.log(`❌ Curso ${index + 1} oculto por modalidad: ${courseModality} !== ${expectedModality}`);
+          } else {
+            console.log(`✅ Curso ${index + 1} modalidad coincide: ${courseModality}`);
           }
         }
         
         // Mostrar u ocultar la tarjeta
         if (showCard) {
-          (card as HTMLElement).style.display = 'block';
-          (card as HTMLElement).style.animation = 'fadeIn 0.5s ease-in-out';
+          card.style.display = 'block';
+          card.style.animation = 'fadeIn 0.5s ease-in-out';
+          visibleCount++;
+          console.log(`✅ Curso ${index + 1} visible: ${courseLevel} - ${courseModality}`);
         } else {
-          (card as HTMLElement).style.display = 'none';
+          card.style.display = 'none';
         }
       });
+      
+      console.log(`📊 Total de cursos visibles: ${visibleCount}/${courseCards.length}`);
     }
   });
 </script>

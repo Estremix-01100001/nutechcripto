@@ -1,14 +1,13 @@
 ---
-// Astro component
+// Componente de ubicación global
 ---
 
-<section id="ubicacion" class="py-16 sm:py-20 lg:py-24 relative overflow-hidden " style="background: linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%);">
-  
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 ">
-    <!-- Botón de ubicación -->
-    <div class="text-center mb-8 ">
+<section id="ubicacion" class="py-16 sm:py-20 lg:py-24" style="background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Badge de ubicación -->
+    <div class="text-center mb-8">
       <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-medium bg-orange-500/10 hover:bg-orange-500 hover:text-white transition-all duration-300">
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
         </svg>
         <span>Ubicación</span>
@@ -16,187 +15,535 @@
     </div>
 
     <!-- Título principal -->
-    <div class="text-center mb-16">
-      <h2 class="text-white text-4xl lg:text-5xl font-bold mb-4">Ubicación</h2>
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+        Ubicación
+      </h2>
+    </div>
+
+    <!-- Sección de Alcance Global -->
+    <div class="mb-12 sm:mb-32">
+      <div class="bg-gray-800 rounded-xl p-6 sm:p-8 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer mb-8">
+        <div class="text-center mb-6">
+          <div class="inline-flex items-center space-x-3 ">
+            <div class="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 ">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-white text-xl font-semibold">Alcance Global</h3>
+          </div>
+          <p class="text-white text-base sm:text-lg leading-relaxed text-center">
+          Nutech Academy ya impacta en más de <span class="text-orange-500 font-bold">9 países</span> de Latinoamérica, Europa y Norteamérica: España, México, Perú, Colombia, Argentina, Ecuador, Panamá, República Dominicana y EE. UU.
+        </p>
+      </div>
     </div>
 
     <!-- Contenido principal -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-      <!-- Bloque izquierdo - Alcance Global -->
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+      <!-- Bloque izquierdo - Estadísticas -->
       <div class="space-y-8">
-        <!-- Información de alcance global -->
-        <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-          <div class="flex items-center space-x-3 mb-6">
-            <div class="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
-              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm8 0a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1h-6a1 1 0 01-1-1V8z" clip-rule="evenodd"></path>
-              </svg>
+        <!-- Estadísticas principales -->
+        <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
+          <h3 class="text-white text-xl font-semibold mb-4 text-center">Alcance Internacional</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-orange-500 mb-2">9</div>
+              <div class="text-white/70 text-sm sm:text-base">Países</div>
             </div>
-            <h3 class="text-white text-xl font-bold ">Alcance Global</h3>
+            <div class="text-center">
+              <div class="text-2xl font-bold text-orange-500 mb-2">1,200+</div>
+              <div class="text-white/70 text-sm sm:text-base">Estudiantes</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-bold text-orange-500 mb-2">15</div>
+              <div class="text-white/70 text-sm sm:text-base">Ciudades</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-bold text-orange-500 mb-2">98%</div>
+              <div class="text-white/70 text-sm sm:text-base">Satisfacción</div>
+            </div>
           </div>
-          <p class="text-gray-300 text-lg leading-relaxed">
-            <span class="text-orange-500 font-bold">Nutech Academy</span> ya impacta en más de 
-            <span class="text-orange-500 font-bold">8 países</span> de Latinoamérica y Europa: 
-            España, México, Perú, Colombia, Argentina, Ecuador, Panamá, República Dominicana y EE. UU.
-          </p>
         </div>
 
-        <!-- Países donde operamos -->
-        <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-          <h4 class="text-center text-white text-lg font-semibold mb-6">Países donde operamos</h4>
-          <div class="grid grid-cols-4 gap-4">
-            <!-- España -->
-            <div class="text-center cursor-pointer group">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
-                <img 
-                  src="https://flagcdn.com/w40/es.png" 
-                  alt="España" 
-                  class="w-10 h-10 object-cover rounded-full"
-                />
+        <!-- Países operativos con banderas -->
+        <div id="paises-operativos" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
+          <h4 class="text-white text-lg font-semibold mb-6 text-center">Países donde operamos</h4>
+          <div class="grid grid-cols-3 sm:grid-cols-4 gap-4">
+            <!-- Fila superior -->
+            <div class="flex flex-col items-center space-y-2 hover:bg-gray-700/30 rounded-lg p-3 transition-all duration-200 hover:scale-105 cursor-pointer" onclick="scrollToMapAndShowCountry('ES')">
+              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl shadow-lg">
+                🇪🇸
               </div>
-              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">España</span>
+              <span class="text-white text-xs font-medium text-center">España</span>
+            </div>
+            <div class="flex flex-col items-center space-y-2 hover:bg-gray-700/30 rounded-lg p-3 transition-all duration-200 hover:scale-105 cursor-pointer" onclick="scrollToMapAndShowCountry('MX')">
+              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl shadow-lg">
+                🇲🇽
+              </div>
+              <span class="text-white text-xs font-medium text-center">México</span>
+            </div>
+            <div class="flex flex-col items-center space-y-2 hover:bg-gray-700/30 rounded-lg p-3 transition-all duration-200 hover:scale-105 cursor-pointer" onclick="scrollToMapAndShowCountry('PE')">
+              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl shadow-lg">
+                🇵🇪
+              </div>
+              <span class="text-white text-xs font-medium text-center">Perú</span>
+            </div>
+            <div class="flex flex-col items-center space-y-2 hover:bg-gray-700/30 rounded-lg p-3 transition-all duration-200 hover:scale-105 cursor-pointer" onclick="scrollToMapAndShowCountry('CO')">
+              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl shadow-lg">
+                🇨🇴
+              </div>
+              <span class="text-white text-xs font-medium text-center">Colombia</span>
             </div>
             
-            <!-- México -->
-            <div class="text-center cursor-pointer group">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
-                <img 
-                  src="https://flagcdn.com/w40/mx.png" 
-                  alt="México" 
-                  class="w-10 h-10 object-cover rounded-full"
-                />
+            <!-- Fila inferior -->
+            <div class="flex flex-col items-center space-y-2 hover:bg-gray-700/30 rounded-lg p-3 transition-all duration-200 hover:scale-105 cursor-pointer" onclick="scrollToMapAndShowCountry('AR')">
+              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl shadow-lg">
+                🇦🇷
               </div>
-              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">México</span>
+              <span class="text-white text-xs font-medium text-center">Argentina</span>
             </div>
-            
-            <!-- Perú -->
-            <div class="text-center cursor-pointer group">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
-                <img 
-                  src="https://flagcdn.com/w40/pe.png" 
-                  alt="Perú" 
-                  class="w-10 h-10 object-cover rounded-full"
-                />
+            <div class="flex flex-col items-center space-y-2 hover:bg-gray-700/30 rounded-lg p-3 transition-all duration-200 hover:scale-105 cursor-pointer" onclick="scrollToMapAndShowCountry('EC')">
+              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl shadow-lg">
+                🇪🇨
               </div>
-              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">Perú</span>
+              <span class="text-white text-xs font-medium text-center">Ecuador</span>
             </div>
-            
-            <!-- Colombia -->
-            <div class="text-center cursor-pointer group">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
-                <img 
-                  src="https://flagcdn.com/w40/co.png" 
-                  alt="Colombia" 
-                  class="w-10 h-10 object-cover rounded-full"
-                />
+            <div class="flex flex-col items-center space-y-2 hover:bg-gray-700/30 rounded-lg p-3 transition-all duration-200 hover:scale-105 cursor-pointer" onclick="scrollToMapAndShowCountry('PA')">
+              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl shadow-lg">
+                🇵🇦
               </div>
-              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">Colombia</span>
+              <span class="text-white text-xs font-medium text-center">Panamá</span>
             </div>
-            
-            <!-- Argentina -->
-            <div class="text-center cursor-pointer group">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
-                <img 
-                  src="https://flagcdn.com/w40/ar.png" 
-                  alt="Argentina" 
-                  class="w-10 h-10 object-cover rounded-full"
-                />
+            <div class="flex flex-col items-center space-y-2 hover:bg-gray-700/30 rounded-lg p-3 transition-all duration-200 hover:scale-105 cursor-pointer" onclick="scrollToMapAndShowCountry('DO')">
+              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl shadow-lg">
+                🇩🇴
               </div>
-              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">Argentina</span>
+              <span class="text-white text-xs font-medium text-center">R. Dominicana</span>
             </div>
-            
-            <!-- Ecuador -->
-            <div class="text-center cursor-pointer group">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
-                <img 
-                  src="https://flagcdn.com/w40/ec.png" 
-                  alt="Ecuador" 
-                  class="w-10 h-10 object-cover rounded-full"
-                />
+            <div class="flex flex-col items-center space-y-2 hover:bg-gray-700/30 rounded-lg p-3 transition-all duration-200 hover:scale-105 cursor-pointer" onclick="scrollToMapAndShowCountry('US')">
+              <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl shadow-lg">
+                🇺🇸
               </div>
-              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">Ecuador</span>
-            </div>
-            
-            <!-- Panamá -->
-            <div class="text-center cursor-pointer group">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
-                <img 
-                  src="https://flagcdn.com/w40/pa.png" 
-                  alt="Panamá" 
-                  class="w-10 h-10 object-cover rounded-full"
-                />
-              </div>
-              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">Panamá</span>
-            </div>
-            
-            <!-- República Dominicana -->
-            <div class="text-center cursor-pointer group">
-              <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2 overflow-hidden border border-gray-600 group-hover:border-orange-500 transition-all duration-300 group-hover:scale-110">
-                <img 
-                  src="https://flagcdn.com/w40/do.png" 
-                  alt="República Dominicana" 
-                  class="w-10 h-10 object-cover rounded-full"
-                />
-              </div>
-              <span class="text-white text-xs group-hover:text-orange-400 transition-colors duration-300">R. Dominicana</span>
+              <span class="text-white text-xs font-medium text-center">EE. UU.</span>
             </div>
           </div>
         </div>
+
+        <!-- CTA -->
+      
       </div>
 
-      <!-- Bloque derecho - Mapa del mundo -->
-      <div class="space-y-6">
-        <!-- Mapa del mundo -->
-        <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer group">
+      <!-- Bloque derecho - Mapa interactivo -->
+      <div class="space-y-8">
+        <!-- Mapa interactivo del mundo -->
+        <div id="mapa-interactivo" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 cursor-pointer group">
+          <h4 class="text-white text-lg font-semibold mb-4 text-center">Haz clic en un país para ver información</h4>
           <div class="relative">
-            <img 
-              src="/nutechcripto/images/ubicacion.png" 
-              alt="Mapa del mundo" 
-              class="w-full h-auto rounded-xl group-hover:scale-105 transition-transform duration-300"
-            />
+            <div id="world-map-container" class="w-full h-auto rounded-xl">
+              <!-- El SVG se cargará aquí dinámicamente -->
+            </div>
             
+            <!-- Panel de información del país -->
+            <div id="country-info" class="absolute top-4 right-4 bg-gray-900/95 backdrop-blur-sm rounded-lg p-4 border border-orange-500/30 max-w-xs opacity-0 transition-all duration-300" style="display: none;">
+              <h5 id="country-name" class="text-orange-500 font-bold text-lg mb-2"></h5>
+              <p id="country-details" class="text-white text-sm"></p>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
 
-    <!-- Estadísticas -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Alumnos -->
-      <div class="bg-gray-800 rounded-xl p-8 text-center border border-gray-700 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
-          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
-          </svg>
-        </div>
-        <div class="text-4xl font-bold text-orange-500 mb-2">800+</div>
-        <div class="text-white text-lg">Alumnos</div>
+    <!-- Estadísticas adicionales -->
+    <div class="mt-16">
+      <h3 class="text-white text-xl font-semibold mb-8 text-center">Nuestros Números</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer text-center">
+        <div class="text-2xl font-bold text-orange-500 mb-2">24/7</div>
+        <div class="text-white/70 text-sm">Soporte</div>
       </div>
-
-      <!-- Red global -->
-      <div class="bg-gray-800 rounded-xl p-8 text-center border border-gray-700 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
-          <img 
-            src="/nutechcripto/images/mundo.png" 
-            alt="Red global" 
-            class="w-10 h-10 object-contain"
-          />
-        </div>
-        <div class="text-4xl font-bold text-orange-500 mb-2">8</div>
-        <div class="text-white text-lg">Países</div>
+      <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer text-center">
+        <div class="text-2xl font-bold text-orange-500 mb-2">5</div>
+        <div class="text-white/70 text-sm">Idiomas</div>
       </div>
-
-      <!-- Cursos -->
-      <div class="bg-gray-800 rounded-xl p-8 text-center border border-gray-700 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
-          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.09-3.5.25A1.993 1.993 0 002 6.5v11A1.993 1.993 0 003.5 19h13a1.993 1.993 0 001.5-1.5v-11A1.993 1.993 0 0016.5 4c-1.255 0-2.443.09-3.5.25A7.968 7.968 0 0011 4.804V6a1 1 0 11-2 0V4.804zM10 8a1 1 0 011 1v6a1 1 0 11-2 0V9a1 1 0 011-1z"></path>
-          </svg>
-        </div>
-        <div class="text-4xl font-bold text-orange-500 mb-2">Cursos</div>
-        <div class="text-white text-lg">De alta calidad</div>
+      <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer text-center">
+        <div class="text-2xl font-bold text-orange-500 mb-2">100%</div>
+        <div class="text-white/70 text-sm">Online</div>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer text-center">
+        <div class="text-2xl font-bold text-orange-500 mb-2">2024</div>
+        <div class="text-white/70 text-sm">Fundado</div>
+      </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mapContainer = document.getElementById('world-map-container');
+    const countryInfo = document.getElementById('country-info');
+    const countryName = document.getElementById('country-name');
+    const countryDetails = document.getElementById('country-details');
+    
+    // Países operativos con sus datos y códigos de país
+    const countriesData = {
+      'US': { name: 'Estados Unidos', info: 'Sede principal en Silicon Valley. Más de 200 estudiantes activos.', codes: ['US', 'usa', 'united-states', 'estados-unidos', 'united states', 'america', 'us', 'united', 'states'] },
+      'ES': { name: 'España', info: 'Centro en Madrid. Expansión europea exitosa.', codes: ['ES', 'spain', 'esp', 'españa'] },
+      'AR': { name: 'Argentina', info: 'Oficina en Buenos Aires. 120+ estudiantes activos.', codes: ['AR', 'argentina', 'arg'] },
+      'MX': { name: 'México', info: 'Centro de operaciones en Ciudad de México. 150+ estudiantes.', codes: ['MX', 'mexico', 'mex'] },
+      'EC': { name: 'Ecuador', info: 'Centro en Quito. 80+ profesionales formados.', codes: ['EC', 'ecuador', 'ecu'] },
+      'PE': { name: 'Perú', info: 'Sede en Lima. Líder en formación de IA en el país.', codes: ['PE', 'peru', 'per'] },
+      'PA': { name: 'Panamá', info: 'Hub regional en Ciudad de Panamá. 60+ estudiantes.', codes: ['PA', 'panama', 'pan'] },
+      'CO': { name: 'Colombia', info: 'Oficina en Bogotá. Crecimiento del 300% en el último año.', codes: ['CO', 'colombia', 'col'] },
+      'DO': { name: 'República Dominicana', info: 'Centro en Santo Domingo. 40+ profesionales formados.', codes: ['DO', 'dominican-republic', 'dom'] }
+    };
+    
+    // Función para cargar y colorear el SVG
+    async function loadAndColorMap() {
+      try {
+        const response = await fetch('/nutechcripto/images/world.svg');
+        const svgText = await response.text();
+        
+        // Crear un div temporal para parsear el SVG
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = svgText;
+        const svgElement = tempDiv.querySelector('svg');
+        
+        if (svgElement) {
+          // Aplicar estilos al SVG
+          svgElement.style.width = '100%';
+          svgElement.style.height = 'auto';
+          svgElement.style.cursor = 'pointer';
+          
+          // Colorear países operativos
+          const paths = svgElement.querySelectorAll('path, g');
+          console.log(`🔍 Procesando ${paths.length} elementos del mapa...`);
+          
+          paths.forEach((path, index) => {
+            const id = path.getAttribute('id') || '';
+            const classList = path.getAttribute('class') || '';
+            const title = path.getAttribute('title') || '';
+            
+            // Log para Estados Unidos específicamente
+            if (id.toLowerCase().includes('usa') || id.toLowerCase().includes('united') || id.toLowerCase().includes('america') ||
+                title.toLowerCase().includes('usa') || title.toLowerCase().includes('united') || title.toLowerCase().includes('america') ||
+                classList.toLowerCase().includes('united states') || classList.toLowerCase().includes('usa')) {
+              console.log(`🇺🇸 Elemento de Estados Unidos encontrado:`, { id, classList, title, index });
+            }
+            
+            // Buscar si este elemento corresponde a un país operativo
+            let isOperational = false;
+            let countryKey = '';
+            
+            // Solo marcar países específicos con coincidencias exactas
+            Object.keys(countriesData).forEach(key => {
+              const country = countriesData[key];
+              const isExactMatch = country.codes.some(code => {
+                const lowerCode = code.toLowerCase();
+                const lowerId = id.toLowerCase();
+                const lowerClass = classList.toLowerCase();
+                const lowerTitle = title.toLowerCase();
+                
+                // Coincidencias exactas más estrictas
+                const exactMatch = lowerId === lowerCode || 
+                       lowerId === lowerCode + '-path' ||
+                       lowerId === lowerCode + '_path' ||
+                       lowerClass === lowerCode ||
+                       lowerTitle === lowerCode ||
+                       lowerTitle === country.name.toLowerCase();
+                
+                // Para Estados Unidos, también buscar coincidencias parciales
+                const partialMatch = key === 'US' && (
+                  lowerId.includes('usa') ||
+                  lowerId.includes('united') ||
+                  lowerId.includes('america') ||
+                  lowerTitle.includes('usa') ||
+                  lowerTitle.includes('united') ||
+                  lowerTitle.includes('america') ||
+                  lowerClass.includes('united states') ||
+                  lowerClass.includes('usa')
+                );
+                
+                return exactMatch || partialMatch;
+              });
+              
+              if (isExactMatch) {
+                isOperational = true;
+                countryKey = key;
+                console.log(`✅ País encontrado: ${country.name} (${key})`);
+              }
+            });
+            
+            if (isOperational) {
+              // Aplicar color azul intenso a países operativos
+              path.style.fill = '#2563eb'; // Azul intenso
+              path.style.stroke = '#1d4ed8'; // Borde azul más oscuro
+              path.style.strokeWidth = '1';
+              path.style.transition = 'all 0.3s ease';
+              
+              // Agregar clase para hover
+              path.classList.add('operational-country');
+              
+              // Agregar evento de click
+              path.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const country = countriesData[countryKey];
+                countryName.textContent = country.name;
+                countryDetails.textContent = country.info;
+                countryInfo.style.display = 'block';
+                countryInfo.style.opacity = '1';
+                console.log(`🌍 País seleccionado: ${country.name}`);
+                
+                // Resaltar temporalmente el país en el mapa
+                this.style.filter = 'drop-shadow(0 0 20px rgba(37, 99, 235, 0.8)) brightness(1.3)';
+                setTimeout(() => {
+                  this.style.filter = '';
+                }, 2000);
+              });
+              
+              // Efecto hover
+              path.addEventListener('mouseenter', function() {
+                this.style.fill = '#ffffff'; // Blanco al hover
+                this.style.stroke = '#1d4ed8'; // Borde azul medio
+                this.style.strokeWidth = '2';
+              });
+              
+              path.addEventListener('mouseleave', function() {
+                this.style.fill = '#2563eb'; // Azul intenso
+                this.style.stroke = '#1d4ed8'; // Borde azul más oscuro
+                this.style.strokeWidth = '1';
+              });
+            } else {
+              // Países no operativos en gris - asegurar que no estén marcados
+              path.style.fill = '#6b7280';
+              path.style.stroke = '#4b5563';
+              path.style.strokeWidth = '0.5';
+              path.style.opacity = '0.6';
+              path.style.filter = 'none';
+              path.classList.remove('operational-country');
+              
+              // Remover cualquier evento de click
+              path.replaceWith(path.cloneNode(true));
+            }
+          });
+          
+          // Limpiar cualquier país que no debería estar marcado
+          const allPaths = svgElement.querySelectorAll('path, g');
+          allPaths.forEach(path => {
+            const id = path.getAttribute('id') || '';
+            const classList = path.getAttribute('class') || '';
+            const title = path.getAttribute('title') || '';
+            
+            // Verificar si este país NO está en nuestra lista
+            const isNotInList = !Object.keys(countriesData).some(key => {
+              const country = countriesData[key];
+              return country.codes.some(code => {
+                const lowerCode = code.toLowerCase();
+                const lowerId = id.toLowerCase();
+                const lowerClass = classList.toLowerCase();
+                const lowerTitle = title.toLowerCase();
+                
+                const exactMatch = lowerId === lowerCode || 
+                       lowerId === lowerCode + '-path' ||
+                       lowerId === lowerCode + '_path' ||
+                       lowerClass === lowerCode ||
+                       lowerTitle === lowerCode ||
+                       lowerTitle === country.name.toLowerCase();
+                
+                // Para Estados Unidos, también buscar coincidencias parciales
+                const partialMatch = key === 'US' && (
+                  lowerId.includes('usa') ||
+                  lowerId.includes('united') ||
+                  lowerId.includes('america') ||
+                  lowerTitle.includes('usa') ||
+                  lowerTitle.includes('united') ||
+                  lowerTitle.includes('america') ||
+                  lowerClass.includes('united states') ||
+                  lowerClass.includes('usa')
+                );
+                
+                return exactMatch || partialMatch;
+              });
+            });
+            
+            // Si no está en la lista, asegurar que esté desmarcado
+            if (isNotInList && path.classList.contains('operational-country')) {
+              path.style.fill = '#6b7280';
+              path.style.stroke = '#4b5563';
+              path.style.strokeWidth = '0.5';
+              path.style.opacity = '0.6';
+              path.style.filter = 'none';
+              path.classList.remove('operational-country');
+              console.log(`❌ País desmarcado: ${id || classList || title}`);
+            }
+          });
+          
+          // Insertar el SVG en el contenedor
+          mapContainer.innerHTML = '';
+          mapContainer.appendChild(svgElement);
+          
+          console.log('🗺️ Mapa cargado y países coloreados correctamente');
+        }
+      } catch (error) {
+        console.error('Error cargando el mapa:', error);
+        // Fallback: mostrar imagen estática
+        mapContainer.innerHTML = `
+          <img 
+            src="/nutechcripto/images/world.svg" 
+            alt="Mapa del mundo" 
+            class="w-full h-auto rounded-xl"
+            style="cursor: pointer;"
+          />
+        `;
+      }
+    }
+    
+    // Función para actualizar países operativos
+    window.updateOperationalCountries = function(newCountries) {
+      Object.assign(countriesData, newCountries);
+      loadAndColorMap(); // Recargar el mapa con nuevos países
+      console.log('🌍 Países actualizados:', Object.keys(countriesData));
+    };
+    
+    // Cargar el mapa al inicializar
+    loadAndColorMap();
+    
+    // Ocultar información al hacer clic fuera
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('#world-map-container') && !e.target.closest('#country-info')) {
+        countryInfo.style.opacity = '0';
+        setTimeout(() => {
+          countryInfo.style.display = 'none';
+        }, 300);
+      }
+    });
+    
+    console.log('🗺️ Mapa configurado y listo para personalizar países');
+  });
+
+  // Función global para navegar desde países al mapa
+  window.scrollToMapAndShowCountry = function(countryCode) {
+    console.log('🚀 Iniciando navegación al mapa para:', countryCode);
+    
+    const mapSection = document.getElementById('mapa-interactivo');
+    const countryInfo = document.getElementById('country-info');
+    const countryName = document.getElementById('country-name');
+    const countryDetails = document.getElementById('country-details');
+    
+    console.log('🔍 Elementos encontrados:', {
+      mapSection: !!mapSection,
+      countryInfo: !!countryInfo,
+      countryName: !!countryName,
+      countryDetails: !!countryDetails
+    });
+    
+    // Datos de países
+    const countriesData = {
+      'US': { name: 'Estados Unidos', info: 'Sede principal en Silicon Valley. Más de 200 estudiantes activos.' },
+      'ES': { name: 'España', info: 'Centro en Madrid. Expansión europea exitosa.' },
+      'AR': { name: 'Argentina', info: 'Oficina en Buenos Aires. 120+ estudiantes activos.' },
+      'MX': { name: 'México', info: 'Centro de operaciones en Ciudad de México. 150+ estudiantes.' },
+      'EC': { name: 'Ecuador', info: 'Centro en Quito. 80+ profesionales formados.' },
+      'PE': { name: 'Perú', info: 'Sede en Lima. Líder en formación de IA en el país.' },
+      'PA': { name: 'Panamá', info: 'Hub regional en Ciudad de Panamá. 60+ estudiantes.' },
+      'CO': { name: 'Colombia', info: 'Oficina en Bogotá. Crecimiento del 300% en el último año.' },
+      'DO': { name: 'República Dominicana', info: 'Centro en Santo Domingo. 40+ profesionales formados.' }
+    };
+    
+    if (mapSection && countriesData[countryCode]) {
+      const country = countriesData[countryCode];
+      console.log('📋 País seleccionado:', country);
+      
+      // Desplazar al mapa
+      mapSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+      
+      // Esperar un poco para que termine el scroll y luego mostrar la información
+      setTimeout(() => {
+        if (countryName && countryDetails && countryInfo) {
+          countryName.textContent = country.name;
+          countryDetails.textContent = country.info;
+          countryInfo.style.opacity = '1';
+          countryInfo.style.display = 'block';
+          console.log('✅ Información mostrada:', country.name);
+        } else {
+          console.error('❌ No se pudieron encontrar los elementos del panel');
+        }
+      }, 500);
+      
+      // Resaltar temporalmente el mapa
+      mapSection.style.transform = 'scale(1.02)';
+      mapSection.style.boxShadow = '0 0 20px rgba(249, 115, 22, 0.5)';
+      
+      setTimeout(() => {
+        mapSection.style.transform = 'scale(1)';
+        mapSection.style.boxShadow = '';
+      }, 1000);
+      
+      console.log(`🌍 Navegando a: ${country.name}`);
+    } else {
+      console.error('❌ No se encontró el mapa o el código de país:', countryCode);
+    }
+  };
+</script>
+
+<style>
+  .operational-country {
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .operational-country:hover {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+  }
+  
+  #world-map-container svg {
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+  }
+  
+  #world-map-container path {
+    transition: all 0.3s ease;
+  }
+  
+  /* Asegurar que el div del mapa tenga el efecto de escala */
+  #mapa-interactivo {
+    transform-origin: center !important;
+    will-change: transform;
+  }
+  
+  #mapa-interactivo:hover {
+    transform: scale(1.05) !important;
+  }
+  
+  /* Efecto de resplandor azul para países operativos */
+  .operational-country {
+    filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.5)) 
+            drop-shadow(0 0 16px rgba(29, 78, 216, 0.4));
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  .operational-country:hover {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.7)) 
+            drop-shadow(0 0 24px rgba(37, 99, 235, 0.6))
+            brightness(1.1);
+    animation: none;
+  }
+  
+  /* Animación de pulso para el brillo */
+  @keyframes pulse-glow {
+    0% {
+      filter: drop-shadow(0 0 6px rgba(37, 99, 235, 0.4)) 
+              drop-shadow(0 0 12px rgba(29, 78, 216, 0.3));
+    }
+    100% {
+      filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.6)) 
+              drop-shadow(0 0 20px rgba(29, 78, 216, 0.5));
+    }
+  }
+</style>

@@ -2,34 +2,39 @@
 // Astro component
 ---
 
-<div id="registro" class="py-16 sm:py-20" style="background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%);">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="registro" class="py-16 sm:py-20" style="background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-12">
       <!-- Badge de sección -->
-      <div class="inline-flex items-center space-x-2 bg-orange-500/10 border border-orange-500/30 rounded-full px-4 py-2 text-sm mb-6">
-        <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
-        <span class="text-orange-400 font-medium">Registro</span>
+      <div class="text-center mb-8">
+        <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-medium bg-orange-500/10 hover:bg-orange-500 hover:text-white transition-all duration-300">
+          <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+          <span>Registro</span>
+        </button>
       </div>
       
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
         Únete a la <span class="text-orange-500">Revolución de la IA</span>
       </h2>
-      <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-6">
+      <p class="text-white/80 text-sm max-w-4xl mx-auto leading-relaxed mb-8">
         Regístrate ahora y comienza tu transformación profesional con los mejores cursos de Inteligencia Artificial aplicada.
       </p>
       
       <!-- Contador de registros real -->
-      <div class="inline-flex items-center space-x-2 bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 rounded-full px-4 py-2 text-sm transition-all duration-300 hover:scale-105 cursor-pointer">
-        <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-        <span class="text-gray-300">
-          <span id="contadorRegistros" class="text-orange-500 font-bold">Cargando...</span>
-        </span>
+      <div class="text-center">
+        <div class="inline-flex items-center space-x-2 bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 rounded-full px-4 py-2 text-sm transition-all duration-300 hover:scale-105 cursor-pointer">
+          <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          <span class="text-white/70">
+            <span id="contadorRegistros" class="text-orange-500 font-bold">Cargando...</span>
+          </span>
+        </div>
       </div>
     </div>
 
     <!-- Formulario de registro -->
-    <div class="bg-gray-800 rounded-2xl p-8 sm:p-12 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-gray-800 rounded-2xl p-8 sm:p-12 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
       <form id="registerForm" class="space-y-6">
         <!-- Información personal -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -114,27 +119,27 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 p-2 rounded-lg">
               <input type="checkbox" name="intereses" value="machine-learning" class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2">
-              <span class="text-gray-300 text-sm">Machine Learning</span>
+              <span class="text-white/70 text-sm">Machine Learning</span>
             </label>
             <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 p-2 rounded-lg">
               <input type="checkbox" name="intereses" value="deep-learning" class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2">
-              <span class="text-gray-300 text-sm">Deep Learning</span>
+              <span class="text-white/70 text-sm">Deep Learning</span>
             </label>
             <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 p-2 rounded-lg">
               <input type="checkbox" name="intereses" value="nlp" class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2">
-              <span class="text-gray-300 text-sm">Procesamiento de Lenguaje Natural</span>
+              <span class="text-white/70 text-sm">Procesamiento de Lenguaje Natural</span>
             </label>
             <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 p-2 rounded-lg">
               <input type="checkbox" name="intereses" value="computer-vision" class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2">
-              <span class="text-gray-300 text-sm">Visión por Computadora</span>
+              <span class="text-white/70 text-sm">Visión por Computadora</span>
             </label>
             <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 p-2 rounded-lg">
               <input type="checkbox" name="intereses" value="data-science" class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2">
-              <span class="text-gray-300 text-sm">Ciencia de Datos</span>
+              <span class="text-white/70 text-sm">Ciencia de Datos</span>
             </label>
             <label class="flex items-center space-x-3 cursor-pointer hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 p-2 rounded-lg">
               <input type="checkbox" name="intereses" value="ai-business" class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2">
-              <span class="text-gray-300 text-sm">IA para Negocios</span>
+              <span class="text-white/70 text-sm">IA para Negocios</span>
             </label>
           </div>
         </div>
@@ -167,7 +172,7 @@
             required
             class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2 mt-1"
           />
-          <label for="terminos" class="text-gray-300 text-sm">
+          <label for="terminos" class="text-white/70 text-sm">
             Acepto los <a href="#" class="text-orange-500 hover:text-orange-400 underline">términos y condiciones</a> y la <a href="#" class="text-orange-500 hover:text-orange-400 underline">política de privacidad</a> *
           </label>
         </div>
@@ -180,7 +185,7 @@
             name="newsletter"
             class="w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2 mt-1"
           />
-          <label for="newsletter" class="text-gray-300 text-sm">
+          <label for="newsletter" class="text-white/70 text-sm">
             Quiero recibir información sobre nuevos cursos y ofertas especiales
           </label>
         </div>
@@ -189,13 +194,20 @@
         <div class="pt-4">
           <button 
             type="submit"
-            class="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-4 px-8 rounded-xl hover:from-orange-600 hover:to-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-all duration-300 transform hover:scale-105"
+            class="w-full register-button text-white font-bold py-4 px-8 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-800 relative overflow-hidden group cursor-pointer"
           >
-            <span class="flex items-center justify-center space-x-2">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
-              <span>Registrarme Ahora</span>
+            <!-- Efecto de brillo animado -->
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            <!-- Efecto de pulso en el icono -->
+            <div class="absolute inset-0 bg-orange-400/20 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+            <!-- Contenido del botón -->
+            <span class="relative z-10 flex items-center justify-center space-x-3">
+              <div class="icon-container w-6 h-6 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+              </div>
+              <span class="text-lg font-bold tracking-wide">Registrarme Ahora</span>
             </span>
           </button>
         </div>
@@ -203,6 +215,7 @@
         <!-- Mensaje de éxito/error -->
         <div id="mensaje" class="hidden mt-4 p-4 rounded-xl"></div>
       </form>
+      </div>
     </div>
 
     <!-- Beneficios adicionales -->
@@ -214,7 +227,7 @@
           </svg>
         </div>
         <h3 class="text-white font-bold text-lg mb-2">Acceso Inmediato</h3>
-        <p class="text-gray-300 text-sm">Recibe acceso instantáneo a recursos exclusivos y contenido premium</p>
+        <p class="text-white/70 text-sm">Recibe acceso instantáneo a recursos exclusivos y contenido premium</p>
       </div>
 
       <div class="text-center">
@@ -224,7 +237,7 @@
           </svg>
         </div>
         <h3 class="text-white font-bold text-lg mb-2">Comunidad Exclusiva</h3>
-        <p class="text-gray-300 text-sm">Únete a nuestra comunidad de profesionales y expertos en IA</p>
+        <p class="text-white/70 text-sm">Únete a nuestra comunidad de profesionales y expertos en IA</p>
       </div>
 
       <div class="text-center">
@@ -234,11 +247,11 @@
           </svg>
         </div>
         <h3 class="text-white font-bold text-lg mb-2">Certificación</h3>
-        <p class="text-gray-300 text-sm">Obtén certificados reconocidos por la industria al completar los cursos</p>
+        <p class="text-white/70 text-sm">Obtén certificados reconocidos por la industria al completar los cursos</p>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <script>
   import { getContadorRegistros, crearRegistro } from '../lib/supabase.ts';
@@ -381,3 +394,68 @@
     }, 5000);
   }
 </script>
+
+<style>
+  /* Estilos personalizados para el botón de registro */
+  .register-button {
+    position: relative;
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .register-button:hover {
+    background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%);
+    box-shadow: 0 15px 35px rgba(249, 115, 22, 0.4);
+    transform: translateY(-2px) scale(1.02);
+  }
+  
+  .register-button:active {
+    transform: translateY(0) scale(0.98);
+  }
+  
+  .register-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
+  
+  .register-button:hover::before {
+    transform: translateX(100%);
+  }
+  
+  /* Animación del icono */
+  .register-button .icon-container {
+    transition: all 0.3s ease;
+  }
+  
+  .register-button:hover .icon-container {
+    transform: rotate(90deg) scale(1.1);
+  }
+  
+  /* Efecto de partículas en hover */
+  .register-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+  }
+  
+  .register-button:hover::after {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+</style>
