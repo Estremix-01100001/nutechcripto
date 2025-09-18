@@ -2,10 +2,10 @@
 // Componente de ubicación global
 ---
 
-<section id="ubicacion" class="py-16 sm:py-20 lg:py-24" style="background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%);">
+<section id="ubicacion" class="py-12 sm:py-16 lg:py-20" style="background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%);">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Badge de ubicación -->
-    <div class="text-center mb-8">
+    <div class="text-center mb-6">
       <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-medium bg-orange-500/10 hover:bg-orange-500 hover:text-white transition-all duration-300">
         <svg class="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
@@ -15,16 +15,16 @@
     </div>
 
     <!-- Título principal -->
-    <div class="text-center mb-12 sm:mb-16">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+    <div class="text-center mb-8 sm:mb-10">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
         Ubicación
       </h2>
     </div>
 
     <!-- Sección de Alcance Global -->
-    <div class="mb-12 sm:mb-32">
-      <div class="bg-gray-800 rounded-xl p-6 sm:p-8 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer mb-8">
-        <div class="text-center mb-6">
+    <div class="mb-8 sm:mb-12">
+      <div class="bg-gray-800 rounded-xl p-4 sm:p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer mb-6">
+        <div class="text-center mb-4">
           <div class="inline-flex items-center space-x-3 ">
             <div class="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 ">
               <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -40,13 +40,13 @@
     </div>
 
     <!-- Contenido principal -->
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
       <!-- Bloque izquierdo - Estadísticas -->
-      <div class="space-y-8">
+      <div class="space-y-6">
         <!-- Estadísticas principales -->
-        <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-          <h3 class="text-white text-xl font-semibold mb-4 text-center">Alcance Internacional</h3>
-          <div class="grid grid-cols-2 gap-4">
+        <div class="bg-gray-800 rounded-xl p-4 sm:p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
+          <h3 class="text-white text-xl font-semibold mb-3 text-center">Alcance Internacional</h3>
+          <div class="grid grid-cols-2 gap-3">
             <div class="text-center">
               <div class="text-2xl font-bold text-orange-500 mb-2">9</div>
               <div class="text-white/70 text-sm sm:text-base">Países</div>
@@ -67,9 +67,9 @@
         </div>
 
         <!-- Países operativos con banderas -->
-        <div id="paises-operativos" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-          <h4 class="text-white text-lg font-semibold mb-6 text-center">Países donde operamos</h4>
-          <div class="grid grid-cols-3 sm:grid-cols-4 gap-4">
+        <div id="paises-operativos" class="bg-gray-800 rounded-xl p-4 sm:p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
+          <h4 class="text-white text-lg font-semibold mb-4 text-center">Países donde operamos</h4>
+          <div class="grid grid-cols-3 sm:grid-cols-4 gap-3">
             <!-- Fila superior -->
             <div class="flex flex-col items-center space-y-2 hover:bg-gray-700/30 rounded-lg p-3 transition-all duration-200 hover:scale-105 cursor-pointer" onclick="scrollToMapAndShowCountry('ES')">
               <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl shadow-lg">
@@ -135,10 +135,10 @@
       </div>
 
       <!-- Bloque derecho - Mapa interactivo -->
-      <div class="space-y-8">
+      <div class="space-y-6">
         <!-- Mapa interactivo del mundo -->
-        <div id="mapa-interactivo" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 cursor-pointer group">
-          <h4 class="text-white text-lg font-semibold mb-4 text-center">Haz clic en un país para ver información</h4>
+        <div id="mapa-interactivo" class="bg-gray-800 rounded-xl p-4 sm:p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 cursor-pointer group">
+          <h4 class="text-white text-lg font-semibold mb-3 text-center">Haz clic en un país para ver información</h4>
           <div class="relative">
             <div id="world-map-container" class="w-full h-auto rounded-xl">
               <!-- El SVG se cargará aquí dinámicamente -->
@@ -155,22 +155,22 @@
     </div>
 
     <!-- Estadísticas adicionales -->
-    <div class="mt-16">
-      <h3 class="text-white text-xl font-semibold mb-8 text-center">Nuestros Números</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer text-center">
+    <div class="mt-12">
+      <h3 class="text-white text-xl font-semibold mb-6 text-center">Nuestros Números</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-gray-800 rounded-xl p-4 sm:p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer text-center">
         <div class="text-2xl font-bold text-orange-500 mb-2">24/7</div>
         <div class="text-white/70 text-sm">Soporte</div>
       </div>
-      <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer text-center">
+      <div class="bg-gray-800 rounded-xl p-4 sm:p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer text-center">
         <div class="text-2xl font-bold text-orange-500 mb-2">5</div>
         <div class="text-white/70 text-sm">Idiomas</div>
       </div>
-      <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer text-center">
+      <div class="bg-gray-800 rounded-xl p-4 sm:p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer text-center">
         <div class="text-2xl font-bold text-orange-500 mb-2">100%</div>
         <div class="text-white/70 text-sm">Online</div>
       </div>
-      <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer text-center">
+      <div class="bg-gray-800 rounded-xl p-4 sm:p-6 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer text-center">
         <div class="text-2xl font-bold text-orange-500 mb-2">2024</div>
         <div class="text-white/70 text-sm">Fundado</div>
       </div>
