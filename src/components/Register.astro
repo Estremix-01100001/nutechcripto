@@ -2,7 +2,7 @@
 // Astro component
 ---
 
-<section id="registro" class="py-16 sm:py-20" style="background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%);">
+<section id="registro" class="py-16 sm:py-20 lg:py-24" style="background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%);">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-12">
@@ -34,7 +34,16 @@
 
     <!-- Formulario de registro -->
     <div class="max-w-4xl mx-auto">
-      <div class="bg-gray-800 rounded-2xl p-8 sm:p-12 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer">
+      <div class="relative rounded-2xl p-8 sm:p-12 overflow-hidden group form-container">
+        <!-- Degradado de fondo con efecto de esquinas -->
+        <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-orange-600/5 to-orange-700/10 rounded-2xl"></div>
+        
+        <!-- Borde degradado animado -->
+        <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500/20 via-orange-600/30 to-orange-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+        <div class="absolute inset-[1px] bg-gray-800 rounded-2xl"></div>
+        
+        <!-- Contenido del formulario -->
+        <div class="relative z-10">
       <form id="registerForm" class="space-y-6">
         <!-- Información personal -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -43,14 +52,17 @@
             <label for="nombre" class="block text-white text-sm font-medium mb-2">
               Nombre completo *
             </label>
-            <input 
-              type="text" 
-              id="nombre" 
-              name="nombre" 
-              required
-              class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
-              placeholder="Tu nombre completo"
-            />
+            <div class="relative">
+              <input 
+                type="text" 
+                id="nombre" 
+                name="nombre" 
+                required
+                class="w-full px-4 py-3 bg-gradient-to-r from-gray-700/80 to-gray-600/80 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500/50 transition-all duration-300 backdrop-blur-sm hover:from-gray-600/80 hover:to-gray-500/80 focus:from-orange-500/10 focus:to-orange-600/10 form-input"
+                placeholder="Tu nombre completo"
+              />
+              <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/5 to-orange-600/5 opacity-0 focus-within:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            </div>
           </div>
 
           <!-- Email -->
@@ -63,7 +75,7 @@
               id="email" 
               name="email" 
               required
-              class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
+              class="w-full px-4 py-3 bg-gradient-to-r from-gray-700/80 to-gray-600/80 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500/50 transition-all duration-300 backdrop-blur-sm hover:from-gray-600/80 hover:to-gray-500/80 focus:from-orange-500/10 focus:to-orange-600/10"
               placeholder="tu@email.com"
             />
           </div>
@@ -80,7 +92,7 @@
               type="tel" 
               id="telefono" 
               name="telefono"
-              class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-300"
+              class="w-full px-4 py-3 bg-gradient-to-r from-gray-700/80 to-gray-600/80 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500/50 transition-all duration-300 backdrop-blur-sm hover:from-gray-600/80 hover:to-gray-500/80 focus:from-orange-500/10 focus:to-orange-600/10"
               placeholder="+51 999 888 777"
             />
           </div>
@@ -194,12 +206,18 @@
         <div class="pt-4">
           <button 
             type="submit"
-            class="w-full register-button text-white font-bold py-4 px-8 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-800 relative overflow-hidden group cursor-pointer"
+            class="w-full text-white font-bold py-4 px-8 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-800 relative overflow-hidden group cursor-pointer"
+            style="background: linear-gradient(135deg, #f97316 0%, #ea580c 25%, #dc2626 50%, #ea580c 75%, #f97316 100%);"
           >
+            <!-- Degradado de fondo animado -->
+            <div class="absolute inset-0 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
             <!-- Efecto de brillo animado -->
             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            
             <!-- Efecto de pulso en el icono -->
             <div class="absolute inset-0 bg-orange-400/20 rounded-2xl scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+            
             <!-- Contenido del botón -->
             <span class="relative z-10 flex items-center justify-center space-x-3">
               <div class="icon-container w-6 h-6 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
@@ -215,46 +233,17 @@
         <!-- Mensaje de éxito/error -->
         <div id="mensaje" class="hidden mt-4 p-4 rounded-xl"></div>
       </form>
+        </div>
+      </div>
+    </div>
       </div>
     </div>
 
-    <!-- Beneficios adicionales -->
-    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="text-center">
-        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-          </svg>
-        </div>
-        <h3 class="text-white font-bold text-lg mb-2">Acceso Inmediato</h3>
-        <p class="text-white/70 text-sm">Recibe acceso instantáneo a recursos exclusivos y contenido premium</p>
-      </div>
-
-      <div class="text-center">
-        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-          </svg>
-        </div>
-        <h3 class="text-white font-bold text-lg mb-2">Comunidad Exclusiva</h3>
-        <p class="text-white/70 text-sm">Únete a nuestra comunidad de profesionales y expertos en IA</p>
-      </div>
-
-      <div class="text-center">
-        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-          </svg>
-        </div>
-        <h3 class="text-white font-bold text-lg mb-2">Certificación</h3>
-        <p class="text-white/70 text-sm">Obtén certificados reconocidos por la industria al completar los cursos</p>
-      </div>
-    </div>
   </div>
 </section>
 
 <script>
-  import { getContadorRegistros, crearRegistro } from '../lib/supabase.ts';
+  import { getContadorRegistros, crearRegistro } from '../lib/supabase.js';
   
   document.addEventListener('DOMContentLoaded', async function() {
     const form = document.getElementById('registerForm') as HTMLFormElement;
@@ -351,7 +340,7 @@
       const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
       const originalText = submitBtn.innerHTML;
       submitBtn.innerHTML = '<span class="flex items-center justify-center space-x-2"><svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Registrando...</span></span>';
-      submitBtn.disabled = true;
+      submitBtn.setAttribute('disabled', 'true');
       
       try {
         // Enviar registro a Supabase
@@ -375,7 +364,7 @@
       } finally {
         // Restaurar botón
         submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
+        submitBtn.removeAttribute('disabled');
       }
     });
   });
@@ -424,6 +413,111 @@
     background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
     transform: translateX(-100%);
     transition: transform 0.6s;
+  }
+  
+  /* Efectos adicionales para el formulario */
+  .form-container {
+    position: relative;
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.9) 100%);
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Animación de las esquinas del formulario con resplandor */
+  .form-container::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, 
+      #f97316 0%, 
+      #ea580c 25%, 
+      #dc2626 50%, 
+      #ea580c 75%, 
+      #f97316 100%);
+    border-radius: 1.125rem;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    filter: blur(1px);
+  }
+  
+  /* Resplandor interno */
+  .form-container::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(45deg, 
+      rgba(249, 115, 22, 0.3) 0%, 
+      rgba(234, 88, 12, 0.4) 25%, 
+      rgba(220, 38, 38, 0.3) 50%, 
+      rgba(234, 88, 12, 0.4) 75%, 
+      rgba(249, 115, 22, 0.3) 100%);
+    border-radius: 1rem;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .form-container:hover::before {
+    opacity: 1;
+    filter: blur(2px);
+  }
+  
+  .form-container:hover::after {
+    opacity: 1;
+  }
+  
+  /* Resplandor constante más sutil */
+  .form-container {
+    box-shadow: 
+      0 0 20px rgba(249, 115, 22, 0.1),
+      0 0 40px rgba(234, 88, 12, 0.05),
+      inset 0 0 20px rgba(249, 115, 22, 0.05);
+  }
+  
+  .form-container:hover {
+    box-shadow: 
+      0 0 30px rgba(249, 115, 22, 0.2),
+      0 0 60px rgba(234, 88, 12, 0.1),
+      0 0 80px rgba(220, 38, 38, 0.05),
+      inset 0 0 30px rgba(249, 115, 22, 0.1);
+  }
+  
+  /* Animación de pulso para el resplandor */
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 
+        0 0 20px rgba(249, 115, 22, 0.1),
+        0 0 40px rgba(234, 88, 12, 0.05),
+        inset 0 0 20px rgba(249, 115, 22, 0.05);
+    }
+    50% {
+      box-shadow: 
+        0 0 25px rgba(249, 115, 22, 0.15),
+        0 0 50px rgba(234, 88, 12, 0.08),
+        inset 0 0 25px rgba(249, 115, 22, 0.08);
+    }
+  }
+  
+  .form-container {
+    animation: glow-pulse 4s ease-in-out infinite;
+  }
+  
+  /* Efectos para los campos de entrada */
+  .form-input {
+    position: relative;
+    background: linear-gradient(135deg, rgba(55, 65, 81, 0.8) 0%, rgba(31, 41, 55, 0.9) 100%);
+    backdrop-filter: blur(5px);
+  }
+  
+  .form-input:focus {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(234, 88, 12, 0.05) 100%);
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
   }
   
   .register-button:hover::before {

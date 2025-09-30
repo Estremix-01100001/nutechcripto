@@ -1,221 +1,81 @@
----
-// Astro component
-const courses = [
-  {
-    id: 1,
-    title: "Fundamentos de IA para Negocios",
-    level: "Principiante",
-    levelColor: "bg-green-500",
-    rating: 4.8,
-    description: "Aprende los conceptos básicos de IA y cómo aplicarlos en casos de negocio reales. Perfecto para empezar tu carrera en IA.",
-    duration: "6 semanas",
-    students: "245 estudiantes",
-    modality: "En vivo",
-    features: ["Casos de negocio reales", "Certificado verificable", "Mentorías 1:1"],
-    price: 1950,
-    originalPrice: 2500
-  },
-  {
-    id: 2,
-    title: "Prompt Engineering Avanzado",
-    level: "Intermedio",
-    levelColor: "bg-blue-500",
-    rating: 4.9,
-    description: "Domina el arte del prompt engineering con GPT-4, Claude y otras IA generativas. Incluye automatizaciones con APIs.",
-    duration: "8 semanas",
-    students: "189 estudiantes",
-    modality: "En vivo",
-    features: ["Acceso a APIs premium", "Automatizaciones reales", "Templates exclusivos"],
-    price: 1950,
-    originalPrice: 2500
-  },
-  {
-    id: 3,
-    title: "Visión por Computadora Aplicada",
-    level: "Avanzado",
-    levelColor: "bg-red-500",
-    rating: 4.7,
-    description: "Construye sistemas de visión por computadora desde detección de objetos hasta análisis facial. Proyectos con OpenCV y TensorFlow.",
-    duration: "12 semanas",
-    students: "156 estudiantes",
-    modality: "En vivo",
-    features: ["GPU en la nube incluido", "Datasets privados", "Proyecto para portafolio"],
-    price: 1950,
-    originalPrice: 2500
-  },
-  {
-    id: 4,
-    title: "NLP y Chatbots Inteligentes",
-    level: "Intermedio",
-    levelColor: "bg-blue-500",
-    rating: 4.8,
-    description: "Desarrolla chatbots y sistemas de procesamiento de lenguaje natural. Desde análisis de sentimientos hasta asistentes virtuales.",
-    duration: "10 semanas",
-    students: "203 estudiantes",
-    modality: "En vivo",
-    features: ["Integración WhatsApp/Telegram", "Modelos custom", "Deploy en producción"],
-    price: 1950,
-    originalPrice: 2500
-  },
-  {
-    id: 5,
-    title: "Automatización con IA",
-    level: "Intermedio",
-    levelColor: "bg-blue-500",
-    rating: 4.6,
-    description: "Automatiza procesos empresariales usando IA. Desde RPA hasta workflows inteligentes con Zapier, Make y APIs.",
-    duration: "8 semanas",
-    students: "287 estudiantes",
-    modality: "On-demand",
-    features: ["Plantillas listas", "Integración CRM/ERP", "ROI comprobado"],
-    price: 1950,
-    originalPrice: 2500
-  },
-  {
-    id: 6,
-    title: "Consultoría IA para Freelancers",
-    level: "Avanzado",
-    levelColor: "bg-red-500",
-    rating: 4.9,
-    description: "Aprende a vender servicios de IA como consultor independiente. Incluye propuestas, pricing y casos de estudio.",
-    duration: "6 semanas",
-    students: "89 estudiantes",
-    modality: "Híbrido",
-    features: ["Red de contactos", "Plantillas de propuestas", "Mentoría de negocio"],
-    price: 1950,
-    originalPrice: 2500
-  },
-  {
-    id: 7,
-    title: "Machine Learning Práctico",
-    level: "Intermedio",
-    levelColor: "bg-blue-500",
-    rating: 4.7,
-    description: "Aprende machine learning desde cero con proyectos reales. Incluye sesiones en vivo y contenido on-demand.",
-    duration: "10 semanas",
-    students: "156 estudiantes",
-    modality: "Híbrido",
-    features: ["Sesiones en vivo", "Contenido on-demand", "Proyectos prácticos"],
-    price: 1950,
-    originalPrice: 2500
-  },
-  {
-    id: 8,
-    title: "Análisis de Datos con Python",
-    level: "Principiante",
-    levelColor: "bg-green-500",
-    rating: 4.6,
-    description: "Domina el análisis de datos con Python, Pandas y visualizaciones. Perfecto para principiantes.",
-    duration: "8 semanas",
-    students: "203 estudiantes",
-    modality: "On-demand",
-    features: ["Videos grabados", "Ejercicios prácticos", "Certificado"],
-    price: 1950,
-    originalPrice: 2500
-  }
-];
+image.png---
+import type { Course } from '../types';
+import { SITE_CONFIG } from '../lib/constants';
+import { courses } from '../data/courses';
 ---
 
 <section id="cursos" class="py-16 sm:py-20 lg:py-24" style="background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%);">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header mejorado -->
-    <div class="text-center mb-12">
+    <div class="text-center mb-16">
       <!-- Badge de cursos -->
-      <div class="text-center mb-8">
-        <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-medium bg-orange-500/10 hover:bg-orange-500 hover:text-white transition-all duration-300 mb-6">
+      <div class="text-center mb-8 mt-16">
+        <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-bold bg-orange-500/10 hover:bg-orange-500 hover:text-white transition-all duration-300">
           <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
           <span>Cursos especializados en IA</span>
-        </div>
+        </button>
       </div>
       
       <!-- Filtros de nivel -->
       <div class="text-center mb-12">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 relative inline-block leading-tight">
-          Nuestros Cursos
-        </h2>
-        <h3 class="text-xl font-semibold text-white mb-8">Filtrar por Nivel</h3>
-        <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
-          <button class="filter-btn px-8 py-4 bg-orange-500 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:scale-105 transition-all duration-300" data-filter="all">
+        <div class="flex flex-wrap justify-center gap-3 mb-6">
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 bg-orange-500 text-white" data-filter="all" onclick="filterCourses('all', 'level')">
             Todos
           </button>
-          <button class="filter-btn px-8 py-4 bg-white/10 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:bg-orange-500 hover:scale-105 transition-all duration-300" data-filter="principiante">
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 bg-gray-700 text-white hover:bg-orange-500" data-filter="principiante" onclick="filterCourses('principiante', 'level')">
             Principiante
           </button>
-          <button class="filter-btn px-8 py-4 bg-white/10 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:bg-orange-500 hover:scale-105 transition-all duration-300" data-filter="intermedio">
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 bg-gray-700 text-white hover:bg-orange-500" data-filter="intermedio" onclick="filterCourses('intermedio', 'level')">
             Intermedio
           </button>
-          <button class="filter-btn px-8 py-4 bg-white/10 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:bg-orange-500 hover:scale-105 transition-all duration-300" data-filter="avanzado">
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 bg-gray-700 text-white hover:bg-orange-500" data-filter="avanzado" onclick="filterCourses('avanzado', 'level')">
             Avanzado
           </button>
         </div>
-      </div>
-
-      <!-- Filtros de modalidad -->
-      <div class="text-center mb-12">
-        <h3 class="text-xl font-semibold text-white mb-8">Filtrar por Modalidad</h3>
-        <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
-          <button class="filter-btn px-8 py-4 bg-orange-500 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:scale-105 transition-all duration-300" data-filter="modalidad-all">
-            Todos
+        
+        <!-- Filtros de modalidad -->
+        <div class="flex flex-wrap justify-center gap-3">
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 bg-orange-500 text-white" data-filter="modalidad-all" onclick="filterCourses('all', 'modality')">
+            Todas las modalidades
           </button>
-          <button class="filter-btn px-8 py-4 bg-white/10 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:bg-orange-500 hover:scale-105 transition-all duration-300" data-filter="en-vivo">
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 bg-gray-700 text-white hover:bg-orange-500" data-filter="en-vivo" onclick="filterCourses('en-vivo', 'modality')">
             En vivo
           </button>
-          <button class="filter-btn px-8 py-4 bg-white/10 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:bg-orange-500 hover:scale-105 transition-all duration-300" data-filter="on-demand">
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 bg-gray-700 text-white hover:bg-orange-500" data-filter="on-demand" onclick="filterCourses('on-demand', 'modality')">
             On-demand
           </button>
-          <button class="filter-btn px-8 py-4 bg-white/10 text-white rounded-xl font-medium text-base sm:text-lg relative overflow-hidden cursor-pointer hover:bg-orange-500 hover:scale-105 transition-all duration-300" data-filter="hibrido">
+          <button class="filter-btn px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 bg-gray-700 text-white hover:bg-orange-500" data-filter="hibrido" onclick="filterCourses('hibrido', 'modality')">
             Híbrido
           </button>
         </div>
       </div>
     </div>
 
-
     <!-- Grid de cursos -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {courses.map((course) => (
-        <div class="course-card bg-gray-800 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-gray-700/50 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 relative overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 flex flex-col" data-course-id={course.id} data-level={course.level.toLowerCase()} data-modality={course.modality.toLowerCase()}>
+        <div class="course-card bg-gray-800 rounded-xl p-4 border border-gray-700 hover:border-orange-400 hover:shadow-lg hover:shadow-orange-400/20 transition-all duration-300 hover:scale-105 cursor-pointer flex flex-col justify-between" data-level={course.level.toLowerCase()} data-modality={course.modality.toLowerCase().replace(' ', '-')}>
           <!-- Header del curso -->
-          <div class="flex justify-between items-start mb-4">
-            <span class={`course-level px-3 py-1 rounded-full text-xs font-medium text-white ${course.levelColor}`}>
-              {course.level}
-            </span>
-            <div class="flex items-center space-x-1">
-              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-              </svg>
-              <span class="text-white text-sm font-medium">{course.rating}</span>
+          <div class="mb-4">
+            <div class="flex items-center justify-between mb-3">
+              <span class={`px-3 py-1 rounded-full text-xs font-semibold text-white ${course.levelColor}`}>
+                {course.level}
+              </span>
+              <div class="flex items-center space-x-1">
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-.364-1.118l1.07-3.292z"></path>
+                </svg>
+                <span class="text-white text-sm font-medium">{course.rating}</span>
+              </div>
             </div>
-          </div>
-
-          <!-- Título del curso -->
-          <h3 class="text-xl font-bold text-white mb-3 line-clamp-2">
-            {course.title}
-          </h3>
-
-          <!-- Descripción -->
-          <p class="text-white/80 text-sm mb-4 line-clamp-3">
-            {course.description}
-          </p>
-
-          <!-- Detalles del curso -->
-          <div class="space-y-2 mb-4">
-            <div class="flex items-center space-x-2 text-white/70 text-sm">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
+            
+            <h3 class="text-white text-lg font-bold mb-2 leading-tight">{course.title}</h3>
+            <p class="text-white/70 text-sm leading-relaxed mb-3">{course.description}</p>
+            
+            <!-- Info del curso -->
+            <div class="flex items-center justify-between text-xs text-white/50 mb-3">
               <span>{course.duration}</span>
-            </div>
-            <div class="flex items-center space-x-2 text-white/70 text-sm">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-              </svg>
               <span>{course.students}</span>
-            </div>
-            <div class="flex items-center space-x-2 text-white/70 text-sm">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1m6-4a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
               <span>{course.modality}</span>
             </div>
           </div>
@@ -235,8 +95,8 @@ const courses = [
           <!-- Precio -->
           <div class="mb-4">
             <div class="flex items-baseline space-x-2">
-              <span class="text-2xl font-bold text-white">S/{course.price}</span>
-              <span class="text-sm text-white/50 line-through">S/{course.originalPrice}</span>
+              <span class="text-2xl font-bold text-white">{SITE_CONFIG.currencySymbol}{course.price}</span>
+              <span class="text-sm text-white/50 line-through">{SITE_CONFIG.currencySymbol}{course.originalPrice}</span>
             </div>
             <p class="text-xs text-white/50 mt-1">Precio de lanzamiento limitado</p>
           </div>
@@ -260,155 +120,56 @@ const courses = [
 </section>
 
 <script>
-  // Funcionalidad de filtros
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Inicializando filtros de cursos...');
-    
-    const filterButtons = document.querySelectorAll('.filter-btn');
+  // Variables globales para mantener el estado de los filtros
+  let currentLevelFilter = 'all';
+  let currentModalityFilter = 'all';
+  
+  // Función global para filtrar cursos
+  function filterCourses(filter, type) {
     const courseCards = document.querySelectorAll('.course-card');
+    const filterButtons = document.querySelectorAll('.filter-btn');
     
-    console.log('🔍 Botones de filtro encontrados:', filterButtons.length);
-    console.log('📚 Tarjetas de curso encontradas:', courseCards.length);
+    // Actualizar estado del filtro
+    if (type === 'level') {
+      currentLevelFilter = filter;
+    } else if (type === 'modality') {
+      currentModalityFilter = filter;
+    }
     
-    // Variables para mantener el estado de los filtros
-    let currentLevelFilter = 'all';
-    let currentModalityFilter = 'modalidad-all';
-    
-    filterButtons.forEach((button, index) => {
-      console.log(`🔘 Botón ${index + 1}:`, button.getAttribute('data-filter'));
-      
-      button.addEventListener('click', function() {
-        const filter = this.getAttribute('data-filter');
-        console.log('🔍 Filtro clickeado:', filter);
-        
-        // Determinar si es filtro de nivel o modalidad
-        if (filter === 'all' || filter === 'principiante' || filter === 'intermedio' || filter === 'avanzado') {
-          // Es filtro de nivel
-          currentLevelFilter = filter;
-          console.log('📚 Filtro de nivel actualizado:', currentLevelFilter);
-          
-          // Actualizar estilos de botones de nivel
-          const levelButtons = document.querySelectorAll('[data-filter="all"], [data-filter="principiante"], [data-filter="intermedio"], [data-filter="avanzado"]');
-          levelButtons.forEach(btn => {
-            btn.classList.remove('bg-orange-500', 'text-white');
-            btn.classList.add('bg-white/10', 'text-white');
-          });
-          this.classList.remove('bg-white/10', 'text-white');
-          this.classList.add('bg-orange-500', 'text-white');
-          
-        } else if (filter === 'modalidad-all' || filter === 'en-vivo' || filter === 'on-demand' || filter === 'hibrido') {
-          // Es filtro de modalidad
-          currentModalityFilter = filter;
-          console.log('🎯 Filtro de modalidad actualizado:', currentModalityFilter);
-          
-          // Actualizar estilos de botones de modalidad
-          const modalityButtons = document.querySelectorAll('[data-filter="modalidad-all"], [data-filter="en-vivo"], [data-filter="on-demand"], [data-filter="hibrido"]');
-          modalityButtons.forEach(btn => {
-            btn.classList.remove('bg-orange-500', 'text-white');
-            btn.classList.add('bg-white/10', 'text-white');
-          });
-          this.classList.remove('bg-white/10', 'text-white');
-          this.classList.add('bg-orange-500', 'text-white');
-        }
-        
-        // Aplicar filtros combinados
-        console.log('🔄 Aplicando filtros...');
-        applyFilters();
-      });
+    // Actualizar botones activos
+    filterButtons.forEach(btn => {
+      btn.classList.remove('bg-orange-500', 'text-white');
+      btn.classList.add('bg-gray-700', 'text-white');
     });
     
-    function applyFilters() {
-      console.log('🔍 Aplicando filtros - Nivel:', currentLevelFilter, 'Modalidad:', currentModalityFilter);
-      let visibleCount = 0;
+    // Marcar botón activo
+    const activeButton = document.querySelector(`[data-filter="${filter}"]`);
+    if (activeButton) {
+      activeButton.classList.remove('bg-gray-700');
+      activeButton.classList.add('bg-orange-500', 'text-white');
+    }
+    
+    // Aplicar filtros
+    let visibleCount = 0;
+    
+    courseCards.forEach((card) => {
+      const courseLevel = card.getAttribute('data-level');
+      const courseModality = card.getAttribute('data-modality');
       
-      courseCards.forEach((card, index) => {
-        let showCard = true;
-        const courseLevel = card.getAttribute('data-level');
-        const courseModality = card.getAttribute('data-modality');
-        
-        console.log(`📋 Curso ${index + 1}: Nivel=${courseLevel}, Modalidad=${courseModality}`);
-        
-        // Verificar filtro de nivel
-        if (currentLevelFilter !== 'all') {
-          if (courseLevel !== currentLevelFilter) {
-            showCard = false;
-            console.log(`❌ Curso ${index + 1} oculto por nivel: ${courseLevel} !== ${currentLevelFilter}`);
-          }
-        }
-        
-        // Verificar filtro de modalidad
-        if (currentModalityFilter !== 'modalidad-all' && showCard) {
-          let expectedModality = '';
-          
-          switch (currentModalityFilter) {
-            case 'en-vivo':
-              expectedModality = 'en vivo';
-              break;
-            case 'on-demand':
-              expectedModality = 'on-demand';
-              break;
-            case 'hibrido':
-              expectedModality = 'híbrido';
-              break;
-          }
-          
-          console.log(`🔍 Comparando modalidad: "${courseModality}" === "${expectedModality}"`);
-          
-          if (courseModality !== expectedModality) {
-            showCard = false;
-            console.log(`❌ Curso ${index + 1} oculto por modalidad: ${courseModality} !== ${expectedModality}`);
-          } else {
-            console.log(`✅ Curso ${index + 1} modalidad coincide: ${courseModality}`);
-          }
-        }
-        
-        // Mostrar u ocultar la tarjeta
-        if (showCard) {
-          card.style.display = 'block';
-          card.style.animation = 'fadeIn 0.5s ease-in-out';
-          visibleCount++;
-          console.log(`✅ Curso ${index + 1} visible: ${courseLevel} - ${courseModality}`);
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      let showByLevel = currentLevelFilter === 'all' || courseLevel === currentLevelFilter;
+      let showByModality = currentModalityFilter === 'all' || courseModality === currentModalityFilter;
       
-      console.log(`📊 Total de cursos visibles: ${visibleCount}/${courseCards.length}`);
-    }
-  });
-</script>
-
-<style>
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .course-card {
-    position: relative;
-    overflow: hidden;
-  }
-</style>
-
-<!-- Importar CSS de animaciones -->
-<link rel="stylesheet" href="/src/styles/smoke-animations.css">
-
-<script>
-  import { initSmokeEffect } from '../scripts/smoke-effect.js';
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar efecto de humo para las cards de cursos
-    initSmokeEffect('.course-card', {
-      particleCount: 8,
-      animationDuration: 2000,
-      colorTheme: 'orange',
-      eventType: 'click'
+      if (showByLevel && showByModality) {
+        (card as HTMLElement).style.display = 'flex';
+        visibleCount++;
+      } else {
+        (card as HTMLElement).style.display = 'none';
+      }
     });
-  });
+    
+    console.log(`Filtros aplicados: Nivel=${currentLevelFilter}, Modalidad=${currentModalityFilter}, Cursos visibles=${visibleCount}`);
+  }
+  
+  // Hacer la función global
+  (window as any).filterCourses = filterCourses;
 </script>

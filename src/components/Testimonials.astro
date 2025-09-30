@@ -1,91 +1,24 @@
 ---
-// Astro component
-const testimonials = [
-  {
-    id: 1,
-    name: "Carlos Mendoza",
-    role: "Marketing Manager",
-    company: "startupteam",
-    image: "https://randomuser.me/api/portraits/men/1.jpg",
-    rating: 5,
-    achievement: "50% aumento salarial",
-    quote: "Los proyectos del curso los implementé directamente en mi empresa. Automaticé 3 procesos y me ascendieron a Head of Growth.",
-    tags: ["Proyecto Real", "Mejora 50%", "Certificado"]
-  },
-  {
-    id: 2,
-    name: "Ana Ruiz",
-    role: "Desarrolladora",
-    company: "TechCorp",
-    image: "https://randomuser.me/api/portraits/women/2.jpg",
-    rating: 5,
-    achievement: "Pasó a AI Engineer",
-    quote: "Después de Nutech Academy conseguí mis primeros 3 clientes en consultoría IA. El programa de referidos me generó S/1,500",
-    tags: ["Proyecto Real", "Mejora 50%", "Certificado"]
-  },
-  {
-    id: 3,
-    name: "Miguel Torres",
-    role: "Consultor",
-    company: "InnovateLab",
-    image: "https://randomuser.me/api/portraits/men/3.jpg",
-    rating: 5,
-    achievement: "Nuevo emprendimiento",
-    quote: "La metodología PRIA me ayudó a crear mi propia consultora de IA. En 6 meses facturé más que en todo el año anterior.",
-    tags: ["Proyecto Real", "Mejora 50%", "Certificado"]
-  },
-  {
-    id: 4,
-    name: "Sofia García",
-    role: "Product Manager",
-    company: "DataFlow",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-    rating: 5,
-    achievement: "Promoción directa",
-    quote: "El portafolio que construí en Nutech me abrió las puertas en 3 empresas. Elegí la mejor oferta con 60% más salario.",
-    tags: ["Proyecto Real", "Mejora 50%", "Certificado"]
-  },
-  {
-    id: 5,
-    name: "Roberto Silva",
-    role: "Analista de Datos",
-    company: "FinanceAI",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-    rating: 5,
-    achievement: "Cambio de carrera",
-    quote: "De analista tradicional a especialista en IA. Los mentores me guiaron paso a paso hasta conseguir mi primer trabajo en IA.",
-    tags: ["Proyecto Real", "Mejora 50%", "Certificado"]
-  },
-  {
-    id: 6,
-    name: "Elena Vargas",
-    role: "CEO",
-    company: "TechStart",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-    rating: 5,
-    achievement: "Escaló su startup",
-    quote: "Implementé IA en mi startup y aumenté la eficiencia 300%. Nutech me dio las herramientas exactas que necesitaba.",
-    tags: ["Proyecto Real", "Mejora 50%", "Certificado"]
-  }
-];
+import type { Testimonial } from '../types';
+import { testimonials } from '../data/testimonials';
 ---
 
 <section id="testimonios" class="py-16 sm:py-20 lg:py-24 relative overflow-hidden" style="background: linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%);">
   
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
     <!-- Header mejorado -->
     <div class="text-center mb-8 sm:mb-12">
-      <div class="inline-flex items-center space-x-2 bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 rounded-full px-4 py-2 text-sm mb-6 sm:mb-8">
+      <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-bold bg-orange-500/10 hover:bg-orange-500 hover:text-white transition-all duration-300 mb-6 sm:mb-8">
         <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-        <span class="text-orange-300 font-medium">Historias de transformación real</span>
-      </div>
+        <span>Historias de transformación real</span>
+      </button>
 
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8">
-        Lo que dicen nuestros <span class="text-orange-500 ">estudiantes</span>
+        Lo que dicen nuestros <span class="text-orange-500">estudiantes</span>
       </h2>
       
-      <p class="text-sm text-white/80 max-w-3xl mx-auto leading-relaxed">
-        Nuestros students no solo aprenden IA, la aplican y transforman sus carreras profesionales.
+      <p class="text-lg sm:text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
+        Nuestros estudiantes no solo aprenden IA, la aplican y transforman sus carreras profesionales.
       </p>
     </div>
 
@@ -98,7 +31,7 @@ const testimonials = [
           <!-- Testimonios originales -->
           {testimonials.map((testimonial, index) => (
             <div class="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 flex-shrink-0 px-3">
-              <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-orange-500/30 transition-all duration-300 shadow-2xl hover:shadow-orange-500/20 group h-full hover:scale-105 cursor-pointer">
+              <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-orange-400/30 transition-all duration-300 shadow-2xl hover:shadow-orange-400/20 group h-full hover:scale-105 cursor-pointer">
                 <!-- Header del testimonio -->
                 <div class="flex items-start justify-between mb-6">
                   <div class="flex items-center space-x-4">
@@ -111,7 +44,7 @@ const testimonials = [
                         decoding="async"
                         width="64"
                         height="64"
-                        onerror="this.src='https://ui-avatars.com/api/?name='+encodeURIComponent(this.alt)+'&background=6b7280&color=fff&size=150&bold=true'"
+                        onerror="this.src='https://ui-avatars.com/api/?name='+encodeURIComponent(this.alt)+'&background=6b7280&color=fff&size=150&bold=1'"
                       />
                     </div>
                     <div>
@@ -119,6 +52,7 @@ const testimonials = [
                       <p class="text-orange-400 text-sm font-medium">{testimonial.role}</p>
                       <p class="text-white/50 text-sm">{testimonial.company}</p>
                     </div>
+
                   </div>
                   <div class="text-6xl text-orange-500/20 font-bold">"</div>
                 </div>
@@ -162,7 +96,7 @@ const testimonials = [
           <!-- Testimonios duplicados para el bucle infinito -->
           {testimonials.map((testimonial, index) => (
             <div class="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 flex-shrink-0 px-3">
-              <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-orange-500/30 transition-all duration-300 shadow-2xl hover:shadow-orange-500/20 group h-full hover:scale-105 cursor-pointer">
+              <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-orange-400/30 transition-all duration-300 shadow-2xl hover:shadow-orange-400/20 group h-full hover:scale-105 cursor-pointer">
                 <!-- Header del testimonio -->
                 <div class="flex items-start justify-between mb-6">
                   <div class="flex items-center space-x-4">
@@ -175,7 +109,7 @@ const testimonials = [
                         decoding="async"
                         width="64"
                         height="64"
-                        onerror="this.src='https://ui-avatars.com/api/?name='+encodeURIComponent(this.alt)+'&background=6b7280&color=fff&size=150&bold=true'"
+                        onerror="this.src='https://ui-avatars.com/api/?name='+encodeURIComponent(this.alt)+'&background=6b7280&color=fff&size=150&bold=1'"
                       />
                     </div>
                     <div>
@@ -183,6 +117,7 @@ const testimonials = [
                       <p class="text-orange-400 text-sm font-medium">{testimonial.role}</p>
                       <p class="text-white/50 text-sm">{testimonial.company}</p>
                     </div>
+
                   </div>
                   <div class="text-6xl text-orange-500/20 font-bold">"</div>
                 </div>
@@ -250,10 +185,13 @@ const testimonials = [
   }
   
   .animate-scroll-testimonials {
-    animation: scroll-testimonials 30s linear infinite;
+    animation: scroll-testimonials 15s linear infinite;
   }
   
   .animate-scroll-testimonials:hover {
     animation-play-state: paused;
   }
+</style>
+</style>
+</style>
 </style>

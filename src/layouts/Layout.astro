@@ -62,10 +62,9 @@ const {
     <meta name="twitter:site" content="@nutechacademy" />
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="/nutechcripto/images/favicon3.mp4" as="video" type="video/mp4">
-    <link rel="preload" href="/nutechcripto/images/fondoherosection.png" as="image">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
-    <link rel="preload" href="https://randomuser.me/api/portraits/men/1.jpg" as="image">
+    <link rel="preload" href="/nutechcripto/images/fondoherosection.png" as="image" type="image/png">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -105,5 +104,7 @@ const {
   <body class="font-sans">
     <slot />
     
+    <!-- Scripts globales -->
+    <script src="/src/scripts/cta-functions.js"></script>
   </body>
 </html>

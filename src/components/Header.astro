@@ -11,25 +11,25 @@ const navItems = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/20 backdrop-blur-md border-b border-white/20 shadow-lg">
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/20 backdrop-blur-md border-b border-white/20 shadow-lg py-2">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between">
       <!-- Logo - Lado izquierdo -->
-      <div class="flex-shrink-0 flex items-center justify-center">
+      <div class="flex-shrink-0 flex items-center justify-start">
         <a href="#inicio" class="flex items-center justify-center hover:scale-105 transition-transform duration-300">
-          <!-- Logo con imagen - Perfectamente centrado -->
-          <div class="w-32 h-32 sm:w-20 sm:h-20 md:w-20 md:h-20 lg:w-44 lg:h-44 rounded-full overflow-hidden flex items-center justify-center">
-                 <img src="/nutechcripto/images/favicon.png" alt="Nutech Academy" class="w-full h-full object-cover">
+          <!-- Logo con imagen - Tamaño fijo y bien posicionado -->
+          <div class="w-28 h-28 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 overflow-hidden flex items-center justify-center">
+            <img src="/nutechcripto/images/favicon.png" alt="Nutech Academy" class="w-full h-full object-cover">
           </div>
         </a>
       </div>
 
       <!-- Desktop Navigation - Centro -->
-      <nav class="hidden md:flex space-x-2 flex-1 justify-center">
+      <nav class="hidden md:flex space-x-1 flex-1 justify-center">
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="text-white/90 hover:text-orange-400 transition-all duration-300 font-medium px-4 py-2 rounded-xl hover:bg-orange-500/10 hover:scale-105 relative group"
+            class="text-white/90 hover:text-orange-400 transition-all duration-300 font-medium px-3 py-1.5 rounded-lg hover:bg-orange-500/10 hover:scale-105 relative group text-sm"
           >
             {item.name}
             <!-- Indicador de hover mejorado -->
@@ -39,13 +39,13 @@ const navItems = [
       </nav>
 
       <!-- CTA Buttons - Lado derecho al borde -->
-      <div class="hidden md:flex items-center space-x-3 ml-auto">
-        <a href="#registro" class="relative group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-2xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 font-bold shadow-2xl hover:shadow-orange-500/40 transform hover:-translate-y-1 hover:scale-105 border border-orange-400/30 hover:border-orange-300/50 overflow-hidden">
+      <div class="hidden md:flex items-center space-x-2 ml-auto">
+        <a href="#registro" class="relative group bg-gradient-to-r from-orange-500 to-orange-600 text-white px-5 py-2 rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-orange-500/40 transform hover:-translate-y-0.5 hover:scale-105 border border-orange-400/30 hover:border-orange-300/50 overflow-hidden text-sm">
           <!-- Efecto de brillo animado -->
           <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
           <!-- Contenido del botón -->
-          <span class="relative z-10 flex items-center space-x-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <span class="relative z-10 flex items-center space-x-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
           </svg>
             <span>Registrarse</span>
@@ -58,12 +58,12 @@ const navItems = [
       <div class="md:hidden flex items-center">
         <button
           id="mobile-menu-button"
-          class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:text-orange-500 hover:bg-white/20 transition-all duration-300 border border-white/20"
+          class="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:text-orange-500 hover:bg-white/20 transition-all duration-300 border border-white/20"
         >
-          <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg id="menu-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
-          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg id="close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
@@ -201,20 +201,16 @@ const navItems = [
     const menuIcon = document.getElementById('menu-icon');
     const closeIcon = document.getElementById('close-icon');
     
-    console.log('Toggle menu clicked, isMenuOpen:', isMenuOpen);
-    console.log('Menu element found:', !!menu);
     
     if (menu) {
       if (isMenuOpen) {
         // Mostrar menú
         menu.classList.remove('hidden');
         menu.style.display = 'block';
-        console.log('Menu should be visible now');
       } else {
         // Ocultar menú
         menu.classList.add('hidden');
         menu.style.display = 'none';
-        console.log('Menu should be hidden now');
       }
     } else {
       console.error('Menu element not found!');
@@ -249,18 +245,15 @@ const navItems = [
   // Add event listeners when component mounts
 
          document.addEventListener('DOMContentLoaded', function() {
-           console.log('DOM loaded, setting up mobile menu');
     
     window.addEventListener('scroll', handleScroll);
     
     // Add click listener to mobile menu button
     const mobileMenuButton = document.getElementById('mobile-menu-button');
-    console.log('Mobile menu button found:', !!mobileMenuButton);
     
     if (mobileMenuButton) {
       mobileMenuButton.addEventListener('click', function(e) {
         e.preventDefault();
-        console.log('Mobile menu button clicked!');
         toggleMenu();
       });
     } else {
@@ -269,12 +262,10 @@ const navItems = [
     
     // Add click listener to mobile menu close button
     const mobileMenuClose = document.getElementById('mobile-menu-close');
-    console.log('Mobile menu close button found:', !!mobileMenuClose);
     
     if (mobileMenuClose) {
       mobileMenuClose.addEventListener('click', function(e) {
         e.preventDefault();
-        console.log('Mobile menu close button clicked!');
         closeMenu();
       });
     } else {
@@ -283,17 +274,14 @@ const navItems = [
     
     // Add click listeners to menu links
     const menuLinks = document.querySelectorAll('#mobile-menu a');
-    console.log('Menu links found:', menuLinks.length);
     menuLinks.forEach(link => {
       link.addEventListener('click', function(e) {
-        console.log('Menu link clicked, closing menu');
         closeMenu();
       });
     });
     
     // Add smooth scroll to all navigation links (desktop and mobile)
     const allLinks = document.querySelectorAll('a[href^="#"]');
-    console.log('Navigation links found:', allLinks.length);
     allLinks.forEach(link => {
       link.addEventListener('click', function(this: HTMLAnchorElement, e: Event) {
         e.preventDefault();
@@ -316,7 +304,6 @@ const navItems = [
             behavior: 'smooth'
           });
           
-          console.log('Smooth scroll to:', targetId);
         }
       });
     });

@@ -67,64 +67,119 @@ section {
   position: relative;
 }
 
-/* Fusión completa de secciones */
+/* Márgenes estandarizados para todas las secciones - FORZADOS */
 section {
-  margin-bottom: 0;
-  padding-top: 0;
-  padding-bottom: 0;
+  margin: 0 !important;
+  padding: 4rem 2rem !important;
+  box-sizing: border-box !important;
 }
 
-/* Eliminar espacios entre secciones específicas */
-#instructores {
-  margin-top: -60px !important;
-  margin-bottom: -50px !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+@media (min-width: 640px) {
+  section {
+    padding: 5rem 3rem !important;
+  }
 }
 
-#cursos {
-  margin-top: -50px !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+@media (min-width: 1024px) {
+  section {
+    padding: 6rem 4rem !important;
+  }
 }
 
-/* Eliminar cualquier borde o separación */
-#instructores, #cursos {
-  border: none;
-  outline: none;
+/* Espaciado entre secciones consecutivas */
+section + section {
+  margin-top: 0;
 }
 
-/* Forzar fondo negro puro para Instructors */
+/* Espaciado específico para secciones problemáticas */
+
+#inversion .mb-20 {
+  margin-top: 6rem !important;
+}
+
+#inversion .text-center.mb-8.mt-24 {
+  margin-top: 6rem !important;
+}
+
+/* Espaciado entre componentes principales */
+.h-8 {
+  height: 2rem;
+  background: transparent;
+  display: block;
+}
+
+/* Forzar espaciado entre secciones específicas */
+#seguridad-informacion + #transformacion-digital {
+  margin-top: 4rem !important;
+}
+
+/* Espaciado interno en Investment */
+#inversion .mb-20 {
+  margin-top: 6rem !important;
+}
+
+#inversion .text-center.mb-8.mt-24 {
+  margin-top: 6rem !important;
+}
+
+/* Fondo consistente para todas las secciones */
 #instructores {
   background: #000000 !important;
 }
 
-#instructores::before {
-  display: none !important;
+/* Asegurar que todas las secciones tengan espaciado adecuado */
+section:not(#inicio) {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-/* Fusión perfecta entre Instructors y Courses */
-#cursos::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background: linear-gradient(180deg, 
-    #000000 0%, 
-    #000000 10%,
-    #000000 20%,
-    #111111 30%,
-    #111111 40%,
-    #111111 50%,
-    #111111 60%,
-    #111111 70%,
-    #111111 80%,
-    #111111 90%,
-    #111111 100%
-  );
-  z-index: 5;
+/* Reducir el ancho máximo de los contenedores - FORZADO */
+.max-w-7xl {
+  max-width: 70rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+@media (min-width: 640px) {
+  .max-w-7xl {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .max-w-7xl {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+  }
+}
+
+/* Espaciado específico para secciones que necesitan separación */
+#seguridad-informacion {
+  margin-bottom: 0;
+}
+
+
+/* Espaciado interno en Investment */
+#inversion {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+  #inversion {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  #inversion {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
 }
 
 section > * {
@@ -132,9 +187,1348 @@ section > * {
   z-index: 2;
 }
 
+/* Regla final para asegurar espaciado correcto */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Espaciado forzado entre secciones problemáticas */
+#seguridad-informacion {
+  margin-bottom: 0 !important;
+}
+
+
+/* Asegurar que los separadores funcionen */
+.h-8 {
+  height: 2rem !important;
+  display: block !important;
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Márgenes para cajas internas */
+.bg-gray-800,
+.bg-gray-700,
+.bg-gradient-to-r {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .bg-gray-800,
+  .bg-gray-700,
+  .bg-gradient-to-r {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bg-gray-800,
+  .bg-gray-700,
+  .bg-gradient-to-r {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+}
+
+/* Márgenes adicionales para el body - FORZADOS */
+body {
+  margin: 0 !important;
+  padding: 0 1rem !important;
+  box-sizing: border-box !important;
+}
+
+@media (min-width: 640px) {
+  body {
+    padding: 0 2rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding: 0 3rem !important;
+  }
+}
+
+/* Forzar márgenes en todas las cajas */
+.bg-gray-800,
+.bg-gray-700,
+.bg-gradient-to-r,
+.rounded-xl,
+.rounded-2xl {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+}
+
+@media (min-width: 640px) {
+  .bg-gray-800,
+  .bg-gray-700,
+  .bg-gradient-to-r,
+  .rounded-xl,
+  .rounded-2xl {
+    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bg-gray-800,
+  .bg-gray-700,
+  .bg-gradient-to-r,
+  .rounded-xl,
+  .rounded-2xl {
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* REGLA FINAL - Forzar márgenes en TODAS las secciones */
+* {
+  box-sizing: border-box !important;
+}
+
+/* FORZAR MÁRGENES EN TODAS LAS SECCIONES - MÁS AGRESIVO */
+section {
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+  margin-left: 2rem !important;
+  margin-right: 2rem !important;
+}
+
+/* FORZAR MÁRGENES EN CONTENEDORES PRINCIPALES */
+.max-w-6xl,
+.max-w-7xl {
+  margin-left: 2rem !important;
+  margin-right: 2rem !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+@media (min-width: 640px) {
+  section {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+    margin-left: 3rem !important;
+    margin-right: 3rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+    margin-left: 4rem !important;
+    margin-right: 4rem !important;
+  }
+}
+
+/* Márgenes consistentes para todas las secciones */
+#seguridad-informacion,
+#transformacion-digital,
+#inversion,
+#garantias,
+#metodos-pago,
+#financiamiento,
+#perfiles,
+#especialidades {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+}
+
+/* MÁRGENES HORIZONTALES FORZADOS PARA SECCIONES PROBLEMÁTICAS */
+#seguridad-informacion,
+#perfiles {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+}
+
+/* HACER CAJAS MÁS COMPACTAS */
+.bg-gray-800,
+.bg-gray-700,
+.bg-gradient-to-r {
+  padding: 0.75rem !important;
+  margin: 0.25rem !important;
+}
+
+/* COMPACTAR CAJAS DE CARACTERÍSTICAS */
+.bg-gray-800 .text-center {
+  padding: 0.25rem !important;
+}
+
+.bg-gray-800 h3 {
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.bg-gray-800 p {
+  font-size: 0.625rem !important;
+  line-height: 0.875rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* ELIMINAR LÍNEAS BLANCAS */
+.bg-gray-800 {
+  border: 1px solid #374151 !important;
+  background-color: #1f2937 !important;
+}
+
+.bg-gray-800:hover {
+  border-color: #f97316 !important;
+}
+
+/* ELIMINAR LÍNEAS BLANCAS ENTRE SECCIONES */
+section {
+  border: none !important;
+  outline: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+section::before,
+section::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* ELIMINAR LÍNEAS BLANCAS EN GRIDS Y FLEX */
+.grid,
+.flex {
+  border: none !important;
+  outline: none !important;
+}
+
+.grid > *,
+.flex > * {
+  border: none !important;
+  outline: none !important;
+}
+
+/* ELIMINAR LÍNEAS BLANCAS EN DIVS */
+div {
+  border: none !important;
+  outline: none !important;
+}
+
+div:not(.bg-gray-800):not(.bg-gray-700):not(.bg-gradient-to-r) {
+  border: none !important;
+  outline: none !important;
+}
+
+/* COMPACTAR MÁS LAS CAJAS */
+.bg-gray-800 {
+  padding: 0.5rem !important;
+  margin: 0.125rem !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* MEJORAR ESPACIADO ENTRE SECCIONES */
+section {
+  margin-top: 4rem !important;
+  margin-bottom: 4rem !important;
+}
+
+section:first-child {
+  margin-top: 0 !important;
+}
+
+section:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* MEJORAR ESPACIADO DE TARJETAS DE CURSOS */
+.course-card {
+  margin-bottom: 2rem !important;
+  width: 100% !important;
+  max-width: 28rem !important; /* max-w-md */
+  height: 400px !important;
+  min-height: 400px !important;
+}
+
+.grid {
+  gap: 2rem !important;
+  justify-items: center !important;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    gap: 2.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    gap: 2.5rem !important;
+  }
+  
+  .course-card {
+    max-width: 28rem !important;
+  }
+}
+
+/* MEJORAR JERARQUÍA VISUAL */
+section {
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
+}
+
+section:first-child {
+  margin-top: 0 !important;
+}
+
+section:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* FORZAR ALTURA UNIFORME EN TARJETAS */
+.course-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.course-card .mt-auto {
+  margin-top: auto !important;
+}
+
+/* MEJORAR JERARQUÍA VISUAL GENERAL */
+h1, h2, h3 {
+  margin-bottom: 1.5rem !important;
+}
+
+h2 {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+
+h3 {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+}
+
+/* CENTRAR TODAS LAS SECCIONES */
+section {
+  text-align: center !important;
+}
+
+section .max-w-7xl,
+section .max-w-6xl,
+section .max-w-5xl {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* CENTRAR CONTENIDO DE SECCIONES ESPECÍFICAS */
+#perfiles,
+#especialidades {
+  text-align: center !important;
+}
+
+#perfiles .grid,
+#especialidades .grid {
+  justify-items: center !important;
+}
+
+/* COMPACTAR SECCIÓN DE GARANTÍAS */
+#inversion .grid {
+  max-width: 60rem !important;
+  margin: 0 auto !important;
+}
+
+#inversion .bg-gray-800 {
+  padding: 1.5rem !important;
+  margin: 0.5rem !important;
+}
+
+#inversion h3 {
+  font-size: 1.125rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+#inversion p {
+  font-size: 0.75rem !important;
+  line-height: 1.25rem !important;
+}
+
+/* AJUSTAR SEGURIDAD DE LA INFORMACIÓN */
+#seguridad-informacion .bg-gray-800 {
+  padding: 1rem !important;
+  margin: 0.5rem !important;
+  height: 200px !important;
+  max-width: 384px !important;
+}
+
+#seguridad-informacion h3 {
+  font-size: 1rem !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.3 !important;
+}
+
+#seguridad-informacion p {
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+}
+
+#seguridad-informacion .w-12 {
+  width: 3rem !important;
+  height: 3rem !important;
+}
+
+#seguridad-informacion .w-6 {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+}
+
+#seguridad-informacion .grid {
+  gap: 1.5rem !important;
+}
+
+/* CENTRAR BADGE DE SEGURIDAD */
+#seguridad-informacion .text-center {
+  text-align: center !important;
+}
+
+#seguridad-informacion button {
+  margin: 0 auto !important;
+  display: inline-flex !important;
+}
+
+/* ULTRA-COMPACTAR TRANSFORMACIÓN DIGITAL */
+#transformacion-digital .bg-gray-800 {
+  padding: 0.25rem !important;
+  margin: 0.125rem !important;
+  height: 80px !important;
+  max-width: 160px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+#transformacion-digital h3 {
+  font-size: 0.5rem !important;
+  margin-bottom: 0 !important;
+  line-height: 1.0 !important;
+  text-align: center !important;
+}
+
+#transformacion-digital p {
+  font-size: 0.375rem !important;
+  line-height: 1.0 !important;
+  text-align: center !important;
+}
+
+#transformacion-digital .w-4 {
+  width: 1rem !important;
+  height: 1rem !important;
+}
+
+#transformacion-digital .w-2 {
+  width: 0.5rem !important;
+  height: 0.5rem !important;
+}
+
+#transformacion-digital .grid {
+  gap: 0.25rem !important;
+  align-items: start !important;
+}
+
+/* COMPACTAR CTA DE TRANSFORMACIÓN DIGITAL */
+#transformacion-digital .bg-gradient-to-r {
+  max-width: 32rem !important;
+  margin: 0 auto !important;
+  padding: 1rem !important;
+}
+
+#transformacion-digital h3 {
+  font-size: 1rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+#transformacion-digital p {
+  font-size: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+#transformacion-digital a {
+  padding: 0.375rem 1rem !important;
+  font-size: 0.75rem !important;
+}
+
+/* COMPACTAR CTA DE SEGURIDAD DE LA INFORMACIÓN */
+#seguridad-informacion .bg-gradient-to-r {
+  max-width: 32rem !important;
+  margin: 0 auto !important;
+  padding: 1rem !important;
+}
+
+#seguridad-informacion h3 {
+  font-size: 1rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+#seguridad-informacion p {
+  font-size: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+#seguridad-informacion a {
+  padding: 0.375rem 1rem !important;
+  font-size: 0.75rem !important;
+}
+
+/* ALINEAR TODAS LAS SECCIONES CON SCHEDULE */
+#seguridad-informacion,
+#transformacion-digital,
+#perfiles,
+#especialidades,
+#inversion {
+  text-align: center !important;
+}
+
+#seguridad-informacion .max-w-7xl,
+#transformacion-digital .max-w-7xl,
+#perfiles .max-w-7xl,
+#especialidades .max-w-7xl,
+#inversion .max-w-7xl {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 80rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+#seguridad-informacion .grid,
+#transformacion-digital .grid,
+#perfiles .grid,
+#especialidades .grid,
+#inversion .grid {
+  justify-items: center !important;
+}
+
+/* UNIFORMAR COMPACTACIÓN DE TODAS LAS SECCIONES */
+#seguridad-informacion .bg-gray-800,
+#transformacion-digital .bg-gray-800 {
+  padding: 0.75rem !important;
+  margin: 0.25rem !important;
+  height: 140px !important;
+  width: 300px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+#perfiles .bg-gray-800,
+#especialidades .bg-gray-800,
+#inversion .bg-gray-800 {
+  padding: 1rem !important;
+  margin: 0.5rem !important;
+  height: 350px !important;
+  max-width: 512px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  overflow: hidden !important;
+}
+
+#perfiles p {
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 6 !important;
+  -webkit-box-orient: vertical !important;
+}
+
+#seguridad-informacion h3,
+#transformacion-digital h3,
+#perfiles h3,
+#especialidades h3,
+#inversion h3 {
+  font-size: 1rem !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.3 !important;
+  text-align: center !important;
+}
+
+#seguridad-informacion p,
+#transformacion-digital p,
+#perfiles p,
+#especialidades p,
+#inversion p {
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  text-align: center !important;
+}
+
+#seguridad-informacion .w-12,
+#transformacion-digital .w-12,
+#perfiles .w-12,
+#especialidades .w-12,
+#inversion .w-12 {
+  width: 3rem !important;
+  height: 3rem !important;
+}
+
+#seguridad-informacion .w-6,
+#transformacion-digital .w-6,
+#perfiles .w-6,
+#especialidades .w-6,
+#inversion .w-6 {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+}
+
+#seguridad-informacion .flex,
+#transformacion-digital .flex {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+#perfiles .grid,
+#especialidades .grid,
+#inversion .grid {
+  gap: 1rem !important;
+}
+
+
+/* ALINEAR FINANCIAMIENTO CON FAQ */
+#inversion .bg-gray-800 {
+  max-width: 72rem !important;
+  margin: 0 auto !important;
+}
+
+#inversion .grid {
+  max-width: 64rem !important;
+  margin: 0 auto !important;
+}
+
+/* FORZAR ALINEACIÓN CON FLEXBOX Y TAMAÑOS MANUALES */
+@media (max-width: 768px) {
+  /* GARANTÍAS - FLEXBOX FORZADO */
+  #inversion .grid.grid-cols-1.md\\:grid-cols-3 {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.5rem !important;
+  }
+  
+  #inversion .grid.grid-cols-1.md\\:grid-cols-3 > div {
+    width: 280px !important;
+    max-width: 280px !important;
+    min-width: 280px !important;
+    height: 200px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* MÉTODOS DE PAGO - FLEXBOX FORZADO */
+  #inversion .flex.flex-wrap {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.5rem !important;
+  }
+  
+  #inversion .flex.flex-wrap > div {
+    width: 60px !important;
+    height: 40px !important;
+    min-width: 60px !important;
+    max-width: 60px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+    flex-shrink: 0 !important;
+  }
+  
+  /* FINANCIAMIENTO - FLEXBOX FORZADO */
+  #inversion .grid.grid-cols-1.md\\:grid-cols-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.5rem !important;
+  }
+  
+  #inversion .grid.grid-cols-1.md\\:grid-cols-2 > div {
+    width: 320px !important;
+    max-width: 320px !important;
+    min-width: 320px !important;
+    height: 250px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* CONTENEDORES PRINCIPALES */
+  #inversion .max-w-4xl,
+  #inversion .max-w-5xl,
+  #inversion .max-w-6xl {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0.5rem !important;
+  }
+  
+  #inversion .bg-gray-800 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0.5rem auto !important;
+    padding: 1rem !important;
+  }
+}
+
+/* ALINEACIÓN PERFECTA DEL LOGO NUTECH */
+header .flex-shrink-0 {
+  position: relative !important;
+  left: 0 !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+header .flex-shrink-0 a {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+header .flex-shrink-0 div {
+  position: relative !important;
+  left: 0 !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+
+/* FORZAR ALINEACIÓN EN CTA - OFERTA POR TIEMPO LIMITADO */
+.cta-section .flex.flex-wrap {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.cta-section .bg-gray-800 {
+  width: 280px !important;
+  height: 120px !important;
+  max-width: 280px !important;
+  max-height: 120px !important;
+  min-width: 280px !important;
+  min-height: 120px !important;
+  padding: 0.5rem !important;
+  margin: 0.25rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* FORZAR TAMAÑOS EN MÓVIL */
+@media (max-width: 768px) {
+  .cta-section .bg-gray-800 {
+    width: 280px !important;
+    height: 120px !important;
+    max-width: 280px !important;
+    max-height: 120px !important;
+    min-width: 280px !important;
+    min-height: 120px !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+  }
+  
+  .cta-section .flex.flex-wrap {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+}
+
+/* FORZAR TAMAÑOS MANUALES PARA FAQ */
+.faq-item {
+  width: 280px !important;
+  height: 120px !important;
+  max-width: 280px !important;
+  max-height: 120px !important;
+  min-width: 280px !important;
+  min-height: 120px !important;
+  padding: 0.5rem !important;
+  margin: 0.25rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.faq-item h3 {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.faq-item .faq-answer {
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.faq-item svg {
+  width: 1rem !important;
+  height: 1rem !important;
+  flex-shrink: 0 !important;
+}
+
+/* FORZAR CONTENEDOR FAQ */
+#faq .flex.flex-wrap {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  width: 100% !important;
+}
+
+/* FORZAR TAMAÑOS ESPECÍFICOS FAQ */
+#faq .faq-item {
+  width: 280px !important;
+  height: 120px !important;
+  max-width: 280px !important;
+  max-height: 120px !important;
+  min-width: 280px !important;
+  min-height: 120px !important;
+  padding: 0.5rem !important;
+  margin: 0.25rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  border-radius: 0.75rem !important;
+  border: 1px solid #374151 !important;
+}
+
+/* UNIFORMAR TODAS LAS TARJETAS */
+.bg-gray-800 {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+/* SISTEMA DE TIPOGRAFÍA CONSISTENTE */
+/* Basado en la sección "Futuro IA y Comienza" */
+
+/* Títulos principales (H1) */
+.text-h1 {
+  font-size: 2.5rem; /* text-4xl */
+  font-weight: 700; /* font-bold */
+  line-height: 1.1; /* leading-tight */
+}
+
+@media (min-width: 640px) {
+  .text-h1 {
+    font-size: 3rem; /* text-5xl */
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-h1 {
+    font-size: 3.5rem; /* text-6xl */
+  }
+}
+
+/* Títulos de sección (H2) */
+.text-h2 {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700; /* font-bold */
+  line-height: 1.1; /* leading-tight */
+}
+
+@media (min-width: 640px) {
+  .text-h2 {
+    font-size: 2.25rem; /* text-4xl */
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-h2 {
+    font-size: 3rem; /* text-5xl */
+  }
+}
+
+/* Subtítulos (H3) */
+.text-h3 {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 700; /* font-bold */
+}
+
+/* Títulos de cajas (H4) */
+.text-h4 {
+  font-size: 1rem; /* text-base */
+  font-weight: 700; /* font-bold */
+}
+
+/* Texto principal */
+.text-body {
+  font-size: 1rem; /* text-base */
+  font-weight: 400; /* font-normal */
+  line-height: 1.625; /* leading-relaxed */
+}
+
+/* Texto secundario */
+.text-secondary {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 400; /* font-normal */
+  line-height: 1.625; /* leading-relaxed */
+}
+
+/* Badges y etiquetas */
+.text-badge {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+}
+
+/* Botones */
+.text-button {
+  font-size: 1rem; /* text-base */
+  font-weight: 700; /* font-bold */
+}
+
+/* ESTILOS CTA - CONSISTENTES CON OTRAS SECCIONES */
+
+/* ESPACIADO CONSISTENTE EN GRIDS */
+.grid {
+  gap: 2rem !important;
+  justify-items: center !important;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    gap: 2.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    gap: 3rem !important;
+  }
+}
+
+/* CORREGIR ALINEACIÓN DE BADGES */
+.inline-flex {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.text-center {
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* ELIMINAR LÍNEAS BLANCAS ADICIONALES */
+* {
+  border-collapse: collapse !important;
+}
+
+*::before,
+*::after {
+  border: none !important;
+  outline: none !important;
+}
+
+/* ELIMINAR LÍNEAS BLANCAS ESPECÍFICAS */
+* {
+  border-collapse: collapse !important;
+}
+
+button {
+  border: none !important;
+  outline: none !important;
+}
+
+/* PADDING VERTICAL ADECUADO PARA SECCIONES */
+#instructores,
+#cursos,
+#perfiles,
+#especialidades {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* ESTILOS LIMPIOS PARA CURSOS */
+#cursos {
+  padding: 3rem 0 !important;
+  overflow: hidden !important;
+  background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%) !important;
+}
+
+#cursos .max-w-7xl {
+  padding: 1rem !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+/* LAYOUT CONSISTENTE PARA CURSOS */
+#cursos .grid {
+  gap: 1.5rem !important;
+  justify-items: center !important;
+}
+
+#cursos .course-card {
+  width: 100% !important;
+  max-width: 320px !important;
+  min-height: 400px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+/* AMPLIAR SECCIÓN DE CURSOS */
+#cursos {
+  min-height: auto !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* ACORDEÓN GRUPAL PARA INNOVACIÓN Y TENDENCIAS */
+.accordion-container {
+  position: relative;
+  max-width: 100%;
+}
+
+.accordion-group {
+  position: relative;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #0f172a 100%);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  animation: accordionGroupSlideIn 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes accordionGroupSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.accordion-group:hover {
+  box-shadow: 
+    0 10px 15px -3px rgba(251, 146, 60, 0.1),
+    0 4px 6px -2px rgba(251, 146, 60, 0.05);
+  border-color: rgba(251, 146, 60, 0.3);
+}
+
+.accordion-group-header {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0.75rem;
+}
+
+.accordion-group-header:hover {
+  background: rgba(55, 65, 81, 0.3);
+}
+
+.accordion-group-header:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(251, 146, 60, 0.3);
+}
+
+.accordion-group-content {
+  transition: max-height 0.5s ease-out, padding 0.3s ease-out;
+  background: rgba(0, 0, 0, 0.1);
+  max-height: 0;
+  overflow: hidden;
+}
+
+.group-accordion-icon {
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animación de entrada para los elementos internos */
+.accordion-group-content > div > div {
+  animation: accordionItemSlideIn 0.4s ease-out forwards;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.accordion-group-content > div > div:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.accordion-group-content > div > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.accordion-group-content > div > div:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes accordionItemSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Efecto de brillo en hover para el grupo */
+.accordion-group::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(251, 146, 60, 0.1), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+  border-radius: 0.75rem;
+}
+
+.accordion-group:hover::before {
+  left: 100%;
+}
+
+/* Estilos para los elementos internos */
+.accordion-group-content > div > div {
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+}
+
+.accordion-group-content > div > div:hover {
+  background: rgba(55, 65, 81, 0.3);
+  transform: translateX(5px);
+}
+
+/* ESPACIADO ADECUADO PARA BADGE DE CURSOS */
+#cursos .text-center {
+  margin-bottom: 2rem !important;
+}
+
+#cursos .text-center:first-child {
+  margin-top: 0 !important;
+  margin-bottom: 3rem !important;
+}
+
+/* SEPARACIÓN ESPECÍFICA DEL BADGE DE CURSOS */
+#cursos .text-center:first-child button {
+  margin-top: 0 !important;
+}
+
+
+/* SEPARACIÓN ADECUADA ENTRE SECCIONES */
+#instructores,
+#cursos,
+#perfiles,
+#especialidades {
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+/* SEPARACIÓN ENTRE SECCIONES DE ESPECIALIZACIONES */
+#seguridad-informacion,
+#transformacion-digital {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+/* SEPARACIÓN ENTRE SECCIONES ADYACENTES */
+#seguridad-informacion + #transformacion-digital {
+  margin-top: 2rem !important;
+  padding-top: 1rem !important;
+}
+
+/* SEPARACIÓN GENERAL ENTRE TODAS LAS SECCIONES */
+section {
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+/* SEPARACIÓN ESPECÍFICA PARA SECCIONES PRINCIPALES */
+#hero,
+#instructores,
+#cursos,
+#perfiles,
+#especialidades,
+#inversion,
+#faq,
+#testimonials,
+#location,
+#cta {
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+/* CORREGIR FLEX EN GRIDS */
+.grid {
+  gap: 1rem !important;
+}
+
+.grid-cols-1 {
+  gap: 1rem !important;
+}
+
+.grid-cols-2 {
+  gap: 1rem !important;
+}
+
+.grid-cols-4 {
+  gap: 0.75rem !important;
+}
+
+/* COMPACTAR CONTENEDORES */
+.max-w-6xl {
+  max-width: 60rem !important;
+}
+
+.max-w-5xl {
+  max-width: 50rem !important;
+}
+
+/* CORREGIR PROBLEMAS DE FLEX */
+.flex {
+  display: flex !important;
+}
+
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+.items-center {
+  align-items: center !important;
+}
+
+.justify-center {
+  justify-content: center !important;
+}
+
+.justify-between {
+  justify-content: space-between !important;
+}
+
+/* COMPACTAR ESPACIADO */
+.space-y-6 > * + * {
+  margin-top: 1rem !important;
+}
+
+.space-y-4 > * + * {
+  margin-top: 0.75rem !important;
+}
+
+.space-x-4 > * + * {
+  margin-left: 0.75rem !important;
+}
+
+.space-x-2 > * + * {
+  margin-left: 0.5rem !important;
+}
+
+@media (min-width: 640px) {
+  #seguridad-informacion,
+  #transformacion-digital,
+  #inversion,
+  #garantias,
+  #metodos-pago,
+  #financiamiento,
+  #perfiles,
+  #especialidades {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+  }
+  
+  /* MÁRGENES HORIZONTALES FORZADOS PARA SECCIONES PROBLEMÁTICAS - TABLET */
+  #seguridad-informacion,
+  #perfiles {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+    margin-left: 3rem !important;
+    margin-right: 3rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  #seguridad-informacion,
+  #transformacion-digital,
+  #inversion,
+  #garantias,
+  #metodos-pago,
+  #financiamiento,
+  #perfiles,
+  #especialidades {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+    margin-left: 3rem !important;
+    margin-right: 3rem !important;
+  }
+  
+  /* MÁRGENES HORIZONTALES FORZADOS PARA SECCIONES PROBLEMÁTICAS - DESKTOP */
+  #seguridad-informacion,
+  #perfiles {
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+    margin-left: 4rem !important;
+    margin-right: 4rem !important;
+  }
 }
 
 /* Custom scrollbar */

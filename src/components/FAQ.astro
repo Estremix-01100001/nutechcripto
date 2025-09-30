@@ -1,86 +1,72 @@
 ---
-// Astro component
+// Datos de FAQ integrados
 const faqCategories = [
   { id: 'all', name: 'Todas las preguntas', active: true },
   { id: 'courses', name: 'Sobre los cursos', active: false },
-  { id: 'payments', name: 'Pagos y garantías', active: false },
+  { id: 'payment', name: 'Pagos y garantías', active: false },
   { id: 'certification', name: 'Certificación', active: false },
-  { id: 'referrals', name: 'Programa de referidos', active: false }
+  { id: 'referral', name: 'Programa de referidos', active: false }
 ];
 
 const faqItems = [
   {
     id: 1,
     category: 'courses',
-    question: '¿Necesito experiencia previa en programación o IA?',
-    answer: 'No necesitas experiencia previa. Nuestro programa está diseñado para principiantes y profesionales que quieren aprender IA aplicada desde cero. Te guiamos paso a paso.'
+    question: '¿Qué cursos ofrecen en Nutech Academy?',
+    answer: 'Ofrecemos cursos especializados en Inteligencia Artificial, Machine Learning, Data Science, Desarrollo Web, Ciberseguridad y Blockchain. Todos nuestros cursos están diseñados por expertos de la industria y se actualizan constantemente.'
   },
   {
     id: 2,
     category: 'courses',
-    question: '¿Las clases son en vivo o grabadas?',
-    answer: 'Combinamos ambos formatos. Las clases principales son grabadas para que puedas verlas cuando quieras, pero también tenemos sesiones en vivo semanales para resolver dudas y hacer networking.'
+    question: '¿Cuánto tiempo duran los cursos?',
+    answer: 'La duración varía según el curso. Nuestros bootcamps intensivos duran entre 12-16 semanas, mientras que los cursos especializados van de 4-8 semanas. También ofrecemos cursos express de 2-4 semanas para temas específicos.'
   },
   {
     id: 3,
-    category: 'courses',
-    question: '¿Qué incluye la mentoría 1:1?',
-    answer: 'La mentoría 1:1 incluye sesiones personalizadas con expertos en IA, revisión de tus proyectos, feedback detallado y plan de carrera personalizado. Son 4 sesiones de 1 hora cada una.'
+    category: 'payment',
+    question: '¿Qué métodos de pago aceptan?',
+    answer: 'Aceptamos tarjetas de crédito/débito (Visa, Mastercard, American Express), PayPal, transferencias bancarias y criptomonedas. También ofrecemos planes de financiamiento y descuentos por pago anticipado.'
   },
   {
     id: 4,
-    category: 'certification',
-    question: '¿El certificado tiene validez oficial?',
-    answer: 'Nuestro certificado es verificable mediante blockchain y reconocido por empresas líderes en tecnología. Aunque no es un título universitario, tiene gran valor en el mercado laboral.'
+    category: 'payment',
+    question: '¿Ofrecen garantía de devolución?',
+    answer: 'Sí, ofrecemos una garantía de satisfacción del 100%. Si no estás completamente satisfecho con tu curso en los primeros 14 días, te reembolsamos el 100% de tu inversión sin preguntas.'
   },
   {
     id: 5,
-    category: 'payments',
-    question: '¿Puedo pagar en cuotas?',
-    answer: 'Sí, ofrecemos 3 cuotas sin interés con tarjetas participantes. También aceptamos transferencias bancarias y métodos de pago locales como Yape y Plin.'
+    category: 'certification',
+    question: '¿Recibo un certificado al completar el curso?',
+    answer: 'Sí, al completar exitosamente cualquier curso recibirás un certificado digital verificable que puedes compartir en LinkedIn y agregar a tu CV. Nuestros certificados son reconocidos por la industria.'
   },
   {
     id: 6,
-    category: 'payments',
-    question: '¿Cómo funciona la garantía de 30 días?',
-    answer: 'Si no estás satisfecho con el programa en los primeros 30 días, te devolvemos el 100% de tu dinero sin preguntas. Solo necesitas completar al menos el 20% del contenido.'
+    category: 'certification',
+    question: '¿Los certificados son reconocidos internacionalmente?',
+    answer: 'Absolutamente. Nuestros certificados son reconocidos por empresas tecnológicas líderes a nivel mundial. Muchos de nuestros graduados han conseguido empleos en Google, Microsoft, Amazon y otras empresas Fortune 500.'
   },
   {
     id: 7,
-    category: 'referrals',
-    question: '¿Cómo funciona exactamente el programa de referidos?',
-    answer: 'Por cada persona que refieras que se inscriba, recibes el 30% de comisión. El pago se realiza mensualmente y puedes ganar hasta $500 por referido exitoso.'
+    category: 'referral',
+    question: '¿Cómo funciona el programa de referidos?',
+    answer: 'Por cada amigo que refieras y que se inscriba en un curso, recibes $100 USD de crédito para tus próximos cursos. Tu amigo también recibe un 10% de descuento en su primera inscripción.'
   },
   {
     id: 8,
-    category: 'referrals',
-    question: '¿Hay límite en las ganancias por referidos?',
-    answer: 'No hay límite en las ganancias. Mientras más personas refieras, más puedes ganar. Algunos de nuestros estudiantes han ganado más de $5,000 mensuales solo con referidos.'
-  },
-  {
-    id: 9,
-    category: 'courses',
-    question: '¿Qué pasa si me atraso en las clases en vivo?',
-    answer: 'No te preocupes, todas las clases en vivo quedan grabadas y disponibles por 6 meses. Además, puedes acceder a las grabaciones de sesiones anteriores cuando quieras.'
-  },
-  {
-    id: 10,
-    category: 'courses',
-    question: '¿Los proyectos son reales o solo ejercicios?',
-    answer: 'Todos los proyectos son casos reales de empresas. Trabajarás con datos reales, problemas reales y soluciones que podrás implementar en tu trabajo o portafolio profesional.'
+    category: 'referral',
+    question: '¿Hay límite en las referencias?',
+    answer: 'No hay límite. Puedes referir tantas personas como quieras y acumular créditos ilimitados. Los créditos no expiran y pueden ser transferidos a familiares o amigos.'
   }
 ];
 ---
 
 <section id="faq" class="py-16 sm:py-20 lg:py-24 relative overflow-hidden" style="background: linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%);">
   
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
     <!-- Botón de FAQ -->
-    <div class="text-center mb-8">
-      <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-medium bg-orange-500/10 hover:bg-orange-500 hover:text-white transition-all duration-300">
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
-        </svg>
+    <div class="text-center mb-12">
+      <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-bold bg-orange-500/10 hover:bg-orange-500 hover:text-white transition-all duration-300">
+        <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
         <span>Preguntas Frecuentes</span>
       </button>
     </div>
@@ -90,7 +76,7 @@ const faqItems = [
       <h2 class="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8">
         Resolvemos tus dudas más comunes
       </h2>
-      <p class="text-white/80 text-sm leading-relaxed max-w-3xl mx-auto">
+      <p class="text-white/80 text-lg sm:text-xl leading-relaxed max-w-4xl mx-auto">
         ¿No encuentras la respuesta que buscas? Contáctanos directamente y te respondemos en menos de 24 horas.
       </p>
     </div>
@@ -102,7 +88,7 @@ const faqItems = [
           class={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
             category.active 
               ? 'bg-blue-500 text-white' 
-              : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 hover:scale-105 border border-gray-700'
+              : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:border-orange-400 hover:shadow-lg hover:shadow-orange-400/20 hover:scale-105 border border-gray-700'
           }`}
           onclick={`filterFAQ('${category.id}')`}
         >
@@ -114,7 +100,11 @@ const faqItems = [
     <!-- Lista de preguntas -->
     <div class="space-y-4 mb-8">
       {faqItems.map((item) => (
-        <div class="faq-item bg-gray-800 rounded-xl p-6 group cursor-pointer hover:bg-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 border border-gray-700" onclick={`toggleFAQ(${item.id})`}>
+        <div 
+          class="faq-item bg-gray-800 rounded-xl p-6 group cursor-pointer hover:bg-gray-700 hover:border-orange-400 hover:shadow-lg hover:shadow-orange-400/20 transition-all duration-300 hover:scale-105 border border-gray-700" 
+          data-category={item.category}
+          onclick={`toggleFAQ(${item.id})`}
+        >
           <div class="flex items-center justify-between">
             <h3 class="text-white text-lg font-medium pr-4">{item.question}</h3>
             <svg class="w-6 h-6 text-orange-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,6 +119,20 @@ const faqItems = [
     </div>
 
     <!-- Sección de contacto -->
+    <div class="text-center">
+      <div class="bg-gradient-to-r from-orange-500/10 to-orange-600/10 border border-orange-500/30 rounded-2xl p-8 max-w-3xl mx-auto hover:scale-105 transition-all duration-300 cursor-pointer">
+        <h3 class="text-white text-2xl font-bold mb-4">¿No encuentras tu respuesta?</h3>
+        <p class="text-white/80 text-lg mb-6">Nuestro equipo de soporte está disponible 24/7 para ayudarte con cualquier duda</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button onclick="contactSupport()" class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-orange-500/25">
+            Contactar Soporte
+          </button>
+          <button onclick="viewCourses()" class="border border-orange-500 text-orange-500 px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-500 hover:text-white transition-all duration-300 hover:scale-105">
+            Ver Cursos Disponibles
+          </button>
+        </div>
+      </div>
+    </div>
     
   </div>
 </section>
@@ -152,26 +156,121 @@ const faqItems = [
     // Actualizar botones de filtro
     document.querySelectorAll('[onclick^="filterFAQ"]').forEach(btn => {
       btn.classList.remove('bg-blue-500', 'text-white');
-      btn.classList.add('bg-gray-800', 'text-gray-300', 'hover:bg-gray-700', 'hover:border-orange-500', 'hover:shadow-lg', 'hover:shadow-orange-500/20', 'hover:scale-105', 'border', 'border-gray-700');
+      btn.classList.add('bg-gray-800', 'text-gray-300', 'hover:bg-gray-700', 'hover:border-orange-400', 'hover:shadow-lg', 'hover:shadow-orange-400/20', 'hover:scale-105', 'border', 'border-gray-700');
     });
     
     const activeBtn = document.querySelector(`[onclick="filterFAQ('${category}')"]`);
-    activeBtn.classList.remove('bg-gray-800', 'text-gray-300', 'hover:bg-gray-700', 'hover:border-orange-500', 'hover:shadow-lg', 'hover:shadow-orange-500/20', 'hover:scale-105', 'border', 'border-gray-700');
-    activeBtn.classList.add('bg-blue-500', 'text-white');
+    if (activeBtn) {
+      activeBtn.classList.remove('bg-gray-800', 'text-gray-300', 'hover:bg-gray-700', 'hover:border-orange-400', 'hover:shadow-lg', 'hover:shadow-orange-400/20', 'hover:scale-105', 'border', 'border-gray-700');
+      activeBtn.classList.add('bg-blue-500', 'text-white');
+    }
     
-    // Filtrar preguntas
+    // Filtrar preguntas por categoría
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
-      if (category === 'all') {
-        item.style.display = 'block';
+      const element = item as HTMLElement;
+      const itemCategory = element.getAttribute('data-category');
+      
+      if (category === 'all' || itemCategory === category) {
+        element.style.display = 'block';
+        element.style.opacity = '1';
+        element.style.transform = 'scale(1)';
       } else {
-        // Aquí podrías agregar lógica para filtrar por categoría
-        item.style.display = 'block';
+        element.style.display = 'none';
+        element.style.opacity = '0';
+        element.style.transform = 'scale(0.95)';
       }
     });
+    
+    // Mostrar mensaje si no hay preguntas en la categoría
+    const visibleItems = Array.from(faqItems).filter(item => {
+      const element = item as HTMLElement;
+      return element.style.display !== 'none' && element.getAttribute('data-category') === category;
+    });
+    
+    if (category !== 'all' && visibleItems.length === 0) {
+      // Crear mensaje temporal si no hay preguntas
+      const container = document.querySelector('.space-y-4') as HTMLElement;
+      let noResultsMsg = document.getElementById('no-results-msg') as HTMLElement;
+      
+      if (!noResultsMsg) {
+        noResultsMsg = document.createElement('div');
+        noResultsMsg.id = 'no-results-msg';
+        noResultsMsg.className = 'text-center py-8';
+        noResultsMsg.innerHTML = `
+          <div class="text-white/60 text-lg">
+            No hay preguntas en esta categoría por el momento.
+          </div>
+        `;
+        container.appendChild(noResultsMsg);
+      }
+      
+      noResultsMsg.style.display = 'block';
+    } else {
+      const noResultsMsg = document.getElementById('no-results-msg') as HTMLElement;
+      if (noResultsMsg) {
+        noResultsMsg.style.display = 'none';
+      }
+    }
+  }
+
+  // Funciones para botones de contacto
+  function contactSupport() {
+    // Navegar a la sección de registro para contacto
+    scrollToSection('registro');
+    
+    // Efecto visual para destacar la sección
+    setTimeout(() => {
+      const registerSection = document.getElementById('registro');
+      if (registerSection) {
+        registerSection.style.transform = 'scale(1.02)';
+        registerSection.style.boxShadow = '0 0 30px rgba(249, 115, 22, 0.3)';
+        registerSection.style.transition = 'all 0.5s ease';
+        
+        setTimeout(() => {
+          registerSection.style.transform = 'scale(1)';
+          registerSection.style.boxShadow = '';
+        }, 2000);
+      }
+    }, 500);
+  }
+
+  function viewCourses() {
+    // Navegar a la sección de cursos
+    scrollToSection('cursos');
+    
+    // Efecto visual para destacar la sección
+    setTimeout(() => {
+      const coursesSection = document.getElementById('cursos');
+      if (coursesSection) {
+        coursesSection.style.transform = 'scale(1.02)';
+        coursesSection.style.boxShadow = '0 0 30px rgba(249, 115, 22, 0.3)';
+        coursesSection.style.transition = 'all 0.5s ease';
+        
+        setTimeout(() => {
+          coursesSection.style.transform = 'scale(1)';
+          coursesSection.style.boxShadow = '';
+        }, 2000);
+      }
+    }, 500);
+  }
+
+  // Función para scroll a secciones
+  function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    }
   }
 
   // Hacer funciones globales
-  window.toggleFAQ = toggleFAQ;
-  window.filterFAQ = filterFAQ;
+  // Declarar funciones globales
+  (window as any).toggleFAQ = toggleFAQ;
+  (window as any).filterFAQ = filterFAQ;
+  (window as any).contactSupport = contactSupport;
+  (window as any).viewCourses = viewCourses;
+  (window as any).scrollToSection = scrollToSection;
 </script>

@@ -1,9 +1,266 @@
-
-
 ---
 // Astro component
+
+// Datos de configuración
+const heroConfig = {
+    badge: {
+      text: "¿Por qué Nutech Academy?",
+      icon: "pulse"
+    },
+    hero: {
+      title: "Aprende IA aplicada y acelera tu carrera",
+      highlight: "IA aplicada",
+      subtitle: "Aprende de los mejores expertos en Inteligencia Artificial. Cursos intensivos, mentores expertos y proyectos reales para crear, automatizar y lanzar en semanas."
+    },
+    cta: {
+      primary: {
+        text: "Ver cursos",
+        icon: "lightning",
+        action: "scrollToSection('cursos')"
+      },
+      secondary: {
+        text: "Hablar con un asesor",
+        icon: "chat",
+        action: "scrollToSection('registro')"
+      }
+    },
+    features: [
+      {
+        icon: "video",
+        title: "Clases en vivo",
+        description: "Sesiones interactivas con expertos"
+      },
+      {
+        icon: "star",
+        title: "Certificado",
+        description: "Reconocimiento oficial al completar"
+      },
+      {
+        icon: "briefcase",
+        title: "Proyectos reales",
+        description: "Experiencia práctica desde el día uno"
+      }
+    ],
+    video: {
+      src: "/nutechcripto/images/favicon3.mp4",
+      poster: "/nutechcripto/images/fondoherosection.png",
+      fallback: "/nutechcripto/images/fondoherosection.png"
+    },
+    decorative: {
+      codeEditor: {
+        title: "AI_Project.py",
+        code: [
+          { type: "keyword", text: "import" },
+          { type: "string", text: "tensorflow" },
+          { type: "keyword", text: "model = tf.keras.Sequential([" },
+          { type: "comment", text: "# Capas de IA" },
+          { type: "function", text: "tf.keras.layers.Dense(128, activation='relu')" },
+          { type: "function", text: "tf.keras.layers.Dense(64, activation='relu')" },
+          { type: "keyword", text: "])" }
+        ]
+      },
+      dashboard: {
+        title: "AI Dashboard",
+        metrics: [
+          { name: "Precisión", value: 94.2 },
+          { name: "Entrenamiento", value: 87 },
+          { name: "Validación", value: 91 }
+        ]
+      }
+    }
+  };
 ---
 
+<section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+  <!-- Background con video animado -->
+  <div class="absolute inset-0 bg-black">
+    <video 
+      autoplay 
+      loop 
+      muted 
+      playsinline 
+      preload="metadata" 
+      poster={heroConfig.video.poster}
+      class="absolute inset-0 w-full h-full object-cover video-background" 
+      style="width: 100%; height: 100%; object-fit: cover; z-index: 1;"
+      webkit-playsinline
+      aria-label="Video de fondo mostrando tecnología de inteligencia artificial"
+    >
+      <source src={heroConfig.video.src} type="video/mp4" />
+      <!-- Fallback para navegadores que no soporten video -->
+      <div 
+        class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={`background-image: url('${heroConfig.video.fallback}');`}
+        aria-hidden="true"
+      ></div>
+    </video>
+    
+    <!-- Botón para reproducir el video -->
+    <button 
+      id="play-video-btn" 
+      class="absolute top-4 right-4 z-30 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500/50"
+      onclick="document.querySelector('.video-background').play(); this.style.display='none';"
+      aria-label="Reproducir video de fondo"
+    >
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+    
+    <!-- Overlay para mejorar la legibilidad del texto y transición suave -->
+    <div class="absolute inset-0 bg-black/60 z-10" aria-hidden="true"></div>
+    <!-- Overlay adicional en la parte inferior para transición más suave -->
+    <div class="absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-t from-black/95 via-black/80 to-transparent z-15" aria-hidden="true"></div>
+  </div>
+
+  <!-- Elementos decorativos de fondo -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none z-5" aria-hidden="true">
+    <!-- Editor de Código Decorativo -->
+    <div class="absolute top-32 left-8 w-80 h-48 bg-gray-900/80 backdrop-blur-sm rounded-lg border border-gray-700/50 shadow-2xl opacity-60 hover:opacity-80 transition-opacity duration-500 code-editor decorative-element">
+      <div class="flex items-center justify-between p-3 border-b border-gray-700/50">
+        <div class="flex items-center space-x-2">
+          <div class="w-3 h-3 bg-red-500 rounded-full" aria-label="Cerrar"></div>
+          <div class="w-3 h-3 bg-yellow-500 rounded-full" aria-label="Minimizar"></div>
+          <div class="w-3 h-3 bg-green-500 rounded-full" aria-label="Maximizar"></div>
+        </div>
+        <div class="text-gray-400 text-xs font-mono">{heroConfig.decorative.codeEditor.title}</div>
+        <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse" aria-label="Estado activo"></div>
+      </div>
+      <div class="p-4 font-mono text-xs text-gray-300">
+        {heroConfig.decorative.codeEditor.code.map((line, index) => (
+          <div class={`${line.type === 'keyword' ? 'text-blue-400' : 
+                       line.type === 'string' ? 'text-green-400 ml-4' : 
+                       line.type === 'comment' ? 'text-gray-500 ml-4' : 
+                       line.type === 'function' ? 'text-yellow-400 ml-4' : 
+                       'text-blue-400'}`}>
+            {line.text}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Dashboard de IA Decorativo -->
+    <div class="absolute top-44 right-8 w-72 h-56 bg-gray-900/80 backdrop-blur-sm rounded-lg border border-gray-700/50 shadow-2xl opacity-60 hover:opacity-80 transition-opacity duration-500 dashboard-widget decorative-element">
+      <div class="flex items-center justify-between p-3 border-b border-gray-700/50">
+        <div class="text-gray-300 text-sm font-semibold">{heroConfig.decorative.dashboard.title}</div>
+        <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse" aria-label="Estado activo"></div>
+      </div>
+      <div class="p-4 space-y-4">
+        {heroConfig.decorative.dashboard.metrics.map((metric, index) => (
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <span class="text-gray-300 text-sm">{metric.name}</span>
+              <span class="text-orange-500 font-bold text-sm">{metric.value}%</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2">
+              <div 
+                class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full progress-bar" 
+                style={`width: ${metric.value}%; --progress-width: ${metric.value}%`}
+                aria-label={`${metric.name}: ${metric.value}%`}
+              ></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Líneas conectoras decorativas -->
+    <div class="absolute top-52 left-1/2 w-px h-20 bg-gradient-to-b from-orange-500/30 to-transparent connector-line" aria-hidden="true"></div>
+    <div class="absolute top-72 left-1/2 w-px h-16 bg-gradient-to-b from-orange-500/20 to-transparent connector-line" aria-hidden="true"></div>
+  </div>
+
+  <div class="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 sm:pt-44 md:pt-48 pb-20 sm:pb-24 md:pb-28">
+    <div class="text-center flex flex-col items-center justify-center min-h-[80vh]">
+      <!-- Badge de confianza -->
+      <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-bold bg-orange-500/10 hover:bg-orange-500 hover:text-white transition-all duration-300 mb-8 animate-slide-up focus:outline-none focus:ring-2 focus:ring-orange-500/50">
+        <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse" aria-hidden="true"></div>
+        <span>{heroConfig.badge.text}</span>
+      </button>
+
+      <!-- Main Heading -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 sm:mb-8 animate-slide-up leading-tight">
+        {heroConfig.hero.title.split(' ').slice(0, 1).join(' ')}{' '}
+        <span class="text-orange-500">{heroConfig.hero.highlight}</span>
+        {' '}{heroConfig.hero.title.split(' ').slice(2).join(' ')}
+      </h1>
+
+      <!-- Subheading -->
+      <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed animate-slide-up px-4 font-light">
+        {heroConfig.hero.subtitle}
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-8 sm:mb-12 animate-slide-up px-4">
+        <button 
+          id="ver-cursos-btn"
+          class="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl text-lg sm:text-xl font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center space-x-3 shadow-2xl hover:shadow-orange-500/25 transform hover:-translate-y-2 hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500/50"
+          onclick={heroConfig.cta.primary.action}
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+          <span>{heroConfig.cta.primary.text}</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+        
+        <button 
+          id="hablar-asesor-btn"
+          class="w-full sm:w-auto bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl text-lg sm:text-xl font-bold hover:bg-orange-500/10 hover:border-orange-500 transition-all duration-300 flex items-center justify-center space-x-3 shadow-2xl hover:shadow-orange-500/30 transform hover:-translate-y-2 hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500/50"
+          onclick={heroConfig.cta.secondary.action}
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+          </svg>
+          <span>{heroConfig.cta.secondary.text}</span>
+        </button>
+      </div>
+
+      <!-- Características -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto animate-slide-up mb-16 sm:mb-24 px-4">
+        {heroConfig.features.map((feature, index) => (
+          <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 sm:p-8 text-center hover:bg-gray-500/10 hover:border-orange-500/30 border border-transparent transition-all duration-300 hover:scale-105 cursor-pointer flex flex-col items-center justify-center">
+            <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
+              {feature.icon === 'video' && (
+                <svg class="w-8 h-8 text-orange-500 hover:text-orange-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                </svg>
+              )}
+              {feature.icon === 'star' && (
+                <svg class="w-8 h-8 text-yellow-500 hover:text-orange-400 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+              )}
+              {feature.icon === 'briefcase' && (
+                <svg class="w-8 h-8 text-blue-500 hover:text-orange-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
+                </svg>
+              )}
+            </div>
+            <h3 class="text-white font-semibold text-sm sm:text-base">{feature.title}</h3>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Función para hacer scroll suave a una sección
+  function scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
+  // Hacer la función global para que esté disponible desde el onclick
+  (window as any).scrollToSection = scrollToSection;
+</script>
 
 <style>
   .video-background {
@@ -118,140 +375,73 @@
   .animate-gradient-x {
     animation: gradient-x 3s ease infinite;
   }
-</style>
 
-<section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-  <!-- Background con video animado -->
-  <div class="absolute inset-0 bg-black">
-        <video 
-          autoplay 
-          loop 
-          muted 
-          playsinline 
-          preload="metadata" 
-          poster="/nutechcripto/images/fondoherosection.png" 
-          class="absolute inset-0 w-full h-full object-cover video-background" 
-          style="width: 100%; height: 100%; object-fit: cover; z-index: 1;"
-          webkit-playsinline
-          aria-label="Video de fondo mostrando tecnología de inteligencia artificial"
-        >
-      <source src="/nutechcripto/images/favicon3.mp4" type="video/mp4">
-      <!-- Fallback para navegadores que no soporten video -->
-      <div 
-        class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style="background-image: url('/nutechcripto/images/fondoherosection.png');"
-      ></div>
-    </video>
-    
-    <!-- Botón para reproducir el video -->
-    <button 
-      id="play-video-btn" 
-      class="absolute top-4 right-4 z-30 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300"
-      onclick="document.querySelector('.video-background').play(); this.style.display='none';"
-    >
-      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M8 5v14l11-7z"/>
-      </svg>
-    </button>
-    
-    <!-- Overlay para mejorar la legibilidad del texto y transición suave -->
-    <div class="absolute inset-0 bg-black/60 z-10"></div>
-    <!-- Overlay adicional en la parte inferior para transición más suave -->
-    <div class="absolute bottom-0 left-0 right-0 h-80 bg-gradient-to-t from-black/95 via-black/80 to-transparent z-15"></div>
-  </div>
-
-  <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 sm:pt-44 md:pt-48 pb-20 sm:pb-24 md:pb-28">
-    <div class="text-center flex flex-col items-center justify-center min-h-[80vh]">
-      <!-- Badge de confianza -->
-      <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-medium bg-orange-500/10 hover:bg-orange-500 hover:text-white transition-all duration-300 mb-8 animate-slide-up">
-        <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-        <span>+500 profesionales ya transformaron sus carreras</span>
-      </button>
-
-      <!-- Main Heading -->
-      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 sm:mb-8 animate-slide-up leading-tight">
-        Aprende{' '}
-        <span class="text-orange-500">IA aplicada</span>
-        {' '}y acelera tu carrera
-      </h1>
-
-      <!-- Subheading -->
-      <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed animate-slide-up px-4 font-light">
-        Aprende de los mejores expertos en Inteligencia Artificial. Cursos intensivos, mentores expertos y proyectos reales para crear, automatizar y lanzar en semanas.
-      </p>
-
-      <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-8 sm:mb-12 animate-slide-up px-4">
-        <button 
-          id="ver-cursos-btn"
-          class="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl text-lg sm:text-xl font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-300 flex items-center justify-center space-x-3 shadow-2xl hover:shadow-orange-500/25 transform hover:-translate-y-2 hover:scale-105 cursor-pointer"
-          onclick="scrollToSection('cursos')"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-          </svg>
-          <span>Ver cursos</span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-          </svg>
-        </button>
-        
-        <button 
-          id="hablar-asesor-btn"
-          class="w-full sm:w-auto bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl text-lg sm:text-xl font-bold hover:bg-orange-500/10 hover:border-orange-500 transition-all duration-300 flex items-center justify-center space-x-3 shadow-2xl hover:shadow-orange-500/30 transform hover:-translate-y-2 hover:scale-105 cursor-pointer"
-          onclick="scrollToSection('registro')"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-          </svg>
-          <span>Hablar con un asesor</span>
-        </button>
-      </div>
-
-      <!-- Características -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto animate-slide-up mb-16 sm:mb-24 px-4">
-        <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 sm:p-8 text-center hover:bg-gray-500/10 hover:border-orange-500/30 border border-transparent transition-all duration-300 hover:scale-105 cursor-pointer flex flex-col items-center justify-center">
-          <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-            <svg class="w-8 h-8 text-orange-500 hover:text-orange-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-            </svg>
-          </div>
-          <h3 class="text-white font-semibold text-sm sm:text-base ">Clases en vivo</h3>
-        </div>
-        <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 sm:p-8 text-center hover:bg-grey-500/10 hover:border-orange-500/30 border border-transparent transition-all duration-300 hover:scale-105 cursor-pointer flex flex-col items-center justify-center">
-          <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-            <svg class="w-8 h-8 text-yellow-500 hover:text-orange-400 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-            </svg>
-          </div>
-          <h3 class="text-white font-semibold text-sm sm:text-base">Certificado</h3>
-        </div>
-        <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 sm:p-8 text-center hover:bg-grey-500/10 hover:border-orange-500/30 border border-transparent transition-all duration-300 hover:scale-105 cursor-pointer flex flex-col items-center justify-center">
-          <div class="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-            <svg class="w-8 h-8 text-blue-500 hover:text-orange-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
-            </svg>
-          </div>
-          <h3 class="text-white font-semibold text-sm sm:text-base">Proyectos reales</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<script>
-  // Función para hacer scroll suave a una sección
-  function scrollToSection(sectionId: string) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+  /* Animaciones para elementos decorativos del Hero */
+  @keyframes code-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(249, 115, 22, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(249, 115, 22, 0.2);
     }
   }
-
-  // Hacer la función global para que esté disponible desde el onclick
-  (window as any).scrollToSection = scrollToSection;
-</script>
+  
+  @keyframes dashboard-pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+  
+  @keyframes progress-fill {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: var(--progress-width);
+    }
+  }
+  
+  /* Estilos para el editor de código */
+  .code-editor {
+    animation: code-glow 4s ease-in-out infinite;
+  }
+  
+  /* Estilos para el dashboard */
+  .dashboard-widget {
+    animation: dashboard-pulse 6s ease-in-out infinite;
+  }
+  
+  /* Efectos hover mejorados */
+  .decorative-element:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Barras de progreso animadas */
+  .progress-bar {
+    animation: progress-fill 2s ease-out forwards;
+    animation-delay: 1s;
+  }
+  
+  /* Líneas conectoras animadas */
+  .connector-line {
+    animation: pulse 3s ease-in-out infinite;
+  }
+  
+  /* Responsive adjustments para Hero */
+  @media (max-width: 768px) {
+    .decorative-element {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .decorative-element {
+      opacity: 0.3;
+      transform: scale(0.7);
+    }
+  }
+</style>

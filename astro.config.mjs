@@ -6,5 +6,8 @@ export default defineConfig({
   base: '/nutechcripto',
   integrations: [
     tailwind()
-  ]
+  ],
+  vite: {
+    assetsInclude: ['**/*.json']
+  }
 });

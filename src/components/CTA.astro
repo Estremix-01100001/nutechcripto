@@ -1,11 +1,84 @@
 ---
 // Astro component
+
+// Datos de configuración
+const ctaConfig = {
+    badge: {
+      text: "Tu futuro en IA comienza aquí",
+      icon: "star"
+    },
+    hero: {
+      title: "Comienza hoy.",
+      subtitle: "Tu proyecto de IA te espera.",
+      description: "No esperes más. Miles de profesionales ya transformaron sus carreras con IA. Es tu momento."
+    },
+    stats: [
+      {
+        icon: "clock",
+        value: "6-12 semanas",
+        label: "Desde cero a experto"
+      },
+      {
+        icon: "users",
+        value: "500+",
+        label: "Graduados exitosos"
+      },
+      {
+        icon: "shield",
+        value: "4.9/5",
+        label: "Satisfacción promedio"
+      }
+    ],
+    offer: {
+      title: "Oferta por tiempo limitado",
+      description: "Los precios de lanzamiento terminan pronto. No pierdas la oportunidad de transformar tu carrera con IA."
+    },
+    benefits: [
+      {
+        icon: "check",
+        title: "Garantía 30 días",
+        description: "Si no estás satisfecho, te devolvemos el 100% de tu dinero."
+      },
+      {
+        icon: "check",
+        title: "Acceso inmediato",
+        description: "Comienza tu formación desde el primer día de inscripción."
+      },
+      {
+        icon: "check",
+        title: "Certificado incluido",
+        description: "Obtén tu certificado oficial al completar el programa."
+      }
+    ],
+    decorative: {
+      codeEditor: {
+        title: "AI_Project.py",
+        code: [
+          { type: "keyword", text: "import" },
+          { type: "string", text: "tensorflow" },
+          { type: "keyword", text: "model = tf.keras.Sequential([" },
+          { type: "comment", text: "# Capas de IA" },
+          { type: "function", text: "tf.keras.layers.Dense(128, activation='relu')" },
+          { type: "function", text: "tf.keras.layers.Dense(64, activation='relu')" },
+          { type: "keyword", text: "])" }
+        ]
+      },
+      dashboard: {
+        title: "AI Dashboard",
+        metrics: [
+          { name: "Precisión", value: 94.2 },
+          { name: "Entrenamiento", value: 87 },
+          { name: "Validación", value: 91 }
+        ]
+      }
+    }
+  };
 ---
 
 <section id="cta" class="py-16 sm:py-20 lg:py-24 relative overflow-hidden" style="background: linear-gradient(90deg, #000000 0%, #111111 50%, #000000 100%);">
   <!-- Efectos de fondo con circuitos -->
   <div class="absolute inset-0 opacity-20">
-    <svg class="w-full h-full" viewBox="0 0 1200 800" fill="none">
+    <svg class="w-full h-full" viewBox="0 0 1200 800" fill="none" aria-hidden="true">
       <!-- Líneas de circuitos -->
       <path d="M100,200 L300,200 L300,300 L500,300 L500,400 L700,400 L700,500 L900,500" stroke="currentColor" stroke-width="2" class="text-orange-500"/>
       <path d="M200,100 L200,300 L400,300 L400,500 L600,500 L600,700 L800,700" stroke="currentColor" stroke-width="1" class="text-orange-500"/>
@@ -21,259 +94,222 @@
       <circle cx="600" cy="700" r="2" fill="currentColor" class="text-orange-500"/>
     </svg>
   </div>
+
   
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <!-- Botón superior -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
+    <!-- Badge superior -->
     <div class="text-center mb-8">
-      <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-medium bg-orange-500/10 hover:bg-orange-500 hover:text-white hover:border-orange-400 hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300">
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+      <button class="inline-flex items-center space-x-2 border border-orange-500 text-orange-500 px-6 py-3 rounded-full text-sm font-bold bg-orange-500/10 hover:bg-orange-500 hover:text-white hover:border-orange-400 hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500/50">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-.364-1.118l1.07-3.292z"></path>
         </svg>
-        <span>Tu futuro en IA comienza aquí</span>
+        <span>{ctaConfig.badge.text}</span>
       </button>
     </div>
 
     <!-- Contenido principal -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-16">
-      
-      <!-- Texto central - Primero en móvil -->
-      <div class="text-center lg:col-start-2 lg:col-end-3 order-1 lg:order-2">
-        <h2 class="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-          Comienza hoy.<br>
-          <span class="text-orange-500">
-            Tu proyecto de IA te espera.
-          </span>
-        </h2>
-        <p class="text-white text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto">
-          No esperes más. Miles de profesionales ya transformaron sus carreras con IA. 
-          <span class="font-bold">Es tu momento.</span>
-        </p>
-      </div>
-
-      <!-- Terminal de código - Oculto en móvil -->
-      <div class="hidden lg:flex justify-center lg:justify-start order-2 lg:order-1">
-        <div class="relative">
-          <!-- Terminal de código -->
-          <div class="w-64 h-48 bg-gray-800 rounded-xl border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer shadow-2xl">
-            <!-- Header del terminal -->
-            <div class="flex items-center space-x-2 p-3 border-b border-gray-700">
-              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span class="text-white/50 text-sm ml-4">AI_Project.py</span>
-            </div>
-            
-            <!-- Código -->
-            <div class="p-4 font-mono text-sm">
-              <div class="text-orange-400 mb-2">import tensorflow as tf</div>
-              <div class="text-orange-400 mb-2">import numpy as np</div>
-              <div class="text-white mb-2">model = tf.keras.Sequential([</div>
-              <div class="text-white/70 ml-4 mb-2">tf.keras.layers.Dense(128,</div>
-              <div class="text-white/70 ml-8 mb-2">activation='relu'),</div>
-              <div class="text-white/70 ml-4 mb-2">tf.keras.layers.Dense(1)</div>
-              <div class="text-white">])</div>
-            </div>
-            
-            <!-- Indicador de ejecución -->
-            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-              <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dashboard IA - Oculto en móvil -->
-      <div class="hidden lg:flex justify-center lg:justify-end order-3 lg:order-3">
-        <div class="relative">
-          <!-- Dashboard de métricas -->
-          <div class="w-64 h-48 bg-gray-800 rounded-xl border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer shadow-2xl p-4">
-            <!-- Header -->
-            <div class="flex items-center justify-between mb-4">
-              <h3 class="text-white font-semibold">AI Dashboard</h3>
-              <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-            </div>
-            
-            <!-- Métricas -->
-            <div class="space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="text-white/70 text-sm">Precisión</span>
-                <span class="text-orange-400 font-bold">94.2%</span>
-              </div>
-              <div class="w-full bg-gray-700 rounded-full h-2">
-                <div class="bg-orange-500 h-2 rounded-full" style="width: 94%"></div>
-              </div>
-              
-              <div class="flex items-center justify-between">
-                <span class="text-white/70 text-sm">Entrenamiento</span>
-                <span class="text-orange-400 font-bold">87%</span>
-              </div>
-              <div class="w-full bg-gray-700 rounded-full h-2">
-                <div class="bg-orange-500 h-2 rounded-full" style="width: 87%"></div>
-              </div>
-              
-              <div class="flex items-center justify-between">
-                <span class="text-white/70 text-sm">Validación</span>
-                <span class="text-orange-400 font-bold">91%</span>
-              </div>
-              <div class="w-full bg-gray-700 rounded-full h-2">
-                <div class="bg-orange-500 h-2 rounded-full" style="width: 91%"></div>
-              </div>
-            </div>
-            
-            <!-- Indicador de estado -->
-            <div class="absolute -bottom-2 -left-2 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-              <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="text-center mb-12 max-w-3xl mx-auto">
+      <h2 class="text-white text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
+        {ctaConfig.hero.title}<br>
+        <span class="text-orange-500">
+          {ctaConfig.hero.subtitle}
+        </span>
+      </h2>
+      <p class="text-white text-sm sm:text-base lg:text-lg leading-relaxed">
+        {ctaConfig.hero.description}
+      </p>
     </div>
 
-    <!-- Contenedor para imágenes en móvil - Solo visible en móvil -->
-    <div class="lg:hidden mb-16">
-      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-        <!-- Terminal de código para móvil -->
-        <div class="relative">
-          <div class="w-56 sm:w-64 h-40 sm:h-48 bg-gray-800 rounded-xl border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer shadow-2xl">
-            <div class="flex items-center space-x-2 p-3 border-b border-gray-700">
-              <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-              <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span class="text-white/50 text-sm ml-4">AI_Project.py</span>
-            </div>
-            <div class="p-4 font-mono text-xs sm:text-sm">
-              <div class="text-orange-400 mb-2">import tensorflow as tf</div>
-              <div class="text-orange-400 mb-2">import numpy as np</div>
-              <div class="text-white mb-2">model = tf.keras.Sequential([</div>
-              <div class="text-white/70 ml-4 mb-2">tf.keras.layers.Dense(128,</div>
-              <div class="text-white/70 ml-8 mb-2">activation='relu'),</div>
-              <div class="text-white/70 ml-4 mb-2">tf.keras.layers.Dense(1)</div>
-              <div class="text-white">])</div>
-            </div>
-            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-              <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-            </div>
+    <!-- Estadísticas con elementos decorativos a los costados -->
+    <div class="flex flex-col lg:flex-row items-center justify-center gap-8 mb-12 max-w-6xl mx-auto">
+      <!-- Editor de Código Decorativo (lado izquierdo) -->
+      <div class="cta-code-editor bg-gray-900/80 backdrop-blur-sm rounded-lg border border-gray-700/50 shadow-2xl opacity-60 hover:opacity-80 transition-opacity duration-500 w-64 h-40 order-1 lg:order-1">
+        <div class="flex items-center justify-between p-3 border-b border-gray-700/50">
+          <div class="flex items-center space-x-2">
+            <div class="w-3 h-3 bg-red-500 rounded-full" aria-label="Cerrar"></div>
+            <div class="w-3 h-3 bg-yellow-500 rounded-full" aria-label="Minimizar"></div>
+            <div class="w-3 h-3 bg-green-500 rounded-full" aria-label="Maximizar"></div>
           </div>
+          <div class="text-gray-400 text-xs font-mono">{ctaConfig.decorative.codeEditor.title}</div>
+          <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse" aria-label="Estado activo"></div>
         </div>
+        <div class="p-4 font-mono text-xs text-gray-300">
+          {ctaConfig.decorative.codeEditor.code.map((line, index) => (
+            <div class={`${line.type === 'keyword' ? 'text-blue-400' : 
+                         line.type === 'string' ? 'text-green-400 ml-4' : 
+                         line.type === 'comment' ? 'text-gray-500 ml-4' : 
+                         line.type === 'function' ? 'text-yellow-400 ml-4' : 
+                         'text-blue-400'}`}>
+              {line.text}
+            </div>
+          ))}
+        </div>
+      </div>
 
-        <!-- Dashboard para móvil -->
-        <div class="relative">
-          <div class="w-56 sm:w-64 h-40 sm:h-48 bg-gray-800 rounded-xl border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer shadow-2xl p-4">
-            <div class="flex items-center justify-between mb-4">
-              <h3 class="text-white font-semibold text-sm sm:text-base">AI Dashboard</h3>
-              <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+      <!-- Estadísticas centrales -->
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 order-2 lg:order-2">
+        {ctaConfig.stats.map((stat, index) => (
+          <div class="text-center group hover:scale-105 cursor-pointer transition-all duration-300">
+            <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-orange-600 transition-all duration-300">
+              {stat.icon === 'clock' && (
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              )}
+              {stat.icon === 'users' && (
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+              )}
+              {stat.icon === 'shield' && (
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              )}
             </div>
-            <div class="space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="text-white/70 text-xs sm:text-sm">Precisión</span>
-                <span class="text-orange-400 font-bold text-xs sm:text-sm">94.2%</span>
-              </div>
-              <div class="w-full bg-gray-700 rounded-full h-2">
-                <div class="bg-orange-500 h-2 rounded-full" style="width: 94%"></div>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-white/70 text-xs sm:text-sm">Entrenamiento</span>
-                <span class="text-orange-400 font-bold text-xs sm:text-sm">87%</span>
-              </div>
-              <div class="w-full bg-gray-700 rounded-full h-2">
-                <div class="bg-orange-500 h-2 rounded-full" style="width: 87%"></div>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-white/70 text-xs sm:text-sm">Validación</span>
-                <span class="text-orange-400 font-bold text-xs sm:text-sm">91%</span>
-              </div>
-              <div class="w-full bg-gray-700 rounded-full h-2">
-                <div class="bg-orange-500 h-2 rounded-full" style="width: 91%"></div>
-              </div>
-            </div>
-            <div class="absolute -bottom-2 -left-2 w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-              <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-              </svg>
-            </div>
+            <div class="text-lg font-bold text-white mb-1">{stat.value}</div>
+            <div class="text-white text-sm">{stat.label}</div>
           </div>
-        </div>
-      </div>
-    </div>
-    </div>
-
-    <!-- Estadísticas -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-      <!-- Estadística 1 -->
-      <div class="text-center group hover:scale-105 cursor-pointer transition-all duration-300">
-        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-600 transition-all duration-300">
-          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-        </div>
-        <div class="text-2xl font-bold text-white mb-2">6-12 semanas</div>
-        <div class="text-white">Desde cero a experto</div>
+        ))}
       </div>
 
-      <!-- Estadística 2 -->
-      <div class="text-center group hover:scale-105 cursor-pointer transition-all duration-300">
-        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-600 transition-all duration-300">
-          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-          </svg>
+      <!-- Dashboard de IA Decorativo (lado derecho) -->
+      <div class="cta-dashboard-widget bg-gray-900/80 backdrop-blur-sm rounded-lg border border-gray-700/50 shadow-2xl opacity-60 hover:opacity-80 transition-opacity duration-500 w-64 h-40 order-3 lg:order-3">
+        <div class="flex items-center justify-between p-3 border-b border-gray-700/50">
+          <div class="text-gray-300 text-sm font-semibold">{ctaConfig.decorative.dashboard.title}</div>
+          <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse" aria-label="Estado activo"></div>
         </div>
-        <div class="text-2xl font-bold text-white mb-2">500+</div>
-        <div class="text-white">Graduados exitosos</div>
-      </div>
-
-      <!-- Estadística 3 -->
-      <div class="text-center group hover:scale-105 cursor-pointer transition-all duration-300">
-        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-600 transition-all duration-300">
-          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-          </svg>
+        <div class="p-4 space-y-4">
+          {ctaConfig.decorative.dashboard.metrics.map((metric, index) => (
+            <div class="space-y-2">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-300 text-sm">{metric.name}</span>
+                <span class="text-orange-500 font-bold text-sm">{metric.value}%</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-2">
+                <div 
+                  class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full progress-bar" 
+                  style={`width: ${metric.value}%; --progress-width: ${metric.value}%`}
+                  aria-label={`${metric.name}: ${metric.value}%`}
+                ></div>
+              </div>
+            </div>
+          ))}
         </div>
-        <div class="text-2xl font-bold text-white mb-2">4.9/5</div>
-        <div class="text-white">Satisfacción promedio</div>
       </div>
     </div>
 
     <!-- Oferta especial -->
-    <div class="bg-gray-800 backdrop-blur-sm rounded-xl p-8 border border-gray-700/50 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer max-w-4xl mx-auto">
-      <div class="text-center">
+    <div class="max-w-4xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12">
         <div class="flex items-center justify-center space-x-2 mb-4">
-          <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
-          <h3 class="text-white text-xl font-bold">Oferta por tiempo limitado</h3>
+          <div class="w-2 h-2 bg-orange-500 rounded-full" aria-hidden="true"></div>
+          <h3 class="text-white text-lg font-bold">{ctaConfig.offer.title}</h3>
         </div>
         
-        <p class="text-white text-lg mb-6">
-          Los precios de lanzamiento terminan pronto. No pierdas la oportunidad de transformar tu carrera con IA.
+        <p class="text-white text-base mb-8 leading-relaxed">
+          {ctaConfig.offer.description}
         </p>
-        
-        <div class="flex flex-wrap justify-center gap-6 mb-8">
-          <div class="flex items-center space-x-2">
-            <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-            <span class="text-white font-medium">Garantía 30 días</span>
+      </div>
+
+      <!-- Grid de beneficios -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto">
+        {ctaConfig.benefits.map((benefit, index) => (
+          <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 hover:scale-105 cursor-pointer text-center max-w-64 mx-auto">
+            <div class="w-12 h-12 mx-auto mb-4 bg-orange-500 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <h3 class="text-white text-base font-bold mb-3">{benefit.title}</h3>
+            <p class="text-white/70 text-sm leading-relaxed">
+              {benefit.description}
+            </p>
           </div>
-          
-          <div class="flex items-center space-x-2">
-            <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-            <span class="text-white font-medium">Acceso inmediato</span>
-          </div>
-          
-          <div class="flex items-center space-x-2">
-            <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-            <span class="text-white font-medium">Certificado incluido</span>
-          </div>
-        </div>
-        
-        <button class="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-12 py-4 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-orange-500/30 shadow-2xl border border-orange-500/20 hover:border-orange-400">
-          ¡Inscríbete Ahora!
-        </button>
+        ))}
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* Animaciones para elementos decorativos del CTA */
+  @keyframes code-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(249, 115, 22, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(249, 115, 22, 0.2);
+    }
+  }
+  
+  @keyframes dashboard-pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+  
+  @keyframes progress-fill {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: var(--progress-width);
+    }
+  }
+  
+  /* Estilos para el editor de código */
+  .code-editor {
+    animation: code-glow 4s ease-in-out infinite;
+  }
+  
+  /* Estilos para el dashboard */
+  .dashboard-widget {
+    animation: dashboard-pulse 6s ease-in-out infinite;
+  }
+  
+  /* Efectos hover mejorados */
+  .decorative-element:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Barras de progreso animadas */
+  .progress-bar {
+    animation: progress-fill 2s ease-out forwards;
+    animation-delay: 1s;
+  }
+  
+  /* Líneas conectoras animadas */
+  .connector-line {
+    animation: pulse 3s ease-in-out infinite;
+  }
+  
+  /* Estilos para elementos decorativos agrupados */
+  .cta-code-editor, .cta-dashboard-widget {
+    transition: all 0.3s ease;
+  }
+  
+  .cta-code-editor:hover, .cta-dashboard-widget:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .cta-code-editor, .cta-dashboard-widget {
+      width: 100% !important;
+      max-width: 280px;
+    }
+  }
+  
+</style>
+
+<script>
+  // Los elementos decorativos ahora están en el flujo normal del documento
+  // No necesitamos JavaScript para posicionamiento
+</script>
